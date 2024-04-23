@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap');
+
+@import url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff');
+
+*{
+    font-family: 'Pretendard-Regular';
+    --font-logo : "Fugaz One", sans-serif;
+    --primary-color : #8D47FF;
+    --main-color : #000000;
+}
