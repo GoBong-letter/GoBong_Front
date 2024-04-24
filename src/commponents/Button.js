@@ -1,13 +1,18 @@
-// Button.js
 import React from 'react';
 import styles from '../styles/Button.module.css';
+import { useLocation } from 'react-router-dom';
 
-// 재사용 가능한 버튼 컴포넌트
 function Button(props) {
   const { onClick, text } = props;
-  
+  const location = useLocation();
+
+  const btnStyle = {
+    position: location.pathname === '/Join' || location.pathname === '/JoinProfile' ? 'absolute' : '',
+    bottom: location.pathname === '/Join' || location.pathname === '/JoinProfile' ? '116px' : ''
+  };
+
   return (
-    <button className={styles['button']} onClick={onClick}>
+    <button className={styles['button']} onClick={onClick} style={btnStyle}>
       {text}
     </button>
   );
