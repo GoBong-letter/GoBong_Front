@@ -1,0 +1,44 @@
+.textStyle{
+    color: #B6B8C0;
+    font-size: 12px;
+    font-weight: bold;
+    margin-left:9px;
+}
+
+.inputStyle{
+    color: balck;
+    font-size:16px;
+    height:53px;
+    background-color:#ECEDF4;
+    border:none;
+    border-radius:10px;
+    padding-left:15px;
+    outline: none;
+}
+
+.inputStyle::placeholder{
+    color: #CACBD4;
+}
+
+.inputContainer{
+    /* display: flex;
+    flex-direction: column;
+    row-gap: 27px;
+    width: 100%;
+    margin-top: 44px; */
+
+    display: flex;
+    flex-direction:column;
+    row-gap: 9px;
+}
+
+.loginContainer{
+    color: balck;
+    font-size:16px;
+    height:55px;
+    background-color:#ECEDF4;
+    border:none;
+    border-radius:10px;
+    padding-left:15px;
+    outline: none;
+}

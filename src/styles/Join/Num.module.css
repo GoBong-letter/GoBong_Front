@@ -1,0 +1,20 @@
+.numBox{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position: relative;
+}
+
+.numStyle{
+    position:absolute;
+    top:4px;
+    color:white;
+    font-weight:bold;
+    z-index: 1;
+}
+
+.iconStyle{
+    width:12vw;
+    height:12vw;
+    color:#D7D8DB;
+}

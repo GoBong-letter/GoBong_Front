@@ -3,7 +3,7 @@ import { Icon } from '@iconify/react';
 import Button from '../../commponents/Button';
 import { useNavigate } from "react-router-dom";
 import Logo from '../../commponents/Logo';
-import styles from '../../styles/Login.module.css'
+import styles from '../../styles/Login/Login.module.css'
 
 function Login() {
     const navigate = useNavigate();
@@ -14,8 +14,8 @@ function Login() {
         <div style={{display:"flex", flexDirection:"column", alignItems:"center"}}>
             <img className={styles['background-img']} alt="login_img" src="/images/loginImg.png" />
             <div className={styles['gradient']}></div>
-            <div className={styles['login-container']}>
-                <div style={{paddingTop:"50%", display:"flex", flexDirection:"column", alignItems:"center"}}>
+            <div className={styles['loginBox']}>
+                <div className={styles['infoContainer']}>
                     <p style={{margin:"0"}}><span style={{fontWeight:"bold"}}>익명</span>의 누군가에게 전하는 나의 편지</p>
                     <Logo/>
                 </div>
