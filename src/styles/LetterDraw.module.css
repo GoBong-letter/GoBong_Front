@@ -1,0 +1,17 @@
+.text{
+    font-size: 1.6rem;
+    text-align: center;
+    font-weight: 700;
+}
+.letterImg{
+    width: 190px;
+    margin-bottom: 40px;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80%;
+    row-gap: 5%;
+}
