@@ -11,7 +11,7 @@ function Profile({ src, alt, text, onClick, clicked }) {
           width: "24vw",
           cursor: 'pointer'
         }}
-        onClick={onClick} // 클릭 이벤트 핸들러
+        onClick={onClick}
       />
       {clicked && (
         <div
@@ -21,7 +21,7 @@ function Profile({ src, alt, text, onClick, clicked }) {
             left: 0,
             width: "24vw",
             height: "24vw",
-            backgroundColor: "rgba(0, 0, 0, 58%)", // 반투명한 검정색 배경
+            backgroundColor: "rgba(0, 0, 0, 58%)",
             borderRadius: "100%",
             display: "flex",
             justifyContent: "center",
@@ -37,14 +37,14 @@ function Profile({ src, alt, text, onClick, clicked }) {
 }
 
 function ProfileContainer() {
-  const [clickedIndex, setClickedIndex] = useState(null); // 클릭된 프로필의 인덱스를 상태로 관리합니다.
+  const [clickedIndex, setClickedIndex] = useState(null);
 
-  // 이미지 클릭 핸들러 함수
+
   const handleClick = (index) => {
-    setClickedIndex(index === clickedIndex ? null : index); // 클릭된 프로필의 인덱스를 업데이트합니다.
+    setClickedIndex(index === clickedIndex ? null : index);
   };
 
-  // 이미지 정보를 담은 배열
+ 
   const profiles = [
     { src: 'images/cj.png', alt: '차조밥', text: '차조밥' },
     { src: 'images/ssal.png', alt: '쌀밥', text: '쌀밥' },
@@ -70,7 +70,7 @@ function ProfileContainer() {
       <div style={{ display: "flex", columnGap:"23px" }}>
         {profiles.slice(3).map((profile, index) => (
           <Profile
-            key={index + 3} // 키를 고유하게 설정하기 위해 인덱스에 3 더함
+            key={index + 3}
             src={profile.src}
             alt={profile.alt}
             text={profile.text}

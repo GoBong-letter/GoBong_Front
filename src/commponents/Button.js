@@ -8,7 +8,7 @@ function Button(props) {
 
 
   const buttonStyle = {
-    backgroundColor: disabled ? '#D0D2DA' : "black", // 버튼이 비활성화 상태인 경우 투명도를 0.5로 설정
+    backgroundColor: disabled ? '#D0D2DA' : "black",
     position: location.pathname === '/Join' || location.pathname === '/JoinProfile' || location.pathname === '/JoinAbout' ? 'absolute' : '',
     bottom: location.pathname === '/Join' || location.pathname === '/JoinProfile' || location.pathname === '/JoinAbout' ? '116px' : ''
 };

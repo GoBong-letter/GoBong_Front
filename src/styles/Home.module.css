@@ -1,0 +1,48 @@
+.headerStyle{
+    display: flex;
+    align-items: center;
+    width: 85%;
+    justify-content: space-between;
+    margin-top: 13vw;
+}
+.logo{
+    font-size: 24px;
+    font-family: var(--font-logo);
+    margin: 0;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.mentContainer{
+    display: flex;
+    flex-direction: column;
+    /* width: 85%; */
+    justify-content: flex-start;
+    margin-left: 8%;
+}
+.boldText{
+    font-weight:800;
+    margin: 0;
+    font-size: 24px;
+}
+.subText{
+    margin: 0;
+}
+.countBox{
+    padding: 11px 17px;
+    background-color: white;
+    border-radius: 50px;
+    width: fit-content;
+    color: #717171;
+    font-size: 12px;
+    margin-left: 8%;
+}
+.cardContainer{
+    display: flex;
+    flex-direction: column;
+    row-gap: 17px;
+    width: 100%;
+    margin: 40px 0 5px 0;
+}
