@@ -8,6 +8,9 @@ import JoinProfile from './Pages/Join/JoinProfile';
 import JoinAbout from './Pages/Join/JoinAbout'
 import LoginPage from './Pages/Login/LoginPage'
 import Home from './Pages/Home'
+import Alarm from './commponents/Home/Alarm';
+import LetterDraw from './Pages/LetterDraw/LetterDraw';
+import Draw from './Pages/LetterDraw/Draw';
 
 function App() {
     return (
@@ -20,6 +23,9 @@ function App() {
                 <Route path="/joinAbout" element={<JoinAbout />} />
                 <Route path="/loginPage" element={<LoginPage />} />
                 <Route path="/home" element={<Home />} />
+                <Route path="/alram" element={<Alarm />} />
+                <Route path="/letterDraw" element={<LetterDraw />} />
+                <Route path="/draw" element={<Draw />} />
             </Routes>
         </Router>
     )
