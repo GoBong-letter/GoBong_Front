@@ -7,4 +7,12 @@
     --font-logo : "Fugaz One", sans-serif;
     --primary-color : #8D47FF;
     --main-color : #000000;
+    --sub-color: #F6F7FB;
+    --gray: #C7C8CB;
+}
+body{
+    background-color: var(--sub-color);
+}
+::-webkit-scrollbar{
+    display: block;
 }
