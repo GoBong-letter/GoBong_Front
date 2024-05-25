@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Icon } from '@iconify/react';
 import Button from '../../commponents/Button';
 import styles from '../../styles/Join/Join.module.css'
@@ -6,12 +7,19 @@ import Num from '../../commponents/Join/Num'
 import Info from '../../commponents/Join/Info';
 import Profile from '../../commponents/Profile';
 
+
 function JoinProfile() {
+
+    const navigate = useNavigate();
 
     const buttonStyle = {
         position: 'absolute',
         bottom: '116px'
-      };
+    };
+
+    const handleNext = () => {
+        navigate('/JoinAbout');
+    };
 
     return (
         <div style={{ display: "flex", flexDirection: "column", alignItems: "center", height: "100%", position: "relative" }}>
@@ -24,7 +32,7 @@ function JoinProfile() {
                 </div>
             </div>
             </div>
-            <Button text="다음"  style={buttonStyle} />
+            <Button text="다음"  style={buttonStyle} onClick={handleNext}/>
         </div>
 
     )
