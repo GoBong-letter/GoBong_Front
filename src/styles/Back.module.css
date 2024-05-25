@@ -1,0 +1,21 @@
+.backContainer{
+    display: flex;
+    align-items: center;
+    padding: 50px 0 0 30px;
+    text-align: center;
+}
+.backContainer p{
+    width: 85%;
+    font-size: 18px;
+}
+.backContainer svg{
+    width: 12px;
+    height: 25px;
+}
+.alramNone{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 75vh;
+    color: #CACACA;
+}
