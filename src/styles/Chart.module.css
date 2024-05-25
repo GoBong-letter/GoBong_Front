@@ -1,0 +1,42 @@
+.chartContainer{
+    width: 85vw;
+    height: 90vw;
+    padding: 25px 0 30px 0;
+    margin-bottom: 68px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 24px;
+    border-radius: 15px;
+}
+.charStyle{
+}
+.charStyle svg{
+    background-color: white;
+    height: 120% !important;
+}
+.chartMent{
+    font-size: 20px;
+    font-weight: 700;
+    width: 80%;
+    margin: 0 0 10px 0;
+    background-color: white;
+}
+.moreLetter{
+    padding: 11px 21px;
+    background-color: var(--sub-color);
+    border-radius: 30px;
+    font-size: 12px;
+    margin-top: 3%;
+    z-index: 9;
+    color: #717171;
+}
+g text:nth-child(1){
+    fill: #B8BBC7;
+}
+.labelStyle{
+    font-weight: bold;
+    font-size: 14px;
+    fill: #000 !important;
+}
