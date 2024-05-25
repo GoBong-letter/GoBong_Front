@@ -9,7 +9,7 @@ function LetterDraw() {
     const navigate = useNavigate();
     useEffect(() => {
         const timer = setTimeout(() => {
-            navigate('/Draw');
+            navigate('/draw');
         }, 2000);
 
         return () => clearTimeout(timer);
