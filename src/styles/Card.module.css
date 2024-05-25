@@ -1,0 +1,61 @@
+.cardScroll{
+    display: flex;
+    overflow-x: scroll;
+    width: 100vw;
+    /* overflow: visible; */
+    align-items: center;
+    white-space: nowrap;
+    /* margin-top: 10px; */
+    height: 340px;
+}
+.scrollContainer{
+    padding: 0 7%;
+    column-gap: 22px;
+    display: flex;
+}
+.cardStyle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 205px;
+    height: 291px;
+    text-align: center;
+    color: #CACACA;
+    position: relative;
+}
+
+.card {
+    display: inline-grid;
+    color: white;
+    transition: transform 0.3s;
+    transform: perspective(800px) rotateY(0deg);
+    transform-style: preserve-3d;
+    /* margin-right: 22px; */
+}
+.card:last-child{
+    margin: 0;
+}
+.card:hover {
+    transform: perspective(800px) rotateY(180deg);
+}
+
+.card > * {
+    grid-area: 1 / 1 / 1 / 1;
+    backface-visibility: hidden;
+}
+
+.card-front img{
+    width: 205px;
+}
+
+.card-back {
+    transform: rotateY(180deg);
+}
+
+.card-back div{
+    width: 205px;
+    height: 291px;
+    border-radius: 20px;
+    background-color: #CACACA;
+    transform: rotateY(180deg);
+}
