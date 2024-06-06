@@ -11,7 +11,7 @@ function Login() {
       navigate(path);
     };
     return (
-        <div style={{display:"flex", flexDirection:"column", alignItems:"center"}}>
+        <div style={{display:"flex", flexDirection:"column", alignItems:"center", overflow:"hidden"}}>
             <img className={styles['background-img']} alt="login_img" src="/images/loginImg.png" />
             <div className={styles['gradient']}></div>
             <div className={styles['loginBox']}>
