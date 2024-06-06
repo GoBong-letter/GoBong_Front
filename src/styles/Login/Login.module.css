@@ -40,12 +40,12 @@
     flex-direction: column;
     align-items: center;
     margin-top: 40vw;
-    height: 100%;
     row-gap: 12vw;
+    overflow: hidden;
 }
 .inputStyle{
-    height: 53px;
-    padding: 0 23px;
+    height: 50px;
+    padding: 0 15px;
     border-radius: 10px;
     border: 1px solid #AAA;
     outline: none;
