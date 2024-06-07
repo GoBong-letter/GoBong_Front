@@ -11,7 +11,15 @@ import Home from './Pages/Home'
 import Alarm from './commponents/Home/Alarm';
 import LetterDraw from './Pages/LetterDraw/LetterDraw';
 import Draw from './Pages/LetterDraw/Draw';
+import ReceiveLetter from './Pages/LetterDraw/ReceiveLetter';
 import Community from './Pages/\bCommunity/Community';
+import MyPage from './Pages/MyPage/Mypage';
+import Guideline from './Pages/MyPage/Guideline'
+import GuidelineTwo from './Pages/MyPage/GuidelineTwo'
+import GuidelineThree from './Pages/MyPage/GuidelineThree'
+import GuidelineLast from './Pages/MyPage/GuidelineLast'
+import AlarmSetting from './Pages/MyPage/AlarmSetting'
+import Setting from './Pages/MyPage/Setting';
 
 function App() {
     return (
@@ -27,8 +35,15 @@ function App() {
                 <Route path="/alram" element={<Alarm />} />
                 <Route path="/letterDraw" element={<LetterDraw />} />
                 <Route path="/draw" element={<Draw />} />
+                <Route path="/receiveLetter" element={<ReceiveLetter />} />
                 <Route path="/community" element={<Community />} />
-
+                <Route path="/mypage" element={<MyPage/>}/>
+                <Route path="/guideline" element={<Guideline/>}/>
+                <Route path="/guidelineTwo" element={<GuidelineTwo/>}/>
+                <Route path="/guidelineThree" element={<GuidelineThree/>}/>
+                <Route path="/guidelineLast" element={<GuidelineLast/>}/>
+                <Route path="/alarmSetting" element={<AlarmSetting/>}/>
+                <Route path="/setting" element={<Setting/>}/>
             </Routes>
         </Router>
     )
