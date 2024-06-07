@@ -29,3 +29,28 @@
     color: #868CA2;
     background-color: #E3E6F0;
 }
+
+::-webkit-scrollbar {
+    display: none;
+}
+.letter-container {
+    display: flex;
+    overflow-x: scroll; /* 가로 스크롤을 사용 */
+    scroll-snap-type: x mandatory; /* 이미지가 스크롤될 때 스냅되도록 설정 */
+    -webkit-overflow-scrolling: touch;
+    padding: 10px;
+    position: relative;
+    align-items: center; /* 이미지가 가운데 정렬되도록 설정 */
+    width: 100vw; /* 100vw로 설정하여 전체 너비 사용 */
+}
+
+.letterImg {
+    flex: 0 0 auto;
+    margin: 0 10px; /* 이미지 사이의 간격을 고정된 값으로 설정 */
+    scroll-snap-align: center; /* 이미지가 스크롤될 때 중앙에 정렬되도록 설정 */
+    transition: opacity 0.3s, transform 0.5s;
+}
+
+.letterImg.active {
+    opacity: 1;
+}
