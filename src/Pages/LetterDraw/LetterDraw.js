@@ -14,9 +14,9 @@ function LetterDraw() {
 
         return () => clearTimeout(timer);
     }, [navigate]);
-    
+
         return (
-       <div style={{height:"100%"}}>
+       <div style={{height:"100vh"}}>
             <GoHome/>
             <div className={styles['container']}>
                 <h1 className={styles['text']}><span style={{color:"var(--primary-color)"}}>익명</span>의 누군가에게<br/>나의 편지가 전송됐어요!</h1>
