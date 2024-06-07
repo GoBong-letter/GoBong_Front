@@ -1,6 +1,5 @@
 import React from "react";
 import { useNavigate } from 'react-router-dom';
-import GuidelineInfo from "../../commponents/MyPage/Guideline";
 import Text from "../../commponents/MyPage/Text";
 import styles from "../../styles/GuideLine.module.css"
 import Button from "../../commponents/Button";
