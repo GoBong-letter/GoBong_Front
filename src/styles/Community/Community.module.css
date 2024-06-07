@@ -1,0 +1,24 @@
+.community-list{
+    display: flex;
+    column-gap: 4vw;
+    margin: 10% 5% 0 5%;
+}
+.community-list p{
+    font-weight: bold;
+    color: #AEAEAE;
+    font-size: 1.2rem;
+}
+
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    border-radius: 8px;
+    text-align: center;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
