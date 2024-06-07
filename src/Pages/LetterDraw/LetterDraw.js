@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Icon } from '@iconify/react';
 import styles from '../../styles/LetterDraw.module.css'
 import GoHome from '../../commponents/GoHome';
 

@@ -18,7 +18,7 @@ function Nav() {
       <Icon icon="fa-solid:pen" className={styles.navIcon} onClick={() => IconClick('/home')} />
       <Icon icon="solar:letter-bold" className={styles.navIcon} onClick={() => IconClick('/home')} />
       <Icon icon="lets-icons:chat-fill" className={styles.navIcon} onClick={() => IconClick('/community')} />
-      <Icon icon="fluent:person-16-filled" className={styles.navIcon} onClick={() => IconClick('/home')} />
+      <Icon icon="fluent:person-16-filled" className={styles.navIcon} onClick={() => IconClick('/mypage')} />
     </div>
   );
 }
