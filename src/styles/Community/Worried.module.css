@@ -1,0 +1,47 @@
+.myworried-container{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    height: 77vh;
+    padding: 2% 8% 8% 12%;
+    margin-top: 6vw;
+    row-gap: 2vw;
+    overflow: scroll;
+}
+.worried-box{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.worried-box > p{
+    width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.comment{
+    display: flex;
+    align-items: center;
+    column-gap: 1vw;
+}
+.comment svg{
+    font-size: 1.2rem;
+}
+.worried-contaienr{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    padding: 0% 8%;
+    margin-top: 5%;
+    row-gap: 5vw;
+    height: 80vh;
+    overflow: scroll;
+}
+.comment-container{
+    display: flex;
+    flex-direction: column;
+    row-gap: 5vw;
+    height: 107vw;
+    margin-bottom: 17vw;
+}

@@ -7,17 +7,18 @@ import WelcomeMent from '../commponents/Home/WelcomeMent';
 import LetterCount from '../commponents/Home/LetterCount';
 import Nav from '../commponents/Nav';
 import Card from '../commponents/Home/Card';
+import CardList from '../commponents/Home/CardList'
 import GobongMent from '../commponents/Home/GobongMent';
 import Chart from '../commponents/Home/Chart'
 
 function Home() {
     return (
-       <div className={styles['container']}>
+       <div className={styles['container']} style={{width:"100vw", overflowX:"hidden"}}>
             <Header />
             <div className={styles['cardContainer']}>
                 <LetterCount />
                 <WelcomeMent />
-                <Card />
+                <CardList />
             </div>
             <Button text="편지쓰러가기"/>
             <GobongMent />

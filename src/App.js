@@ -11,6 +11,7 @@ import Home from './Pages/Home'
 import Alarm from './commponents/Home/Alarm';
 import LetterDraw from './Pages/LetterDraw/LetterDraw';
 import Draw from './Pages/LetterDraw/Draw';
+import Community from './Pages/\bCommunity/Community';
 
 function App() {
     return (
@@ -26,6 +27,8 @@ function App() {
                 <Route path="/alram" element={<Alarm />} />
                 <Route path="/letterDraw" element={<LetterDraw />} />
                 <Route path="/draw" element={<Draw />} />
+                <Route path="/community" element={<Community />} />
+
             </Routes>
         </Router>
     )

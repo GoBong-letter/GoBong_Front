@@ -14,7 +14,8 @@ function LetterDraw() {
 
         return () => clearTimeout(timer);
     }, [navigate]);
-    return (
+    
+        return (
        <div style={{height:"100%"}}>
             <GoHome/>
             <div className={styles['container']}>

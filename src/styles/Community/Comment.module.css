@@ -1,0 +1,15 @@
+.comment-box{
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    background-color: var(--sub-color);
+    padding: 4vw;
+    row-gap: 2vw;
+}
+.comment-box p{
+    margin: 0;
+}
+.comment-box p:first-child{
+    font-weight: bold;
+    color: #B6B8C0;
+}
