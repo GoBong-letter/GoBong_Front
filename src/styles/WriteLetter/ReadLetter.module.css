@@ -1,0 +1,64 @@
+.ReadLetterContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.Background {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+}
+.letterContent {
+  width: 83.6vw;
+  height: 43vh;
+  border-radius: 15px;
+}
+.letterDiv {
+  box-sizing: border-box;
+  width: 83.6vw;
+  height: 100%;
+  z-index: 1001;
+  position: fixed;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.letterHeader {
+  position: relative;
+  width: 83.6vw;
+  box-sizing: border-box;
+  padding: 2vh 0px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 25px;
+}
+.letterContent {
+  box-sizing: border-box;
+  z-index: 9999;
+  padding: 30px;
+}
+.letterReply {
+  box-sizing: border-box;
+  width: 83.6vw;
+  max-height: 37vh;
+  background-color: white;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3.25vh 0 3.25vh 0;
+  row-gap: 2.3vh;
+  margin-top: 13px;
+}
+.letterContentText {
+  max-height: 35vh;
+  display: flex;
+  flex-wrap: wrap;
+}
