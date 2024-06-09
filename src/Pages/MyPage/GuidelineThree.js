@@ -23,7 +23,7 @@ export default function GuidelineThree() {
         text3="을 보낼 수 있어요!"
         subtext="답장으로 편지를 읽고 난 나의 마음을 전달해봐요"
       />
-      <img src="/images/guide2.png" className={styles["img"]} />
+      <img src="/images/guide2.png" className={styles["img"]} alt="" />
       <div className={styles["btn-container"]}>
         <Button text="다음" onClick={handleNext} />
         <button

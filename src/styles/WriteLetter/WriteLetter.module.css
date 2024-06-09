@@ -1,0 +1,19 @@
+.writeLetterContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+.SendLetterButton {
+  background-color: var(--main-color);
+  border-radius: 10px;
+  color: white;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: calc(100% - 58px);
+  font-size: 16px;
+  height: 50px;
+}
