@@ -1,34 +1,45 @@
-import React, { useState } from "react";
+
+import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Icon } from "@iconify/react";
+import axios from 'axios';
 import Button from "../../components/Button";
 import Logo from "../../components/Logo";
 import styles from "../../styles/Login/Login.module.css";
+import { JoinContext } from "../Join/JoinProvider";
 
 function LoginPage() {
-  const [nickname, setNickname] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  const { userId, setUserId } = useContext(JoinContext);
   const navigate = useNavigate();
 
   const areInputsValid = () => {
-    return nickname.trim() !== "" && password.trim() !== "";
+    return email.trim() !== "" && password.trim() !== "";
   };
 
   const handleNicknameChange = (event) => {
-    setNickname(event.target.value);
+    setEmail(event.target.value);
   };
 
   const handlePasswordChange = (event) => {
     setPassword(event.target.value);
   };
 
-  const handleNext = () => {
-    if (areInputsValid()) {
-      console.log("회원 정보:", { nickname, password });
-      navigate("/Home");
-    } else {
-      console.log("정보없음");
+  const handleLogin = async () => {
+    try {
+      const response = await axios.post(`${process.env.REACT_APP_HOST}/users/login`, {
+        email: email,
+        password: password
+      });
+
+      if (response.status === 200) {
+        console.log(response.data);
+        setUserId(response.data.id);
+        console.log(response.data.id);
+        navigate("/home");
+      }
+    } catch (error) {
+      console.error(error);
     }
   };
 
@@ -45,10 +56,10 @@ function LoginPage() {
         <div style={{ width: "100%" }}>
           <div className={styles["loginContainer"]}>
             <input
-              placeholder="닉네임 입력"
+              placeholder="이메일 입력"
               type="text"
               className={styles["inputStyle"]}
-              value={nickname}
+              value={email}
               onChange={handleNicknameChange}
             />
             <input
@@ -62,7 +73,7 @@ function LoginPage() {
         </div>
       </div>
 
-      <Button text="로그인" onClick={handleNext} disabled={!areInputsValid()} />
+      <Button text="로그인" onClick={handleLogin} disabled={!areInputsValid()} />
     </div>
   );
 }
