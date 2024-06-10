@@ -89,6 +89,7 @@
     row-gap: 2vw;
     column-gap: 1.5vw;
     flex-wrap: wrap;
+    width: 70vw;
 }
 .category div{
     border: 1px solid var(--primary-color);

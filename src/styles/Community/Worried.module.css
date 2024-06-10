@@ -3,10 +3,10 @@
     display: flex;
     flex-direction: column;
     width: 80%;
-    height: 77vh;
+    height: 80vh;
     padding: 2% 8% 8% 12%;
     margin-top: 6vw;
-    row-gap: 2vw;
+    row-gap: 5vw;
     overflow: scroll;
 }
 .worried-box{
@@ -35,7 +35,7 @@
     padding: 0% 8%;
     margin-top: 5%;
     row-gap: 5vw;
-    height: 77vh;
+    height: 80vh;
     overflow: scroll;
 }
 .comment-container{

@@ -16,7 +16,7 @@ export default function ProfilePopup({ onClose }) {
     >
       <div className={styles["profile-container"]}>
         <p
-          style={{ fontWeight: "bold", fontSize: "1.3rem", marginLeft: "8vw" }}
+          style={{ fontWeight: "bold", fontSize: "1.3rem", margin:"3vw 0 7vw 8vw" }}
         >
           <span style={{ color: "var(--primary-color)" }}>프로필 이미지</span>를
           선택하세요!
