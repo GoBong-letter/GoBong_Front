@@ -36,21 +36,20 @@ function Profile({ src, alt, text, onClick, clicked }) {
   );
 }
 
-function ProfileContainer() {
+function ProfileContainer({ onSelect }) {
   const [clickedIndex, setClickedIndex] = useState(null);
-
 
   const handleClick = (index) => {
     setClickedIndex(index === clickedIndex ? null : index);
+    onSelect(index === clickedIndex ? null : profiles[index].alt); // 선택된 프로필 인덱스 전달
   };
 
- 
   const profiles = [
-    { src: 'images/cj.png', alt: '차조밥', text: '차조밥' },
-    { src: 'images/ssal.png', alt: '쌀밥', text: '쌀밥' },
-    { src: 'images/hek.png', alt: '흑미밥', text: '흑미밥' },
-    { src: 'images/cong.png', alt: '콩밥', text: '콩밥' },
-    { src: '/images/jab.png', alt: '잡곡밥', text: '잡곡밥' }
+    { src: '/images/chajo.png', alt: 'chajo', text: '차조밥' },
+    { src: '/images/rice.png', alt: 'rice', text: '쌀밥' },
+    { src: '/images/black.png', alt: 'black', text: '흑미밥' },
+    { src: '/images/been.png', alt: 'bean', text: '콩밥' },
+    { src: '/images/multi_grain.png', alt: 'multi_grain', text: '잡곡밥' }
   ];
 
   return (
