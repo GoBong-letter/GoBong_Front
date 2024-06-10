@@ -8,13 +8,13 @@ import { BottomSheet } from "../../components/BottomSheet";
 import { TitleBox } from "../../components/WriteLetter/TitleBox";
 import { ButtonList } from "../../components/ButtonList";
 import { CharInput } from "../../components/WriteLetter/CharInput";
-import styles from "../../styles/WriteLetter/WriteLetterBasic.module.css";
+import styles from "../../styles/WriteLetter/SelectInfoOfMe.module.css";
 function WriteLetterBasic() {
   const [isChecked, setChecked] = useState(false);
   const [isOpen, setOpen] = useState(false);
   const [showData, setShowData] = useState({});
   const [inputChar, setInputChar] = useState("");
-  const { saveData, category } = useContext(sendLetterContext);
+  const { saveData } = useContext(sendLetterContext);
   const [titleValue, setTitleValue] = useState("");
   const [myCategory, setMyCategory] = useState({
     외모: [],
@@ -45,14 +45,13 @@ function WriteLetterBasic() {
     saveData(titleValue, updatedCategory);
     navigate(link);
   };
-
+  //TODO: 카테고리 useContext 로 가져오기
   const handleCheckBox = () => {
     setChecked((prev) => !prev);
     setMyCategory(category);
     console.log(myCategory);
   };
 
-  //TODO : 컴포넌트화 시키기
   return (
     <div className={styles["selectInfoContainer"]}>
       <div style={{ width: "100%" }}>
