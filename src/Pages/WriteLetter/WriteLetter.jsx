@@ -4,7 +4,7 @@ import GoHome from "../../components/GoHome";
 import { TitleBox } from "../../components/WriteLetter/TitleBox";
 import { SelectLetterItem } from "../../components/WriteLetter/SelectLetterItem";
 import { Letter } from "../../components/WriteLetter/Letter";
-import sendLetterContext from "./SendLetterProvider";
+import { sendLetterContext } from "./SendLetterProvider";
 import { useMutation } from "@tanstack/react-query";
 import { postLetter } from "../../services/mutations/letter";
 import styles from "../../styles/WriteLetter/WriteLetter.module.css";
