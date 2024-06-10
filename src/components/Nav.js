@@ -13,10 +13,12 @@ function Nav() {
 
   const isCommunityPath = location.pathname === '/community';
 
+  const isNavWithCommunityStyle = isCommunityPath || location.pathname === '/letterstorage';
+
   return (
-    <div className={`${styles.navbar} ${isCommunityPath ? styles.community : ''}`}>
+    <div className={`${styles.navbar} ${isNavWithCommunityStyle ? styles.community : ''}`}>
       <Icon icon="fa-solid:pen" className={styles.navIcon} onClick={() => IconClick('/home')} />
-      <Icon icon="solar:letter-bold" className={styles.navIcon} onClick={() => IconClick('/home')} />
+      <Icon icon="solar:letter-bold" className={styles.navIcon} onClick={() => IconClick('/letterstorage')} />
       <Icon icon="lets-icons:chat-fill" className={styles.navIcon} onClick={() => IconClick('/community')} />
       <Icon icon="fluent:person-16-filled" className={styles.navIcon} onClick={() => IconClick('/mypage')} />
     </div>
