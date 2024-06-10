@@ -1,92 +1,70 @@
-.LetterStorageContainer{
-    box-sizing: border-box;
-    background-color: #F6F7FB;
+.LetterStorageContainer {
+  box-sizing: border-box;
+  background-color: #f6f7fb;
 }
-.letterStorage{
-    box-sizing: border-box;
-    border-top-left-radius: 30px;
-    border-top-right-radius: 30px;
-    display: flex;
-    justify-content: center;
-    width:100%;
-    height: 85vh;
-    background-color: white;
-    position:fixed;
-    bottom: 0px;
+.letterStorage {
+  box-sizing: border-box;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 85vh;
+  background-color: white;
+  position: fixed;
+  bottom: 0px;
 }
-.lettersDiv{
-    box-sizing: border-box;
-    width: 88vw;
-    height: 66vh;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    justify-items: center;
-    column-gap: 6vw;
-    row-gap: 3.5vh;
-    margin-top: 39px;
-    margin-bottom: 60px;
-    overflow-y: scroll;
+.lettersDiv {
+  box-sizing: border-box;
+  width: 88vw;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-items: center;
+  column-gap: 6vw;
+  row-gap: 3.5vh;
+  margin-top: 39px;
+  margin-bottom: 60px;
+  overflow-y: scroll;
 }
-.lettersDiv::-webkit-scrollbar{
-    display: none;
+.lettersDiv::-webkit-scrollbar {
+  display: none;
 }
-.searchLetterDiv{
-    box-sizing: border-box;
-    width: 100%;
-    padding-top: 6vh;
-    display: flex;
-    align-items: end;
-    column-gap: 14px;
+.searchLetterDiv {
+  box-sizing: border-box;
+  width: 100%;
+  padding-top: 6vh;
+  display: flex;
+  align-items: end;
+  column-gap: 14px;
 }
-.letterInput{
-    box-sizing: border-box;
-    width: 68vw;
-    height: 50px;
-    border-radius: 15px;
-    border: 1px solid #EEEEEE;
-    background-color: white;
-    margin-left: 8vw;
-    display: flex; 
-    align-items: center;
-    position: relative;
-    column-gap: 5px;
-    padding-left: 15px;
+.fillterButton {
+  box-sizing: border-box;
+  width: 50px;
+  height: 50px;
+  background-color: black;
+  border-radius: 15px;
+  border: none;
 }
-.Input{
-    box-sizing: border-box;
-    width: 80%;
-    border: none;
-    outline: none;
-    font-size: 16px;
+.SortBtnContainer {
+  box-sizing: border-box;
+  width: 89vw;
+  height: fit-content;
+  display: flex;
+  justify-items: center;
+  flex-wrap: wrap;
+  row-gap: 11px;
+  column-gap: 2vh;
+  margin: 20px 7vw 30px 7vw;
 }
-.fillterButton{
-    box-sizing: border-box;
-    width: 50px;
-    height: 50px;
-    background-color: black;
-    border-radius: 15px;
-    border: none;
-}
-.SortBtnContainer{
-    box-sizing: border-box;
-    width: 89vw;
-    height: fit-content;
-    display: flex;
-    justify-items: center;
-    flex-wrap: wrap;
-    row-gap: 11px;
-    column-gap: 2vh;
-    margin: 20px 7vw 30px 7vw;
-}
-.SortButton{
-    width: 26vw;
-    height: 38px;
-    border: 1px solid #BBBCC1;
-    border-radius: 117px;
-    background-color: white;
-    color: #BBBCC1;
-    font-size: 16px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.SortButton {
+  width: 26vw;
+  height: 38px;
+  border: 1px solid #bbbcc1;
+  border-radius: 117px;
+  background-color: white;
+  color: #bbbcc1;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
