@@ -19,6 +19,7 @@ function WriteLetterBasic() {
   const { saveData } = useContext(sendLetterContext);
   const { category, setCategory } = useContext(JoinContext);
   const [titleValue, setTitleValue] = useState("");
+
   const [myCategory, setMyCategory] = useState({
     외모: [],
     성격: [],
@@ -72,7 +73,7 @@ function WriteLetterBasic() {
             placeholder="편지 이름을 작성해주세요"
             value={titleValue}
             onChange={(e) => setTitleValue(e.target.value)}
-          ></input>
+          />
 
           <div className={styles["status-check-div"]}>
             <div

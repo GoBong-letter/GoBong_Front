@@ -1,7 +1,7 @@
 import React from "react";
 import { TypeButton } from "./WriteLetter/TypeButton";
 import styled from "styled-components";
-
+const categoryList = [];
 export function ButtonList({ wordList, text, myCategory, setMyCategory }) {
   const isSelected = (word, text) => {
     return myCategory[text].includes(word);
@@ -9,16 +9,22 @@ export function ButtonList({ wordList, text, myCategory, setMyCategory }) {
   // console.log(category[text])
   const handleToggleButton = (word, text) => {
     let index = myCategory[text].indexOf(word);
-    if (index === -1)
-      setMyCategory((prevData) => ({
-        ...prevData,
-        [text]: [...myCategory[text], word],
-      }));
-    else {
-      setMyCategory((prevData) => ({
-        ...prevData,
-        [text]: myCategory[text].filter((item) => item !== word),
-      }));
+    if (categoryList.length < 6) {
+      if (index === -1) {
+        setMyCategory((prevData) => ({
+          ...prevData,
+          [text]: [...myCategory[text], word],
+        }));
+        categoryList.push(word);
+        console.log(categoryList);
+      } else {
+        setMyCategory((prevData) => ({
+          ...prevData,
+          [text]: myCategory[text].filter((item) => item !== word),
+        }));
+        categoryList.splice(index, 1);
+        console.log(categoryList);
+      }
     }
   };
 
