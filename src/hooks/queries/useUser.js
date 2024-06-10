@@ -1,8 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
 import { getUser } from "../../services/queries/getuser";
-
+import { useContext } from "react";
+import { JoinContext } from "../../Pages/Join/JoinProvider";
 export function useUser() {
-  const userId = localStorage.getItem("id");
+  const { userId } = useContext(JoinContext);
   return useQuery({
     queryKey: getUser.getKey(userId),
     queryFn: getUser,

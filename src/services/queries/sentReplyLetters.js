@@ -1,9 +1,8 @@
 import { instnace } from "../../utils/axios";
 
-const getKey = (userId) => ["letters/replies/sent/", 1];
+const getKey = (userId) => ["letters/replies/sent/", userId];
 
-export async function getSentReplyLetters() {
-  const userId = localStorage.getItem("id");
+export async function getSentReplyLetters(userId) {
   const res = await instnace.get(getKey(userId).join(""));
   return res.data;
 }
