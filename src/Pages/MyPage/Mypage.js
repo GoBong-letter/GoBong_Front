@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
+import {JoinContext} from "../Join/JoinProvider";
 import Nav from "../../components/Nav";
 import { useNavigate } from "react-router-dom";
 import { Icon } from "@iconify/react";
 import Category from "../../components/LetterDraw/Category";
 import styles from "../../styles/MyPage.module.css";
+import axios from 'axios';
 
 export default function MyPage() {
+  const { nickname, image } = useContext(JoinContext);
   const navigate = useNavigate();
 
   const handleGuide = () => {
@@ -17,6 +20,7 @@ export default function MyPage() {
   const handleSetting = () => {
     navigate("/setting");
   };
+
   return (
     <div
       style={{
@@ -29,9 +33,9 @@ export default function MyPage() {
       }}
     >
       <div className={styles["profile"]}>
-        <img src="/images/cj.png" className={styles["profile-img"]} />
+        <img src={`/images/${image}.png`} className={styles["profile-img"]} />
         <div>
-          <p className={styles["name"]}>이해원님</p>
+          <p className={styles["name"]}>{nickname}님</p>
           <Icon
             icon="mingcute:settings-3-line"
             style={{ fontSize: "1.5rem", color: "#A5A5A5" }}
