@@ -27,6 +27,7 @@ import Setting from "./pages/MyPage/Setting";
 import WriteLetterBasic from "./pages/WriteLetter/WriteLetterBasic";
 import WriteLetter from "./pages/WriteLetter/WriteLetter";
 import LetterStorage from "./pages/WriteLetter/LetterStorage";
+import JoinProvider from "./pages/Join/JoinProvider";
 
 function App() {
   const [client] = useState(new QueryClient());
@@ -34,6 +35,7 @@ function App() {
     <Provider store={store}>
       <QueryClientProvider client={client}>
         <SendLetterProvider>
+          <JoinProvider>
           <Router>
             <Routes>
               <Route path="/" element={<Splash />} />
@@ -60,6 +62,7 @@ function App() {
               <Route path="/setting" element={<Setting />} />
             </Routes>
           </Router>
+          </JoinProvider>
         </SendLetterProvider>
       </QueryClientProvider>
     </Provider>
