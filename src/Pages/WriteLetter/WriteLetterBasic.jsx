@@ -45,7 +45,7 @@ function WriteLetterBasic() {
     saveData(titleValue, updatedCategory);
     navigate(link);
   };
-
+  //TODO: 카테고리 useContext 로 가져오기
   const handleCheckBox = () => {
     setChecked((prev) => !prev);
     setMyCategory(category);
