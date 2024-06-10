@@ -21,6 +21,7 @@
     /* width: 85%; */
     justify-content: flex-start;
     margin-left: 8%;
+    row-gap: 4px;
 }
 .boldText{
     font-weight:800;

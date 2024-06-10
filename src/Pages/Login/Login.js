@@ -33,12 +33,12 @@ function Login() {
           </p>
           <Logo />
         </div>
-        <Button text="로그인" onClick={() => handleClick("/LoginPage")} />
+        <Button text="로그인" onClick={() => handleClick("/loginPage")} />
         <div>
           <p style={{ fontSize: "14px" }}>
             아직 회원이 아니라면?{" "}
             <span
-              onClick={() => handleClick("/Join")}
+              onClick={() => handleClick("/join")}
               style={{
                 color: "var(--primary-color)",
                 textDecoration: "underline",

@@ -24,7 +24,7 @@ function LetterDraw() {
           나의 편지가 전송됐어요!
         </h1>
         <img
-          src="/images/letter1.png"
+          src="/images/green.png"
           className={styles["letterImg"]}
           alt="letterImg"
         />

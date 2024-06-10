@@ -9,11 +9,11 @@ function Num() {
     const determineIconColor = (iconIndex) => {
         // 현재 페이지의 경로에 따라 아이콘 색상 결정
         switch (location.pathname) {
-            case '/Join':
+            case '/join':
                 return iconIndex === 0 ? 'var(--primary-color)' : '#D7D8DB';
-            case '/JoinProfile':
+            case '/joinProfile':
                 return iconIndex === 1 ? 'var(--primary-color)' : '#D7D8DB';
-            case '/JoinAbout':
+            case '/joinAbout':
                 return iconIndex === 2 ? 'var(--primary-color)' : '#D7D8DB';
             default:
                 return '#D7D8DB';
