@@ -1,14 +1,15 @@
+import { useContext } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { getSearchLetter } from "../../services/queries/searchLetter";
 import { getLettersUser } from "../../services/queries/letters";
-export function useSearchLetter(word) {
-  const userId = localStorage.getItem("id");
-  const letterId = word;
-  console.log("word", word);
+import { JoinContext } from "../../pages/Join/JoinProvider";
+export function useSearchLetter(keyword) {
+  const { userId } = useContext(JoinContext);
+  console.log("keyword", keyword);
 
   const fetcher = async () => {
-    if (word) {
-      const result = await getSearchLetter(userId, word);
+    if (keyword) {
+      const result = await getSearchLetter(userId, keyword);
       return result ? result : [];
     } else {
       const result = await getLettersUser(userId);
@@ -16,7 +17,7 @@ export function useSearchLetter(word) {
     }
   };
   return useQuery({
-    queryKey: word !== "" ? ["searchLetters", word] : ["receivedLetters"],
+    queryKey: keyword !== "" ? ["searchLetters", keyword] : ["receivedLetters"],
     queryFn: fetcher,
     enabled: false,
   });

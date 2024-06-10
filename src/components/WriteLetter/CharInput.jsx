@@ -2,12 +2,17 @@ import React from "react";
 import styled from "styled-components";
 
 export function CharInput({ inputChar, setInputChar }) {
+  const handleAddChar = (e) => {
+    if (e.key === "Enter") {
+    }
+  };
   return (
     <CreateCharInput
       placeholder="나만의 카테고리 만들기"
       type="text"
       value={inputChar}
       onChange={(e) => setInputChar(e.target.value)}
+      onKeyDown={handleAddChar}
     />
   );
 }

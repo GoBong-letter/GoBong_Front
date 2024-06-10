@@ -3,13 +3,11 @@ export const sendLetterContext = createContext();
 
 function SendLetterProvider({ children }) {
   const [title, setTitle] = useState(null);
-  const [category, setCategory] = useState([]);
-  const saveData = (title, category) => {
+  const saveData = (title) => {
     setTitle(title);
-    setCategory(category);
   };
   return (
-    <sendLetterContext.Provider value={{ title, category, saveData }}>
+    <sendLetterContext.Provider value={{ title, saveData }}>
       {children}
     </sendLetterContext.Provider>
   );

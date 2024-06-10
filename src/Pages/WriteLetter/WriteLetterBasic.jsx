@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { sendLetterContext } from "./SendLetterProvider";
+import { JoinContext } from "../Join/JoinProvider";
 import Button from "../../components/Button";
 import GoHome from "../../components/GoHome";
 import { Category } from "../../components/WriteLetter/Category";
@@ -8,13 +9,15 @@ import { BottomSheet } from "../../components/BottomSheet";
 import { TitleBox } from "../../components/WriteLetter/TitleBox";
 import { ButtonList } from "../../components/ButtonList";
 import { CharInput } from "../../components/WriteLetter/CharInput";
-import styles from "../../styles/WriteLetter/SelectInfoOfMe.module.css";
+import styles from "../../styles/WriteLetter/WriteLetterBasic.module.css";
+
 function WriteLetterBasic() {
   const [isChecked, setChecked] = useState(false);
   const [isOpen, setOpen] = useState(false);
   const [showData, setShowData] = useState({});
   const [inputChar, setInputChar] = useState("");
   const { saveData } = useContext(sendLetterContext);
+  const { category, setCategory } = useContext(JoinContext);
   const [titleValue, setTitleValue] = useState("");
   const [myCategory, setMyCategory] = useState({
     외모: [],
@@ -42,14 +45,15 @@ function WriteLetterBasic() {
 
   const handleNavigator = (link) => {
     let updatedCategory = removeEmptyArrays(myCategory);
-    saveData(titleValue, updatedCategory);
+    saveData(titleValue);
+    setCategory(updatedCategory);
     navigate(link);
   };
   //TODO: 카테고리 useContext 로 가져오기
   const handleCheckBox = () => {
     setChecked((prev) => !prev);
+    console.log(category);
     setMyCategory(category);
-    console.log(myCategory);
   };
 
   return (

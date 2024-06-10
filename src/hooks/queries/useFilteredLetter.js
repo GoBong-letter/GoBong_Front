@@ -30,8 +30,8 @@ export function useFilteredLetter(tag) {
     enabled: tag === "sent-reply",
   });
   const { data: all } = useQuery({
-    queryKey: getLettersUser.getKey(),
     queryFn: getLettersUser,
+    queryKey: getLettersUser.getKey(),
     enabled: tag === "all",
   });
 
