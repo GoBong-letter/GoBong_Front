@@ -8,6 +8,7 @@ import { sendLetterContext } from "./SendLetterProvider";
 import { useMutation } from "@tanstack/react-query";
 import { postLetter } from "../../services/mutations/letter";
 import styles from "../../styles/WriteLetter/WriteLetter.module.css";
+import { JoinContext } from "../Join/JoinProvider";
 
 function WriteLetter() {
   let list = [
@@ -19,10 +20,9 @@ function WriteLetter() {
   ];
   const [letterCover, setLetterCover] = useState(0);
   const [letter, setLetter] = useState("");
-  const { title, category } = useContext(sendLetterContext);
+  const { title } = useContext(sendLetterContext);
+  const { userId, category } = useContext(JoinContext);
   const navigate = useNavigate();
-
-  const userId = String(localStorage.getItem("id"));
 
   const { mutate: letterMutate } = useMutation({
     mutationFn: postLetter,
@@ -41,6 +41,7 @@ function WriteLetter() {
       content: letter,
       category: JSON.stringify(category),
     };
+    console.log(req);
     letterMutate(req);
   };
 
