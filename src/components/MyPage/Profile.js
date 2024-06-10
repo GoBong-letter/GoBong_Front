@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from "react";
+import { JoinContext } from "../../pages/Join/JoinProvider";
 import { Icon } from '@iconify/react';
 
 function Profile({ src, alt, text, onClick, clicked }) {
@@ -37,20 +38,19 @@ function Profile({ src, alt, text, onClick, clicked }) {
 }
 
 function ProfileContainer() {
+  const { image } = useContext(JoinContext);
   const profiles = [
-    { src: 'images/cj.png', alt: '차조밥', text: '차조밥' },
-    { src: 'images/ssal.png', alt: '쌀밥', text: '쌀밥' },
-    { src: 'images/hek.png', alt: '흑미밥', text: '흑미밥' },
-    { src: 'images/cong.png', alt: '콩밥', text: '콩밥' },
-    { src: '/images/jab.png', alt: '잡곡밥', text: '잡곡밥' }
+    { src: '/images/chajo.png', alt: 'chajo', text: '차조밥' },
+    { src: '/images/rice.png', alt: 'rice', text: '쌀밥' },
+    { src: '/images/black.png', alt: 'black', text: '흑미밥' },
+    { src: '/images/been.png', alt: 'bean', text: '콩밥' },
+    { src: '/images/multi_grain.png', alt: 'multi_grain', text: '잡곡밥' }
   ];
 
-  const [clickedIndex, setClickedIndex] = useState(0);
-  const [selectedProfile, setSelectedProfile] = useState(profiles[0]);
+  const [selectedProfile, setSelectedProfile] = useState(image);
 
-  const handleClick = (index) => {
-    setClickedIndex(index);
-    setSelectedProfile(profiles[index]);
+  const handleClick = (profile) => {
+    setSelectedProfile(profile);
   };
 
   return (
@@ -76,8 +76,8 @@ function ProfileContainer() {
             key={index}
             src={profile.src}
             alt={profile.alt}
-            clicked={index === clickedIndex}
-            onClick={() => handleClick(index)}
+            clicked={profile.alt === selectedProfile.alt}
+            onClick={() => handleClick(profile)}
           />
         ))}
       </div>
