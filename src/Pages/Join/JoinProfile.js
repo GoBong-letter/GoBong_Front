@@ -1,14 +1,16 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Icon } from "@iconify/react";
 import Button from "../../components/Button";
-import styles from "../../styles/Join/Join.module.css";
 import Num from "../../components/Join/Num";
 import Info from "../../components/Join/Info";
-import Profile from "../../components/Profile";
+import ProfileContainer from "../../components/Profile"; // ProfileContainer 경로 수정
+import styles from "../../styles/Join/Join.module.css";
+import { JoinContext } from "./JoinProvider";
 
 function JoinProfile() {
+  const { UserProfile } = useContext(JoinContext);
   const navigate = useNavigate();
+  const [selectedProfile, setSelectedProfile] = useState(null);
 
   const buttonStyle = {
     position: "absolute",
@@ -16,7 +18,10 @@ function JoinProfile() {
   };
 
   const handleNext = () => {
-    navigate("/JoinAbout");
+    if (selectedProfile !== null) {
+      UserProfile(selectedProfile);
+      navigate("/joinAbout");
+    }
   };
 
   return (
@@ -51,12 +56,15 @@ function JoinProfile() {
             rowGap: "31px",
           }}
         >
-          <div style={{ display: "flex", columnGap: "23px" }}>
-            <Profile />
-          </div>
+          <ProfileContainer onSelect={setSelectedProfile} />
         </div>
       </div>
-      <Button text="다음" style={buttonStyle} onClick={handleNext} />
+      <Button
+        text="다음"
+        style={buttonStyle}
+        onClick={handleNext}
+        disabled={selectedProfile === null}
+      />
     </div>
   );
 }
