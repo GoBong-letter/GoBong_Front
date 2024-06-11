@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { sendLetterContext } from "./SendLetterProvider";
 import { JoinContext } from "../Join/JoinProvider";
@@ -13,11 +13,14 @@ import styles from "../../styles/WriteLetter/WriteLetterBasic.module.css";
 
 function WriteLetterBasic() {
   const [isChecked, setChecked] = useState(false);
+  // const [cList, setCList] = useState([]);
+  const [cList, setCList] = useState(0);
+
   const [isOpen, setOpen] = useState(false);
   const [showData, setShowData] = useState({});
-  const [inputChar, setInputChar] = useState("");
   const { saveData } = useContext(sendLetterContext);
   const { category, setCategory } = useContext(JoinContext);
+
   const [titleValue, setTitleValue] = useState("");
   const [myCategory, setMyCategory] = useState({
     외모: [],
@@ -35,7 +38,6 @@ function WriteLetterBasic() {
       )
     );
   };
-
   const handleOpen = (item) => {
     setOpen((prev) => !prev);
     setShowData(item);
@@ -49,10 +51,10 @@ function WriteLetterBasic() {
     setCategory(updatedCategory);
     navigate(link);
   };
+
   //TODO: 카테고리 useContext 로 가져오기
   const handleCheckBox = () => {
     setChecked((prev) => !prev);
-    console.log(category);
     setMyCategory(category);
   };
 
@@ -72,7 +74,7 @@ function WriteLetterBasic() {
             placeholder="편지 이름을 작성해주세요"
             value={titleValue}
             onChange={(e) => setTitleValue(e.target.value)}
-          ></input>
+          />
 
           <div className={styles["status-check-div"]}>
             <div
@@ -97,14 +99,20 @@ function WriteLetterBasic() {
           handleOpen={handleOpen}
         >
           {showData.text === "기타" ? (
-            <CharInput inputChar={inputChar} setInputChar={setInputChar} />
+            <CharInput
+              myCategory={myCategory}
+              setMyCategory={setMyCategory}
+              setCList={setCList}
+              cList={cList}
+            />
           ) : (
             <ButtonList
-              image={showData.image}
               text={showData.text}
               wordList={showData.wordList}
               myCategory={myCategory}
               setMyCategory={setMyCategory}
+              cList={cList}
+              setCList={setCList}
             />
           )}
         </BottomSheet>

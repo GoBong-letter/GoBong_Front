@@ -1,26 +1,76 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { TypeButton } from "./WriteLetter/TypeButton";
 import styled from "styled-components";
 
-export function ButtonList({ wordList, text, myCategory, setMyCategory }) {
+export function ButtonList({
+  wordList,
+  text,
+  myCategory,
+  setMyCategory,
+  cList,
+  setCList,
+}) {
+  const [textInfo, setTextInfo] = useState(null);
   const isSelected = (word, text) => {
     return myCategory[text].includes(word);
   };
-  // console.log(category[text])
+
+  // const handleToggleButton = (word, text) => {
+  //   setCList((prev) => {
+  //     //있는경우
+  //     if (myCategory[text].indexOf(word) !== -1) {
+  //       return prev.filter((item) => item !== word);
+  //     } else {
+  //       // 6개 이하인 경우
+  //       if (prev.length < 6) {
+  //         return prev.concat(word);
+  //       } else {
+  //         return prev;
+  //       }
+  //     }
+  //   });
+  // };
   const handleToggleButton = (word, text) => {
-    let index = myCategory[text].indexOf(word);
-    if (index === -1)
-      setMyCategory((prevData) => ({
-        ...prevData,
-        [text]: [...myCategory[text], word],
-      }));
-    else {
-      setMyCategory((prevData) => ({
-        ...prevData,
-        [text]: myCategory[text].filter((item) => item !== word),
-      }));
+    setCList((prev) => {
+      //있는경우
+      if (myCategory[text].indexOf(word) !== -1) {
+        return prev - 1;
+      } else {
+        // 6개 이하인 경우
+        if (prev < 6) {
+          return prev + 1;
+        } else {
+          return prev;
+        }
+      }
+    });
+  };
+
+  useEffect(() => {
+    addMyCategory();
+  }, [cList]);
+
+  const addMyCategory = () => {
+    if (textInfo !== undefined && textInfo !== null) {
+      let index = myCategory[text].indexOf(textInfo);
+      console.log(textInfo);
+      if (cList <= 6) {
+        if (index === -1) {
+          setMyCategory((prevData) => ({
+            ...prevData,
+            [text]: [...myCategory[text], textInfo],
+          }));
+        } else {
+          setMyCategory((prevData) => ({
+            ...prevData,
+            [text]: myCategory[text].filter((item) => item !== textInfo),
+          }));
+        }
+      }
     }
   };
+
+  console.log(cList, myCategory);
 
   return (
     <BottomSheetContent>
@@ -28,7 +78,10 @@ export function ButtonList({ wordList, text, myCategory, setMyCategory }) {
         <TypeButton
           word={word}
           key={index}
-          onClick={() => handleToggleButton(word, text)}
+          onClick={() => {
+            setTextInfo(word);
+            handleToggleButton(word, text);
+          }}
           className={isSelected(word, text) ? "clickButton" : "Button"}
         />
       ))}
