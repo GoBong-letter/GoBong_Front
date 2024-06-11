@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import { JoinContext } from "../../pages/Join/JoinProvider";
 import { Icon } from '@iconify/react';
+import axios from 'axios';
 
 function Profile({ src, alt, text, onClick, clicked }) {
   return (
@@ -38,16 +39,35 @@ function Profile({ src, alt, text, onClick, clicked }) {
 }
 
 function ProfileContainer() {
+
+  // const endpoint = '`${}`';
+  // const dataToUpdate = {
+  //   key1: 'updatedValue1',
+  //   key2: 'updatedValue2'
+  // };
+
+  // // PATCH 요청 보내기
+  // axios.patch(endpoint, dataToUpdate)
+  //   .then(response => {
+  //     // 요청이 성공하면 여기에 도착합니다.
+  //     console.log('PATCH 요청 성공:', response.data);
+  //   })
+  //   .catch(error => {
+  //     // 요청이 실패하면 여기에 도착합니다.
+  //     console.error('PATCH 요청 실패:', error);
+  // });
   const { image } = useContext(JoinContext);
   const profiles = [
     { src: '/images/chajo.png', alt: 'chajo', text: '차조밥' },
     { src: '/images/rice.png', alt: 'rice', text: '쌀밥' },
     { src: '/images/black.png', alt: 'black', text: '흑미밥' },
-    { src: '/images/been.png', alt: 'bean', text: '콩밥' },
+    { src: '/images/bean.png', alt: 'bean', text: '콩밥' },
     { src: '/images/multi_grain.png', alt: 'multi_grain', text: '잡곡밥' }
   ];
 
-  const [selectedProfile, setSelectedProfile] = useState(image);
+  const [selectedProfile, setSelectedProfile] = useState(() => {
+    return profiles.find(profile => profile.alt === image) || profiles[0];
+  });
 
   const handleClick = (profile) => {
     setSelectedProfile(profile);

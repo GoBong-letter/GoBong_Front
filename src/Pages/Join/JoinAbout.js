@@ -11,20 +11,24 @@ import categoryStyle from "../../styles/WriteLetter/WriteLetterBasic.module.css"
 import { BottomSheet } from "../../components/BottomSheet";
 import { CharInput } from "../../components/WriteLetter/CharInput";
 import { ButtonList } from "../../components/ButtonList";
-import { useCategory } from "../../hooks/queries/useCategory";
 import { JoinContext } from "./JoinProvider"
 import axios from 'axios';
 
 function JoinAbout() {
   const navigate = useNavigate();
   const { nickname, password, email, image } = useContext(JoinContext);
+  
   const [isChecked, setChecked] = useState(false);
+  // const [cList, setCList] = useState([]);
+  const [cList, setCList] = useState(0);
+
   const [isOpen, setOpen] = useState(false);
   const [showData, setShowData] = useState({});
-  const [inputChar, setInputChar] = useState("");
   const { saveData } = useContext(sendLetterContext);
+  const { category, setCategory } = useContext(JoinContext);
+
   const [titleValue, setTitleValue] = useState("");
-  const [category, setCategory] = useState({
+  const [myCategory, setMyCategory] = useState({
     외모: [],
     성격: [],
     MBTI: [],
@@ -33,7 +37,6 @@ function JoinAbout() {
     기타: [],
   });
 
-  const myCategory = useCategory();
 
   const removeEmptyArrays = (obj) => {
     return Object.fromEntries(
@@ -97,6 +100,35 @@ function JoinAbout() {
         />
       </div>
 
+    <div style={{display:"flex",flexDirection:"column",padding:"20vw 0 30.2vw 0"}}>
+        <Category handleOpen={handleOpen} />
+          {isOpen && (
+            <BottomSheet
+              item={showData}
+              image={showData.image}
+              text={showData.text}
+              handleOpen={handleOpen}
+            >
+              {showData.text === "기타" ? (
+                <CharInput
+                  myCategory={myCategory}
+                  setMyCategory={setMyCategory}
+                  setCList={setCList}
+                  cList={cList}
+                />
+              ) : (
+                <ButtonList
+                  text={showData.text}
+                  wordList={showData.wordList}
+                  myCategory={myCategory}
+                  setMyCategory={setMyCategory}
+                  cList={cList}
+                  setCList={setCList}
+                />
+              )}
+            </BottomSheet>
+          )}
+          </div>
       
       <Button text="회원가입 완료" onClick={handleJoin}/>
     </div>

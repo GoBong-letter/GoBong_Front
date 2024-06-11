@@ -46,6 +46,7 @@ const Background = styled.div`
   z-index: 100;
   position: fixed;
   top: 0;
+  left: 0;
 `;
 const BottomSheetBox = styled.div`
   width: 100%;
@@ -61,6 +62,7 @@ const BottomSheetBox = styled.div`
   border-top-left-radius: 25px;
   border-top-right-radius: 25px;
   padding-bottom: 26px;
+  left:0;
 `;
 const BottomSheetHeader = styled.div`
   box-sizing: border-box;

@@ -48,7 +48,7 @@ function ProfileContainer({ onSelect }) {
     { src: '/images/chajo.png', alt: 'chajo', text: '차조밥' },
     { src: '/images/rice.png', alt: 'rice', text: '쌀밥' },
     { src: '/images/black.png', alt: 'black', text: '흑미밥' },
-    { src: '/images/been.png', alt: 'bean', text: '콩밥' },
+    { src: '/images/bean.png', alt: 'bean', text: '콩밥' },
     { src: '/images/multi_grain.png', alt: 'multi_grain', text: '잡곡밥' }
   ];
 

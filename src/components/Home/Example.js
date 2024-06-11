@@ -1,33 +1,33 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import { BarChart, Bar, ResponsiveContainer, LabelList } from 'recharts';
 import styles from '../../styles/Chart.module.css';
 
-const data = [
-  {
-    name: '평균',
-    uv: 8,
-    fill: '#EDEFF6'
-  },
-  {
-    name: '나',
-    uv: 12,
-    fill: '#8D47FF'
-  }
-];
+const Example = ({ chartAverage, chartUserLetter }) => {
 
-export default class Example extends PureComponent {
-  static demoUrl = 'https://codesandbox.io/s/tiny-bar-chart-35meb';
+  const data = [
+    {
+      name: '평균',
+      uv: chartAverage?.letters_avg || 0,
+      fill: '#EDEFF6'
+    },
+    {
+      name: '나',
+      uv: chartUserLetter?.letters || 0,
+      fill: '#8D47FF'
+    }
+  ];
+  
 
-  render() {
-    return (
-      <ResponsiveContainer width="70%" height="60%">
-        <BarChart data={data} className={styles['charStyle']} barCategoryGap={41} barSize={73} maxBarSize={168}>
-          <Bar dataKey="uv" radius={8}>
-            <LabelList dataKey={({uv}) => `${uv}개`} position="top" fill='#000' className={styles['labelStyle']} offset={10}/>
-            <LabelList dataKey="name" position="insideTop" fill='#fff' style={{fontSize:"14px"}} offset={15}/>
-          </Bar>
-        </BarChart>
-      </ResponsiveContainer>
-    );
-  }
-}
+  return (
+    <ResponsiveContainer width="70%" height="60%">
+      <BarChart data={data} className={styles['charStyle']} barCategoryGap={41} barSize={73} maxBarSize={168}>
+        <Bar dataKey="uv" radius={8}>
+          <LabelList dataKey="uv" position="top" fill='#000' className={styles['labelStyle']} offset={10} formatter={(value) => `${value}개`} />
+          <LabelList dataKey="name" position="insideTop" fill='#fff' style={{fontSize:"14px"}} offset={15} />
+        </Bar>
+      </BarChart>
+    </ResponsiveContainer>
+  );
+};
+
+export default Example;

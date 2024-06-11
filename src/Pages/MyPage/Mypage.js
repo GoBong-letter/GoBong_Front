@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import {JoinContext} from "../Join/JoinProvider";
 import Nav from "../../components/Nav";
 import { useNavigate } from "react-router-dom";
@@ -8,8 +8,9 @@ import styles from "../../styles/MyPage.module.css";
 import axios from 'axios';
 
 export default function MyPage() {
-  const { nickname, image } = useContext(JoinContext);
+  const { nickname, image, category } = useContext(JoinContext);
   const navigate = useNavigate();
+  // const [category, setCategory] = useState([]);
 
   const handleGuide = () => {
     navigate("/guideline");
@@ -21,6 +22,7 @@ export default function MyPage() {
     navigate("/setting");
   };
 
+  console.log(category)
   return (
     <div
       style={{
@@ -42,7 +44,7 @@ export default function MyPage() {
             onClick={handleSetting}
           />
         </div>
-        <Category />
+        {/* <Category category={category}/> */}
       </div>
       <div
         style={{

@@ -18,10 +18,10 @@ function WriteLetter() {
     { img: "blue", color: "#C2E5FF" },
     { img: "purple", color: "#D9C2FF" },
   ];
-  const [letterCover, setLetterCover] = useState(0);
+  const [letterCover, setLetterCoverState] = useState(0);
   const [letter, setLetter] = useState("");
   const { title } = useContext(sendLetterContext);
-  const { userId, category } = useContext(JoinContext);
+  const { userId, category, setLetterCover } = useContext(JoinContext);  // 추가
   const navigate = useNavigate();
 
   const { mutate: letterMutate } = useMutation({
@@ -45,10 +45,12 @@ function WriteLetter() {
     letterMutate(req);
   };
 
-  const selectLetterCover = (ClickedIndex) =>
+  const selectLetterCover = (ClickedIndex) => {
     list.map((_, index) =>
-      ClickedIndex === index ? setLetterCover(ClickedIndex) : null
+      ClickedIndex === index ? setLetterCoverState(ClickedIndex) : null
     );
+    setLetterCover(ClickedIndex);  // 추가
+  };
 
   return (
     <div className={styles["writeLetterContainer"]}>
