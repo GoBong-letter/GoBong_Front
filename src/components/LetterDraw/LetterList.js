@@ -1,72 +1,168 @@
-import React, { useRef, useState, useEffect } from 'react';
-import styles from '../../styles/LetterDraw.module.css';
+// import React, { useEffect, useState, useRef } from "react";
+// import styles from '../../styles/LetterDraw.module.css';
 
-function LetterList({ letterList }) {
-    const containerRef = useRef(null);
+// function LetterList({ letterList }) {
+//     const containerRef = useRef(null);
 
-    console.log(letterList);
-    const [images, setImages] = useState(letterList);
-    const [activeIndex, setActiveIndex] = useState(2);
-    // const img = `${images[0].envelope}.png`
-    // useEffect(() => {
-    //     const handleScroll = () => {
+//     const [activeIndex, setActiveIndex] = useState(2);
+
+
+//     useEffect(() => {
+
+//         const handleScroll = () => {
+//             const container = containerRef.current;
+//             const images = container.children;
+//             const containerWidth = container.offsetWidth;
+//             const scrollLeft = container.scrollLeft;
+//             const totalWidth = container.scrollWidth;
+    
+//             const imageWidth = images[0]?.offsetWidth || 0;
+//             const gap = (totalWidth - imageWidth * images.length) / (images.length - 1);
+    
+//             const middlePosition = scrollLeft + containerWidth / 2;
+//             let newIndex;
+
+//             const firstImagePosition = 0;
+//             if (scrollLeft <= firstImagePosition) {
+//                 newIndex = 0;
+//             } else {
+//                 const lastImagePosition = totalWidth - containerWidth;
+//                 if (scrollLeft >= lastImagePosition) {
+//                     newIndex = images.length - 1;
+//                 } else {
+//                     newIndex = Math.round(middlePosition / (imageWidth + gap));
+//                 }
+//             }
+
+//             const activeImageId = letterList[newIndex]?.id;
+//             console.log(activeImageId);
             
-    //         const container = containerRef.current;
-    //         const images = container.children;
-    //         const containerWidth = container.offsetWidth;
-    //         const scrollLeft = container.scrollLeft;
-    //         const totalWidth = container.scrollWidth;
+            
+//             setActiveIndex(newIndex);
 
-    //         const imageWidth = img.offsetWidth;
-    //         const gap = (totalWidth - imageWidth * images.length) / (images.length - 1);
 
-    //         const middlePosition = scrollLeft + containerWidth / 2;
-    //         const newIndex = Math.round(middlePosition / (imageWidth + gap));
-    //         setActiveIndex(newIndex);
+//         };
+    
+//         const container = containerRef.current;
+//         container.addEventListener('scroll', handleScroll);
+    
+//         handleScroll();
+    
+//         return () => {
+//             container.removeEventListener('scroll', handleScroll);
 
-    //         if (scrollLeft + containerWidth >= totalWidth - imageWidth && images.length <= 10) {
-    //             duplicateImages();
-    //         }
-    //     };
+//         };
+//     }, []);
+    
 
-    //     const container = containerRef.current;
-    //     container.addEventListener('scroll', handleScroll);
+//     useEffect(() => {
+//         const container = containerRef.current;
+//         const images = container.children;
+//         const imageWidth = images[0]?.offsetWidth || 0;
+//         const gap = (container.scrollWidth - imageWidth * images.length) / (images.length - 1);
+//         const targetScrollLeft = activeIndex * (imageWidth + gap) - container.offsetWidth / 2 + imageWidth / 2;
 
-    //     handleScroll();
+//         container.scrollTo({
+//             left: targetScrollLeft,
+//             behavior: 'smooth',
+//         });
+//     }, [activeIndex]);
 
-    //     return () => {
-    //         container.removeEventListener('scroll', handleScroll);
-    //     };
-    // }, []);
+//     return (
+//         <div className={styles['letter-container']} ref={containerRef}>
+//             {letterList.map((img, index) => (
+//                 <img
+//                     key={index}
+//                     src={`/images/${img.envelope}.png`}
+//                     className={`${styles['letterImg']} ${index === activeIndex ? styles['active'] : ''}`}
+//                     alt='letterImg'
+//                     style={{ opacity: index === activeIndex ? 1 : 0.2 }}
+//                 />
+//             ))}
+//         </div>
+//     );
+// }
 
-    // const duplicateImages = () => {
-    //     setImages((prevList) => [...prevList, ...letterList]);
-    // };
+// export default LetterList;
 
-    // useEffect(() => {
-    //     const container = containerRef.current;
-    //     const images = container.children;
-    //     const imageWidth = img.offsetWidth;
-    //     const gap = (container.scrollWidth - imageWidth * images.length) / (images.length - 1);
-    //     const targetScrollLeft = activeIndex * (imageWidth + gap) - container.offsetWidth / 2 + imageWidth / 2;
 
-    //     container.scrollTo({
-    //         left: targetScrollLeft,
-    //         behavior: 'smooth',
-    //     });
-    // }, [activeIndex]);
+import React, { useEffect, useState, useRef, useContext } from "react";
+import styles from '../../styles/LetterDraw.module.css';
+import { ReceiveLetterContext } from '../../pages/LetterDraw/ReceiveLetterProvider';
+
+function LetterList({ letterList, setCenterLetter }) {
+    const containerRef = useRef(null);
+    const [activeIndex, setActiveIndex] = useState(2);
+    const { saveLetterId } = useContext(ReceiveLetterContext);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const container = containerRef.current;
+            const images = container.children;
+            const containerWidth = container.offsetWidth;
+            const scrollLeft = container.scrollLeft;
+            const totalWidth = container.scrollWidth;
+    
+            const imageWidth = images[0]?.offsetWidth || 0;
+            const gap = (totalWidth - imageWidth * images.length) / (images.length - 1);
+    
+            const middlePosition = scrollLeft + containerWidth / 2;
+            let newIndex;
+
+            const firstImagePosition = 0;
+            if (scrollLeft <= firstImagePosition) {
+                newIndex = 0;
+            } else {
+                const lastImagePosition = totalWidth - containerWidth;
+                if (scrollLeft >= lastImagePosition) {
+                    newIndex = images.length - 1;
+                } else {
+                    newIndex = Math.round(middlePosition / (imageWidth + gap));
+                }
+            }
+
+            const activeImageId = letterList[newIndex]?.id;
+            console.log(activeImageId);
+            setCenterLetter(activeImageId);
+            saveLetterId(activeImageId);
+            
+            setActiveIndex(newIndex);
+        };
+    
+        const container = containerRef.current;
+        container.addEventListener('scroll', handleScroll);
+    
+        handleScroll();
+    
+        return () => {
+            container.removeEventListener('scroll', handleScroll);
+        };
+    }, [letterList]);
+
+    useEffect(() => {
+        const container = containerRef.current;
+        const images = container.children;
+        const imageWidth = images[0]?.offsetWidth || 0;
+        const gap = (container.scrollWidth - imageWidth * images.length) / (images.length - 1);
+        const targetScrollLeft = activeIndex * (imageWidth + gap) - container.offsetWidth / 2 + imageWidth / 2;
+
+        container.scrollTo({
+            left: targetScrollLeft,
+            behavior: 'smooth',
+        });
+    }, [activeIndex]);
 
     return (
         <div className={styles['letter-container']} ref={containerRef}>
-            {/* {images.map((img, index) => (
+            {letterList.map((img, index) => (
                 <img
                     key={index}
-                    src={`/images/${images[index].envelope}`}
+                    src={`/images/${img.envelope}.png`}
                     className={`${styles['letterImg']} ${index === activeIndex ? styles['active'] : ''}`}
                     alt='letterImg'
-                    style={{ opacity: index === activeIndex ? 1 : 0.2 }}
+                    style={{ opacity: index === activeIndex ? 1 : 0.3 }}
                 />
-            ))} */}
+            ))}
         </div>
     );
 }
