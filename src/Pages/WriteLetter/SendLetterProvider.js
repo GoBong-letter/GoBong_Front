@@ -3,6 +3,7 @@ export const sendLetterContext = createContext();
 
 function SendLetterProvider({ children }) {
   const [title, setTitle] = useState(null);
+
   const saveData = (title) => {
     setTitle(title);
   };
