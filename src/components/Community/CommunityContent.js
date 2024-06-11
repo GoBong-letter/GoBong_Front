@@ -124,7 +124,7 @@ function CommunityContent() {
         </SwiperSlide>
       </Swiper>
       <CommunityInput />
-      <div style={{position:"absolute", bottom:"0", height:"50vw", backgroundColor:"white", width:"100vw"}}>ds</div>
+      <div style={{position:"absolute", bottom:"0", height:"88.5vh", backgroundColor:"white", width:"100vw", color:"white", borderRadius:"30px"}}>ds</div>
       <Nav />
     </div>
   );
