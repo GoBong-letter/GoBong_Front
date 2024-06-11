@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { JoinContext } from "../pages/Join/JoinProvider";
 import Button from "../components/Button";
 import styles from "../styles/Home.module.css";
@@ -13,49 +13,67 @@ import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 
 function Home() {
-  const { userId, setNickname, nickname, GetUserInfo } = useContext(JoinContext);
+  const { userId, nickname, GetUserInfo } = useContext(JoinContext);
   const navigate = useNavigate();
+  
+  const [chartAverage, setChartAverage] = useState(null);
+  const [chartUserLetter, setChartUserLetter] = useState(null);
+  const [ cardImg, setCardImg ] = useState(null);
 
   const UserNickName = async () => {
     try {
-      const res = await axios.get(`${process.env.REACT_APP_HOST}/users/${userId}`)
-      GetUserInfo(res.data.nickname, res.data.image);
-      console.log(res.data)
-
+      const res = await axios.get(`${process.env.REACT_APP_HOST}/users/${userId}`);
       if (res.status === 200) {
+        const { nickname, image, category } = res.data;
+        GetUserInfo(nickname, image, category);
         console.log(res.data);
       }
     } catch (error) {
       console.error(error);
     }
   };
+  
 
   const ChartAverage = async () => {
     try{
-      const res = await axios.get(`${process.env.REACT_APP_HOST}/letters/average-per-week/${userId}`)
+      const res = await axios.get(`${process.env.REACT_APP_HOST}/letters/average-per-week/${userId}`);
       if (res.status === 200) {
-        console.log(res.data);
+        setChartAverage(res.data);
       }
-    }catch(error){
+    } catch(error) {
       console.error(error);
     }
-
-  }
+  };
 
   const ChartUserLetter = async () => {
     try{
-      const res = await axios.get(`${process.env.REACT_APP_HOST}/letters/this-week/${userId}`)
+      const res = await axios.get(`${process.env.REACT_APP_HOST}/letters/this-week/${userId}`);
       if (res.status === 200) {
-        console.log(res.data);
+        setChartUserLetter(res.data);
       }
-    }catch(error){
+    } catch(error) {
       console.error(error);
     }
-  }
+  };
+
+  const GetCard = async () => {
+    try{
+      const res = await axios.get(`${process.env.REACT_APP_HOST}/users/card/${userId}`);
+      if (res.status === 200) {
+        setCardImg(res.data)
+        console.log(res.data);
+      }
+    } catch(error) {
+      console.error(error);
+    }
+  };
 
   useEffect(() => {
     if (userId) {
       UserNickName();
+      ChartAverage();
+      ChartUserLetter();
+      GetCard();
     }
   }, [userId]);
 
@@ -67,12 +85,16 @@ function Home() {
       <Header />
       <div className={styles["cardContainer"]}>
         <LetterCount />
-        <WelcomeMent nickname={nickname} />
-        <CardList />
+        <WelcomeMent nickname={nickname}/>
+        <CardList cardImg={cardImg}/>
       </div>
-      <Button icon="lucide:pen-line" text="편지쓰러가기" />
+      <Button
+        icon="lucide:pen-line"
+        text="편지쓰러가기"
+        onClick={() => navigate("/writeletterbasic")}
+      />
       <GobongMent />
-      <Chart nickname={nickname}/>
+        <Chart  nickname={nickname} chartAverage={chartAverage} chartUserLetter={chartUserLetter} />
       <Nav />
     </div>
   );
