@@ -4,11 +4,12 @@
     width: 104vw;
     align-items: center;
     white-space: nowrap;
-    height: 313px;
+    margin-bottom: 3vw;
+    height: 315px;
     overflow-y: hidden;
 }
 .scrollContainer{
-    padding: 0 7%;
+    padding: 0 11% 0 7%;
     column-gap: 22px;
     display: flex;
 }
