@@ -2,6 +2,7 @@
     font-size: 1.6rem;
     text-align: center;
     font-weight: 700;
+    margin: 0;
 }
 .letterImg{
     width: 190px;
@@ -99,4 +100,25 @@
     height: fit-content;
     padding: 1.5vw 3.5vw;
     text-wrap: nowrap;
+}
+
+.imgBox{
+    position: relative;
+    width: 85%;
+}
+.imgBox div{
+    position: absolute;
+    padding: 0 15px;
+    margin: 15px 0;
+    width: 77.6vw;
+    height: 90.5%;
+    overflow-wrap: anywhere;
+    overflow-y: scroll;
+}
+.lettercontent {
+    flex: 0 0 auto;
+    width: 100%;
+    height: 100%;
+    scroll-snap-align: center;
+    transition: opacity 0.3s, transform 0.5s;
 }
