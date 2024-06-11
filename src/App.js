@@ -28,6 +28,7 @@ import WriteLetterBasic from "./pages/WriteLetter/WriteLetterBasic";
 import WriteLetter from "./pages/WriteLetter/WriteLetter";
 import LetterStorage from "./pages/WriteLetter/LetterStorage";
 import JoinProvider from "./pages/Join/JoinProvider";
+import ReceiveLetterProvider from "./pages/LetterDraw/ReceiveLetterProvider";
 
 function App() {
   const [client] = useState(new QueryClient());
@@ -36,35 +37,37 @@ function App() {
       <QueryClientProvider client={client}>
         <SendLetterProvider>
           <JoinProvider>
-            <Router>
-              <Routes>
-                <Route path="/" element={<Splash />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/join" element={<Join />} />
-                <Route path="/joinProfile" element={<JoinProfile />} />
-                <Route path="/joinAbout" element={<JoinAbout />} />
-                <Route path="/loginPage" element={<LoginPage />} />
-                <Route path="/home" element={<Home />} />
-                <Route path="/alram" element={<Alarm />} />
-                <Route path="/letterDraw" element={<LetterDraw />} />
-                <Route path="/draw" element={<Draw />} />
-                <Route path="/receiveLetter" element={<ReceiveLetter />} />
-                <Route path="/community" element={<Community />} />
-                <Route path="/mypage" element={<MyPage />} />
-                <Route path="/guideline" element={<Guideline />} />
-                <Route path="/guidelineTwo" element={<GuidelineTwo />} />
-                <Route path="/guidelineThree" element={<GuidelineThree />} />
-                <Route path="/guidelineLast" element={<GuidelineLast />} />
-                <Route path="/alarmSetting" element={<AlarmSetting />} />
-                <Route
-                  path="/writeletterbasic"
-                  element={<WriteLetterBasic />}
-                />
-                <Route path="/writeletter" element={<WriteLetter />} />
-                <Route path="/letterstorage" element={<LetterStorage />} />
-                <Route path="/setting" element={<Setting />} />
-              </Routes>
-            </Router>
+            <ReceiveLetterProvider>
+              <Router>
+                <Routes>
+                  <Route path="/" element={<Splash />} />
+                  <Route path="/login" element={<Login />} />
+                  <Route path="/join" element={<Join />} />
+                  <Route path="/joinProfile" element={<JoinProfile />} />
+                  <Route path="/joinAbout" element={<JoinAbout />} />
+                  <Route path="/loginPage" element={<LoginPage />} />
+                  <Route path="/home" element={<Home />} />
+                  <Route path="/alram" element={<Alarm />} />
+                  <Route path="/letterDraw" element={<LetterDraw />} />
+                  <Route path="/draw" element={<Draw />} />
+                  <Route path="/receiveLetter" element={<ReceiveLetter />} />
+                  <Route path="/community" element={<Community />} />
+                  <Route path="/mypage" element={<MyPage />} />
+                  <Route path="/guideline" element={<Guideline />} />
+                  <Route path="/guidelineTwo" element={<GuidelineTwo />} />
+                  <Route path="/guidelineThree" element={<GuidelineThree />} />
+                  <Route path="/guidelineLast" element={<GuidelineLast />} />
+                  <Route path="/alarmSetting" element={<AlarmSetting />} />
+                  <Route
+                    path="/writeletterbasic"
+                    element={<WriteLetterBasic />}
+                  />
+                  <Route path="/writeletter" element={<WriteLetter />} />
+                  <Route path="/letterstorage" element={<LetterStorage />} />
+                  <Route path="/setting" element={<Setting />} />
+                </Routes>
+              </Router>
+            </ReceiveLetterProvider>
           </JoinProvider>
         </SendLetterProvider>
       </QueryClientProvider>
