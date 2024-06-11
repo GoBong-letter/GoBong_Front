@@ -7,6 +7,7 @@ import { Icon } from "@iconify/react";
 import Button from "../../components/Button";
 import ProfilePopup from "./ProfilePopup";
 import { Category } from "../../components/WriteLetter/Category";
+import { sendLetterContext } from "../WriteLetter/SendLetterProvider";
 import data from "../../components/WriteLetter/typelist.json";
 import categoryStyle from '../../styles/WriteLetter/SelectLetterItem.module.css'
 // import categoryStyle from "../../styles/WriteLetter/SelectInfoOfMe.module.css";
@@ -18,11 +19,18 @@ import { ButtonList } from "../../components/ButtonList";
 export default function Setting() {
   const [isPopupVisible, setIsPopupVisible] = useState(false);
   const { nickname, image } = useContext(JoinContext);
+  
   const [isChecked, setChecked] = useState(false);
+  // const [cList, setCList] = useState([]);
+  const [cList, setCList] = useState(0);
+
   const [isOpen, setOpen] = useState(false);
   const [showData, setShowData] = useState({});
-  const [inputChar, setInputChar] = useState("");
-  const [category, setCategory] = useState({
+  const { saveData } = useContext(sendLetterContext);
+  const { category, setCategory } = useContext(JoinContext);
+
+  const [titleValue, setTitleValue] = useState("");
+  const [myCategory, setMyCategory] = useState({
     외모: [],
     성격: [],
     MBTI: [],
@@ -88,37 +96,36 @@ export default function Setting() {
           >
             비밀번호 변경
           </div>
-          <div className={categoryStyle["info-box"]}>
-          <div className={categoryStyle["charac-box"]}>
-            {data.map((item, index) => {
-              return (
-                <Category key={index} item={item} handleOpen={handleOpen} />
-              );
-            })}
+          <div style={{display:"flex",flexDirection:"column",paddingBottom:"14vw"}}>
+            <Category handleOpen={handleOpen} />
+              {isOpen && (
+                <BottomSheet
+                  item={showData}
+                  image={showData.image}
+                  text={showData.text}
+                  handleOpen={handleOpen}
+                >
+                  {showData.text === "기타" ? (
+                    <CharInput
+                      myCategory={myCategory}
+                      setMyCategory={setMyCategory}
+                      setCList={setCList}
+                      cList={cList}
+                    />
+                  ) : (
+                    <ButtonList
+                      text={showData.text}
+                      wordList={showData.wordList}
+                      myCategory={myCategory}
+                      setMyCategory={setMyCategory}
+                      cList={cList}
+                      setCList={setCList}
+                    />
+                  )}
+                </BottomSheet>
+              )}
+              </div>
           </div>
-          <span>*최대 6개까지 선택할 수 있어요!</span>
-          </div>
-      {isOpen && (
-        <BottomSheet
-          item={showData}
-          image={showData.image}
-          text={showData.text}
-          handleOpen={handleOpen}
-        >
-          {showData.text === "기타" ? (
-            <CharInput inputChar={inputChar} setInputChar={setInputChar} />
-          ) : (
-            <ButtonList
-              image={showData.image}
-              text={showData.text}
-              wordList={showData.wordList}
-              category={category}
-              setCategory={setCategory}
-            />
-          )}
-        </BottomSheet>
-      )}
-        </div>
         <Button text="저장" style={{ margin: "0 auto" }} />
       </div>
       {isPopupVisible && <ProfilePopup onClose={handleClosePopup} />}
