@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const DOMAIN = "http://localhost:3000";
+const DOMAIN = `${process.env.REACT_APP_HOST}`;
 // axios.defaults.withCredentials = true; // 쿠키 데이터를 전송받기
 export const request = (method, url, data) => {
   return axios({
