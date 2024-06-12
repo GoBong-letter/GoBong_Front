@@ -23,25 +23,23 @@ function CardList({ cardImg }) {
         };
     }, []);
 
-    const renderedCardImgs = cardImg ? (
-        cardImg.map((img, index) => (
-            <CardImg
-                key={index}
-                cardImg={img}
-                isFlipped={flippedIndex === index}
-                onClick={(event) => {
-                    event.stopPropagation();
-                    handleCardClick(index);
-                }}
-            />
-        ))
-    ) : [];
+    const containerStyle = cardImg.length === 0 ? { padding: '11px' } : {};
 
     return (
         <div className={styles['cardScroll']}>
-            <div className={styles['scrollContainer']} style={{ padding: cardImg ? '' : '11px' }}>
+            <div className={styles['scrollContainer']} style={containerStyle}>
                 <div style={{ display: 'flex', gap: '22px' }}>
-                    {renderedCardImgs}
+                    {cardImg.map((img, index) => (
+                        <CardImg
+                            key={index}
+                            cardImg={img}
+                            isFlipped={flippedIndex === index}
+                            onClick={(event) => {
+                                event.stopPropagation();
+                                handleCardClick(index);
+                            }}
+                        />
+                    ))}
                 </div>
                 <Card/>
             </div>
