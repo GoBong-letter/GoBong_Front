@@ -44,7 +44,7 @@ export default function MyPage() {
             onClick={handleSetting}
           />
         </div>
-        {/* <Category category={category}/> */}
+        <Category category={category}/>
       </div>
       <div
         style={{
