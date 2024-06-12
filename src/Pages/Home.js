@@ -9,18 +9,20 @@ import Nav from "../components/Nav";
 import CardList from "../components/Home/CardList";
 import GobongMent from "../components/Home/GobongMent";
 import Chart from "../components/Home/Chart";
-import axios, { all } from 'axios';
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import Card from "../components/Home/Card"
+import GetCardPopup from "../components/Home/GetCardPopup";
 
 function Home() {
   const { userId, nickname, GetUserInfo } = useContext(JoinContext);
-  const [ count, getCount ] = useState()
+  const [count, getCount] = useState();
   const navigate = useNavigate();
-  
+
   const [chartAverage, setChartAverage] = useState(null);
   const [chartUserLetter, setChartUserLetter] = useState(null);
-  const [ cardImg, setCardImg ] = useState([]);
+  const [cardImg, setCardImg] = useState([]);
+  const [displayedImages, setDisplayedImages] = useState([]); // 표시된 이미지를 추적하는 상태 추가
+  const [showPopup, setShowPopup] = useState(false);
 
   const UserNickName = async () => {
     try {
@@ -33,52 +35,51 @@ function Home() {
       console.error(error);
     }
   };
-  
 
   const ChartAverage = async () => {
-    try{
-      const res = await axios.get(`${process.env.REACT_APP_HOST}/letters/average-per-week/${userId}`);
+    try {
+      const res = await axios.get(`${process.env.REACT_APP_HOST}/letters/average-per-week/all`);
       if (res.status === 200) {
         setChartAverage(res.data);
       }
-    } catch(error) {
+    } catch (error) {
       console.error(error);
     }
   };
 
   const ChartUserLetter = async () => {
-    try{
+    try {
       const res = await axios.get(`${process.env.REACT_APP_HOST}/letters/this-week/${userId}`);
       if (res.status === 200) {
         setChartUserLetter(res.data);
       }
-    } catch(error) {
+    } catch (error) {
       console.error(error);
     }
   };
 
   const GetCard = async () => {
-    try{
+    try {
       const res = await axios.get(`${process.env.REACT_APP_HOST}/users/card/${userId}`);
       if (res.status === 200) {
-        console.log(res.data)
-        setCardImg(res.data)
+        console.log(res.data);
+        setCardImg(res.data);
       }
-    } catch(error) {
+    } catch (error) {
       console.error(error);
     }
   };
 
   const GetLetterCount = async () => {
-    try{
-      const res = await axios.get(`${process.env.REACT_APP_HOST}/letters/count/all`)
-      if (res.status === 200){
-        getCount(res.data.count)
+    try {
+      const res = await axios.get(`${process.env.REACT_APP_HOST}/letters/count/all`);
+      if (res.status === 200) {
+        getCount(res.data.count);
       }
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  }
+  };
 
   useEffect(() => {
     if (userId) {
@@ -90,6 +91,17 @@ function Home() {
     }
   }, [userId]);
 
+  useEffect(() => {
+    if (cardImg.length > 0) {
+      const newImages = cardImg.filter(img => !displayedImages.includes(img));
+      if (newImages.length > 0 && !localStorage.getItem("popupShown")) {
+        setShowPopup(true);
+        setDisplayedImages([...displayedImages, ...newImages]);
+        localStorage.setItem("popupShown", "true");
+      }
+    }
+  }, [cardImg, displayedImages]);
+
   return (
     <div
       className={styles["container"]}
@@ -97,18 +109,21 @@ function Home() {
     >
       <Header />
       <div className={styles["cardContainer"]}>
-        <LetterCount LetterCount={count}/>
-        <WelcomeMent nickname={nickname}/>
-        <CardList cardImg={cardImg} nickname={nickname}/>
+        <LetterCount LetterCount={count} />
+        <WelcomeMent nickname={nickname} />
+        <CardList cardImg={cardImg} nickname={nickname} />
       </div>
-      <Button
-        icon="lucide:pen-line"
-        text="편지쓰러가기"
-        onClick={() => navigate("/writeletterbasic")}
-      />
+      <div style={{width: "calc(100% - 58px)"}}>
+        <Button
+          icon="lucide:pen-line"
+          text="편지쓰러가기"
+          onClick={() => navigate("/writeletterbasic")}
+        />
+      </div>
       <GobongMent />
-        <Chart  nickname={nickname} chartAverage={chartAverage} chartUserLetter={chartUserLetter} />
+      <Chart nickname={nickname} chartAverage={chartAverage} chartUserLetter={chartUserLetter} />
       <Nav />
+      {showPopup && <GetCardPopup onClose={() => setShowPopup(false)} cardImg={cardImg} />}
     </div>
   );
 }
