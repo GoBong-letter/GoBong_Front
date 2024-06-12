@@ -9,11 +9,13 @@ import Nav from "../components/Nav";
 import CardList from "../components/Home/CardList";
 import GobongMent from "../components/Home/GobongMent";
 import Chart from "../components/Home/Chart";
-import axios from 'axios';
+import axios, { all } from 'axios';
 import { useNavigate } from "react-router-dom";
+import Card from "../components/Home/Card"
 
 function Home() {
   const { userId, nickname, GetUserInfo } = useContext(JoinContext);
+  const [ count, getCount ] = useState()
   const navigate = useNavigate();
   
   const [chartAverage, setChartAverage] = useState(null);
@@ -26,7 +28,6 @@ function Home() {
       if (res.status === 200) {
         const { nickname, image, category } = res.data;
         GetUserInfo(nickname, image, category);
-        console.log(res.data);
       }
     } catch (error) {
       console.error(error);
@@ -61,12 +62,22 @@ function Home() {
       const res = await axios.get(`${process.env.REACT_APP_HOST}/users/card/${userId}`);
       if (res.status === 200) {
         setCardImg(res.data)
-        console.log(res.data);
       }
     } catch(error) {
       console.error(error);
     }
   };
+
+  const GetLetterCount = async () => {
+    try{
+      const res = await axios.get(`${process.env.REACT_APP_HOST}/letters/count/all`)
+      if (res.status === 200){
+        getCount(res.data.count)
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   useEffect(() => {
     if (userId) {
@@ -74,6 +85,7 @@ function Home() {
       ChartAverage();
       ChartUserLetter();
       GetCard();
+      GetLetterCount();
     }
   }, [userId]);
 
@@ -84,7 +96,7 @@ function Home() {
     >
       <Header />
       <div className={styles["cardContainer"]}>
-        <LetterCount />
+        <LetterCount LetterCount={count}/>
         <WelcomeMent nickname={nickname}/>
         <CardList cardImg={cardImg}/>
       </div>
