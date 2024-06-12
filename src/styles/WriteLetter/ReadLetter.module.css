@@ -42,7 +42,7 @@
 .letterContent {
   box-sizing: border-box;
   z-index: 9999;
-  padding: 30px;
+  position: relative;
 }
 .letterReply {
   box-sizing: border-box;
@@ -59,6 +59,19 @@
 }
 .letterContentText {
   max-height: 35vh;
+  width: 85%;
   display: flex;
   flex-wrap: wrap;
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  overflow: scroll;
+  margin: auto;
+}
+.letterBottom {
+  position: relative;
+  width: 100%;
+  display: flex;
+  column-gap: 10px;
+  margin-top: 20px;
 }
