@@ -115,7 +115,9 @@ function Draw() {
             자세히보기
           </button>
         </div>
-        <Button text="이 편지로 할래요!" onClick={handleDrawLetter}/>
+        <div style={{width: "calc(100% - 58px)"}}>
+          <Button text="이 편지로 할래요!" onClick={handleDrawLetter}/>
+        </div>
       </div>
       {isPopupOpen && <Popup onClose={handleClosePopup} category={category}/>}
     </div>
