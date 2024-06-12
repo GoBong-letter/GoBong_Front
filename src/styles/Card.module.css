@@ -108,3 +108,21 @@
     font-size: 2rem;
     color: white;
 }
+
+.letterStyle{
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    width: 67vw;
+    text-wrap: balance;
+    line-height: 40px;
+    height: 50vh;
+    position: absolute;
+    overflow: scroll;
+    row-gap: 2vw;
+    padding-top: 2vw;
+}
+.letterStyle p,
+.letterStyle h2{
+    margin: 0;
+}
