@@ -5,6 +5,7 @@
     background-color: var(--sub-color);
     padding: 4vw;
     row-gap: 2vw;
+    max-width: 70%;
 }
 .comment-box p{
     margin: 0;
