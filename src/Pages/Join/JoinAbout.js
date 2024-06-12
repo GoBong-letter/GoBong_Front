@@ -53,7 +53,7 @@ function JoinAbout() {
 
   const handleJoin = async () => {
 
-    let updatedCategory = removeEmptyArrays(category);
+    let updatedCategory = removeEmptyArrays(myCategory);
     saveData(titleValue, updatedCategory);
 
     console.log(updatedCategory)
