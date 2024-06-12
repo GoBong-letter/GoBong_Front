@@ -15,14 +15,13 @@
 .input-container{
     display: flex;
     width: 100%;
-    justify-content: center;
     column-gap: 4vw;
+    justify-content: center;
     padding-top: 3vw;
     position: fixed;
-    bottom: 5vw;
+    bottom: 0;
     background-color: white;
     height: 22vw;
-    z-index: 9;
 }
 .input-container > div{
     display: flex;

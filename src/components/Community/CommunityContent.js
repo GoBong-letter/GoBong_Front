@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
@@ -11,8 +11,27 @@ import Nav from "../Nav"
 import CommentContainer from "./CommentContainer"
 import CommunityInput from "./CommunityInput";
 import { EffectCreative } from 'swiper/modules';
+import axios from "axios";
 
 function CommunityContent() {
+  const [posts, setPosts] = useState([]);
+
+  const GetContent = async () => {
+    try {
+      const res = await axios.get(`${process.env.REACT_APP_HOST}/community`)
+      if (res.status === 200) {
+        console.log(res.data);
+        setPosts(res.data);
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  useEffect(() => {
+    GetContent()
+  }, []);
+
   return (
     <div className={styles['content']}>
       <Swiper
@@ -32,98 +51,22 @@ function CommunityContent() {
         className="mySwiper"
         id={styles['swiper']}
       >
-        <SwiperSlide>
-          <div className={styles['contentbox']}>
-                <div className={styles['box']}>box</div>
-                <CommunityProfile />
-                <CommunityText title="저를 팔로우한 남자애가 있는데 저를 좋아하면 어떡하죠? ㅠㅠ" text="하 ㅜㅜ 곤란곤란 살짝 투어스 도훈닮았는데;; 저는 솔직히 제 취향이 아니거든요? ㅋㅋ;;; 제 취향은 약간 손아섭? 하 이거 어떡하죠? 진짜 곤란해요 ㅠ 인기녀의 삶이란..? 이런걸까요? 제 고민좀 상담해주세요 ㅜ"/>
-                <div style={{border:"1px solid var(--sub-color", margin:"7% 0%"}}></div>
-                <CommentContainer />
-            </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className={styles['contentbox']}>
-                <div className={styles['box']}>box</div>
-                <CommunityProfile />
-                <CommunityText title="저를 팔로우한 남자애가 있는데 저를 좋아하면 어떡하죠? ㅠㅠ" text="하 ㅜㅜ 곤란곤란 살짝 투어스 도훈닮았는데;; 저는 솔직히 제 취향이 아니거든요? ㅋㅋ;;; 제 취향은 약간 손아섭? 하 이거 어떡하죠? 진짜 곤란해요 ㅠ 인기녀의 삶이란..? 이런걸까요? 제 고민좀 상담해주세요 ㅜ"/>
-                <div style={{border:"1px solid var(--sub-color", margin:"7% 0%"}}></div>
-                <CommentContainer />
-            </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className={styles['contentbox']}>
-                <div className={styles['box']}>box</div>
-                <CommunityProfile />
-                <CommunityText title="저를 팔로우한 남자애가 있는데 저를 좋아하면 어떡하죠? ㅠㅠ" text="하 ㅜㅜ 곤란곤란 살짝 투어스 도훈닮았는데;; 저는 솔직히 제 취향이 아니거든요? ㅋㅋ;;; 제 취향은 약간 손아섭? 하 이거 어떡하죠? 진짜 곤란해요 ㅠ 인기녀의 삶이란..? 이런걸까요? 제 고민좀 상담해주세요 ㅜ"/>
-                <div style={{border:"1px solid var(--sub-color", margin:"7% 0%"}}></div>
-                <CommentContainer />
-            </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className={styles['contentbox']}>
-                <div className={styles['box']}>box</div>
-                <CommunityProfile />
-                <CommunityText title="저를 팔로우한 남자애가 있는데 저를 좋아하면 어떡하죠? ㅠㅠ" text="하 ㅜㅜ 곤란곤란 살짝 투어스 도훈닮았는데;; 저는 솔직히 제 취향이 아니거든요? ㅋㅋ;;; 제 취향은 약간 손아섭? 하 이거 어떡하죠? 진짜 곤란해요 ㅠ 인기녀의 삶이란..? 이런걸까요? 제 고민좀 상담해주세요 ㅜ"/>
-                <div style={{border:"1px solid var(--sub-color", margin:"7% 0%"}}></div>
-                <CommentContainer />
-            </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className={styles['contentbox']}>
-                <div className={styles['box']}>box</div>
-                <CommunityProfile />
-                <CommunityText title="저를 팔로우한 남자애가 있는데 저를 좋아하면 어떡하죠? ㅠㅠ" text="하 ㅜㅜ 곤란곤란 살짝 투어스 도훈닮았는데;; 저는 솔직히 제 취향이 아니거든요? ㅋㅋ;;; 제 취향은 약간 손아섭? 하 이거 어떡하죠? 진짜 곤란해요 ㅠ 인기녀의 삶이란..? 이런걸까요? 제 고민좀 상담해주세요 ㅜ"/>
-                <div style={{border:"1px solid var(--sub-color", margin:"7% 0%"}}></div>
-                <CommentContainer />
-            </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className={styles['contentbox']}>
-                <div className={styles['box']}>box</div>
-                <CommunityProfile />
-                <CommunityText title="저를 팔로우한 남자애가 있는데 저를 좋아하면 어떡하죠? ㅠㅠ" text="하 ㅜㅜ 곤란곤란 살짝 투어스 도훈닮았는데;; 저는 솔직히 제 취향이 아니거든요? ㅋㅋ;;; 제 취향은 약간 손아섭? 하 이거 어떡하죠? 진짜 곤란해요 ㅠ 인기녀의 삶이란..? 이런걸까요? 제 고민좀 상담해주세요 ㅜ"/>
-                <div style={{border:"1px solid var(--sub-color", margin:"7% 0%"}}></div>
-                <CommentContainer />
-            </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className={styles['contentbox']}>
-                <div className={styles['box']}>box</div>
-                <CommunityProfile />
-                <CommunityText title="저를 팔로우한 남자애가 있는데 저를 좋아하면 어떡하죠? ㅠㅠ" text="하 ㅜㅜ 곤란곤란 살짝 투어스 도훈닮았는데;; 저는 솔직히 제 취향이 아니거든요? ㅋㅋ;;; 제 취향은 약간 손아섭? 하 이거 어떡하죠? 진짜 곤란해요 ㅠ 인기녀의 삶이란..? 이런걸까요? 제 고민좀 상담해주세요 ㅜ"/>
-                <div style={{border:"1px solid var(--sub-color", margin:"7% 0%"}}></div>
-                <CommentContainer />
-            </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className={styles['contentbox']}>
-                <div className={styles['box']}>box</div>
-                <CommunityProfile />
-                <CommunityText title="저를 팔로우한 남자애가 있는데 저를 좋아하면 어떡하죠? ㅠㅠ" text="하 ㅜㅜ 곤란곤란 살짝 투어스 도훈닮았는데;; 저는 솔직히 제 취향이 아니거든요? ㅋㅋ;;; 제 취향은 약간 손아섭? 하 이거 어떡하죠? 진짜 곤란해요 ㅠ 인기녀의 삶이란..? 이런걸까요? 제 고민좀 상담해주세요 ㅜ"/>
-                <div style={{border:"1px solid var(--sub-color", margin:"7% 0%"}}></div>
-                <CommentContainer />
-            </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className={styles['contentbox']}>
-                <div className={styles['box']}>box</div>
-                <CommunityProfile />
-                <CommunityText title="저를 팔로우한 남자애가 있는데 저를 좋아하면 어떡하죠? ㅠㅠ" text="하 ㅜㅜ 곤란곤란 살짝 투어스 도훈닮았는데;; 저는 솔직히 제 취향이 아니거든요? ㅋㅋ;;; 제 취향은 약간 손아섭? 하 이거 어떡하죠? 진짜 곤란해요 ㅠ 인기녀의 삶이란..? 이런걸까요? 제 고민좀 상담해주세요 ㅜ"/>
-                <div style={{border:"1px solid var(--sub-color", margin:"7% 0%"}}></div>
-                <CommentContainer />
-            </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className={styles['contentbox']}>
-                <div className={styles['box']}>box</div>
-                <CommunityProfile />
-                <CommunityText title="저를 팔로우한 남자애가 있는데 저를 좋아하면 어떡하죠? ㅠㅠ" text="하 ㅜㅜ 곤란곤란 살짝 투어스 도훈닮았는데;; 저는 솔직히 제 취향이 아니거든요? ㅋㅋ;;; 제 취향은 약간 손아섭? 하 이거 어떡하죠? 진짜 곤란해요 ㅠ 인기녀의 삶이란..? 이런걸까요? 제 고민좀 상담해주세요 ㅜ"/>
-                <div style={{border:"1px solid var(--sub-color", margin:"7% 0%"}}></div>
-                <CommentContainer />
-            </div>
-        </SwiperSlide>
+        {posts.map((post, index) => (
+          <div>
+            <SwiperSlide key={index}>
+                  <div className={styles['contentbox']}>
+                    <div className={styles['box']}>box</div>
+                    <CommunityProfile createdAt={post.createdAt}/>
+                    <CommunityText title={post.title} text={post.content} />
+                    <div style={{border:"1px solid var(--sub-color", margin:"7% 0%"}}></div>
+                    <CommentContainer comment={post.comments}/>
+                  </div>
+              <CommunityInput postId={post.id} refreshComments={GetContent}/>
+            </SwiperSlide>
+
+          </div>
+        ))}
       </Swiper>
-      <CommunityInput />
       <div style={{position:"absolute", bottom:"0", height:"88.5vh", backgroundColor:"white", width:"100vw", color:"white", borderRadius:"30px"}}>ds</div>
       <Nav />
     </div>
