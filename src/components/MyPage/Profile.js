@@ -40,22 +40,6 @@ function Profile({ src, alt, text, onClick, clicked }) {
 
 function ProfileContainer() {
 
-  // const endpoint = '`${}`';
-  // const dataToUpdate = {
-  //   key1: 'updatedValue1',
-  //   key2: 'updatedValue2'
-  // };
-
-  // // PATCH 요청 보내기
-  // axios.patch(endpoint, dataToUpdate)
-  //   .then(response => {
-  //     // 요청이 성공하면 여기에 도착합니다.
-  //     console.log('PATCH 요청 성공:', response.data);
-  //   })
-  //   .catch(error => {
-  //     // 요청이 실패하면 여기에 도착합니다.
-  //     console.error('PATCH 요청 실패:', error);
-  // });
   const { image } = useContext(JoinContext);
   const profiles = [
     { src: '/images/chajo.png', alt: 'chajo', text: '차조밥' },

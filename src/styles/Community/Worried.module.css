@@ -3,7 +3,7 @@
     display: flex;
     flex-direction: column;
     width: 80%;
-    height: 79vh;
+    height: 76vh;
     padding: 2% 8% 8% 12%;
     margin-top: 6vw;
     row-gap: 5vw;
@@ -37,6 +37,7 @@
     row-gap: 5vw;
     height: 79vh;
     overflow: scroll;
+    width: -webkit-fill-available;
 }
 .comment-container{
     display: flex;
@@ -44,4 +45,7 @@
     row-gap: 5vw;
     height: 107vw;
     margin-bottom: 17vw;
+}
+.spacer {
+    padding-top: 10vh;
 }

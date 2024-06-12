@@ -3,7 +3,7 @@ import CardImg from './CardImg';
 import styles from '../../styles/Card.module.css';
 import Card from './Card';
 
-function CardList({ cardImg }) {
+function CardList({ cardImg, nickname }) {
     const [flippedIndex, setFlippedIndex] = useState(null);
 
     const handleCardClick = (index) => {
@@ -31,6 +31,7 @@ function CardList({ cardImg }) {
                 <div style={{ display: 'flex', gap: '22px' }}>
                     {cardImg.map((img, index) => (
                         <CardImg
+                            nickname={nickname}
                             key={index}
                             cardImg={img}
                             isFlipped={flippedIndex === index}

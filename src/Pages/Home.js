@@ -99,7 +99,7 @@ function Home() {
       <div className={styles["cardContainer"]}>
         <LetterCount LetterCount={count}/>
         <WelcomeMent nickname={nickname}/>
-        <CardList cardImg={cardImg}/>
+        <CardList cardImg={cardImg} nickname={nickname}/>
       </div>
       <Button
         icon="lucide:pen-line"
