@@ -20,7 +20,7 @@ function Home() {
   
   const [chartAverage, setChartAverage] = useState(null);
   const [chartUserLetter, setChartUserLetter] = useState(null);
-  const [ cardImg, setCardImg ] = useState(null);
+  const [ cardImg, setCardImg ] = useState([]);
 
   const UserNickName = async () => {
     try {
@@ -61,6 +61,7 @@ function Home() {
     try{
       const res = await axios.get(`${process.env.REACT_APP_HOST}/users/card/${userId}`);
       if (res.status === 200) {
+        console.log(res.data)
         setCardImg(res.data)
       }
     } catch(error) {
