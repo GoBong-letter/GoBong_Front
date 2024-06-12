@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { JoinContext } from "../../pages/Join/JoinProvider";
 import { Icon } from '@iconify/react';
 import axios from 'axios';
@@ -13,7 +13,7 @@ function Profile({ src, alt, text, onClick, clicked }) {
           width: "15vw",
           cursor: 'pointer'
         }}
-        onClick={onClick}
+        onClick={() => onClick({ src, alt, text })}
       />
       {clicked && (
         <div
@@ -38,9 +38,9 @@ function Profile({ src, alt, text, onClick, clicked }) {
   );
 }
 
-function ProfileContainer() {
+function ProfileContainer({onClick}) {
+  const { image, userId, setImage } = useContext(JoinContext);
 
-  const { image } = useContext(JoinContext);
   const profiles = [
     { src: '/images/chajo.png', alt: 'chajo', text: '차조밥' },
     { src: '/images/rice.png', alt: 'rice', text: '쌀밥' },
@@ -53,8 +53,31 @@ function ProfileContainer() {
     return profiles.find(profile => profile.alt === image) || profiles[0];
   });
 
+  useEffect(() => {
+    const changeProfile = async () => {
+      try {
+        const res = await axios.patch(`${process.env.REACT_APP_HOST}/users/image`, {
+          user_id: userId,
+          image: selectedProfile.alt
+        });
+        if (res.status === 200) {
+          console.log("이미지 수정 성공", res.data);
+          setImage(selectedProfile.alt);
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    if (selectedProfile.alt !== image) {
+      changeProfile();
+    }
+  }, [selectedProfile, image, userId, setImage]);
+
   const handleClick = (profile) => {
     setSelectedProfile(profile);
+    console.log("선택한 프로필:", profile.alt);
+    onClick(profile);
   };
 
   return (

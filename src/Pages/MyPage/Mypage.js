@@ -1,16 +1,16 @@
-import React, { useContext, useEffect, useState } from "react";
-import {JoinContext} from "../Join/JoinProvider";
+import React, { useContext } from "react";
+import { JoinContext } from "../Join/JoinProvider";
 import Nav from "../../components/Nav";
 import { useNavigate } from "react-router-dom";
 import { Icon } from "@iconify/react";
 import Category from "../../components/LetterDraw/Category";
 import styles from "../../styles/MyPage.module.css";
-import axios from 'axios';
 
 export default function MyPage() {
   const { nickname, image, category } = useContext(JoinContext);
   const navigate = useNavigate();
-  // const [category, setCategory] = useState([]);
+
+  console.log("원래 카테고리",category)
 
   const handleGuide = () => {
     navigate("/guideline");
@@ -22,7 +22,10 @@ export default function MyPage() {
     navigate("/setting");
   };
 
-  console.log(category)
+  const handleLogout = () => {
+    navigate("/login");
+  };
+
   return (
     <div
       style={{
@@ -35,7 +38,7 @@ export default function MyPage() {
       }}
     >
       <div className={styles["profile"]}>
-        <img src={`/images/${image}.png`} className={styles["profile-img"]} />
+        <img src={`/images/${image}.png`} className={styles["profile-img"]} alt="profile" />
         <div>
           <p className={styles["name"]}>{nickname}님</p>
           <Icon
@@ -44,7 +47,7 @@ export default function MyPage() {
             onClick={handleSetting}
           />
         </div>
-        <Category category={category}/>
+        <Category category={category} />
       </div>
       <div
         style={{
@@ -69,7 +72,7 @@ export default function MyPage() {
           <Icon icon="formkit:right" />
         </div>
       </div>
-      <button className={styles["logout"]}>로그아웃</button>
+      <button className={styles["logout"]} onClick={handleLogout}>로그아웃</button>
       <Nav />
     </div>
   );

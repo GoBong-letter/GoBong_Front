@@ -7,8 +7,8 @@ import { ReceiveLetterContext } from "./ReceiveLetterProvider";
 import axios from "axios";
 
 export default function ReceiveLetter() {
-  const [data, setData] = useState(null); // 초기값을 null로 설정
-  const [loading, setLoading] = useState(true); // 로딩 상태 추가
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
   const { letterId } = useContext(ReceiveLetterContext);
 
   const navigate = useNavigate()
@@ -24,23 +24,23 @@ export default function ReceiveLetter() {
       } catch (error) {
         console.error(error);
       } finally {
-        setLoading(false); // 로딩 상태 갱신
+        setLoading(false);
       }
     };
 
     if (letterId) {
       fetchCategory();
     } else {
-      setLoading(false); // letterId가 없을 때도 로딩 상태 갱신
+      setLoading(false);
     }
   }, [letterId]);
 
   if (loading) {
-    return <div>Loading...</div>; // 로딩 중일 때 표시
+    return <div>Loading...</div>;
   }
 
   if (!data) {
-    return <div>No letter data found.</div>; // 데이터가 없을 때 표시
+    return <div>편지를 불러올 수 없어요</div>;
   }
 
   const handleNext = ()=>{
