@@ -35,19 +35,24 @@ function CardImg({ cardImg }) {
 
     return (
         <>
-            {filteredImages.map((image, index) => (
-                <div key={index} className={`${styles.card} ${isFlipped ? styles.flipped : ''}`} onClick={handleCardClick}>
-                    <div className={styles["card-inner"]}>
-                        <img src={image.src} alt={image.alt} className={styles["card-front"]} />
-                        <div className={styles["card-back"]}>
-                            <div>{image.text} 획득!</div>
+            {cardImg ? (
+                filteredImages.map((image, index) => (
+                    <div key={index} className={`${styles.card} ${isFlipped ? styles.flipped : ''}`} onClick={handleCardClick}>
+                        <div className={styles["card-inner"]}>
+                            <img src={image.src} alt={image.alt} className={styles["card-front"]} />
+                            <div className={styles["card-back"]}>
+                                <div>{image.text} 획득!</div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            ))}
+                ))
+            ) : (
+                []
+            )}
             {isPopupVisible && <Popup isVisible={true} onClose={handleClosePopup} />}
         </>
     );
+    
 }
 
 export default CardImg;

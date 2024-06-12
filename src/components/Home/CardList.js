@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import CardImg from './CardImg';
+import styles from '../../styles/Card.module.css';
 import Card from './Card';
-import styles from '../../styles/Card.module.css'
 
 function CardList({ cardImg }) {
     const [flippedIndex, setFlippedIndex] = useState(null);
-
-    console.log(cardImg)
 
     const handleCardClick = (index) => {
         setFlippedIndex(index === flippedIndex ? null : index);
@@ -25,39 +23,30 @@ function CardList({ cardImg }) {
         };
     }, []);
 
-    const cards = [1];
+    const renderedCardImgs = cardImg ? (
+        cardImg.map((img, index) => (
+            <CardImg
+                key={index}
+                cardImg={img}
+                isFlipped={flippedIndex === index}
+                onClick={(event) => {
+                    event.stopPropagation();
+                    handleCardClick(index);
+                }}
+            />
+        ))
+    ) : [];
 
-
-    
-
-    if (!cardImg) {
-        return null;
-    }
-
-    return cardImg ? (
-    <div className={styles['cardScroll']}>
-        <div className={styles['scrollContainer']}>
-            <div style={{ display: 'flex', gap: '22px' }}>
-                {cards.map((_, index) => (
-                    <CardImg
-                        key={index}
-                        cardImg={cardImg}
-                        isFlipped={flippedIndex === index}
-                        onClick={(event) => {
-                            event.stopPropagation();
-                            handleCardClick(index);
-                        }}
-                    />
-                ))}
-                <div className={styles['cardStyle']}>
-                    <img src='/images/dashed.png' style={{position:"relative"}}/>
-                    <p style={{position:"absolute"}}>고봉이의 편지까지<br />: 1개 남음</p>
+    return (
+        <div className={styles['cardScroll']}>
+            <div className={styles['scrollContainer']} style={{ padding: cardImg ? '' : '11px' }}>
+                <div style={{ display: 'flex', gap: '22px' }}>
+                    {renderedCardImgs}
                 </div>
+                <Card/>
             </div>
         </div>
-    </div>
-) : null;
-
+    );
 }
 
 export default CardList;
