@@ -3,7 +3,7 @@ import CardImg from './CardImg';
 import styles from '../../styles/Card.module.css';
 import Card from './Card';
 
-function CardList({ cardImg, nickname }) {
+function CardList({ cardImg , nickname, cardCnt }) {
     const [flippedIndex, setFlippedIndex] = useState(null);
 
     const handleCardClick = (index) => {
@@ -42,7 +42,7 @@ function CardList({ cardImg, nickname }) {
                         />
                     ))}
                 </div>
-                <Card/>
+                <Card cardCnt={cardCnt}/>
             </div>
         </div>
     );
