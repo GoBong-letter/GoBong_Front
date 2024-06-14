@@ -1,8 +1,12 @@
 .writeLetterContainer {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   height: 100%;
+}
+.writeLetterContainer div{
+  justify-content: center;
 }
 .SendLetterButton {
   background-color: var(--main-color);

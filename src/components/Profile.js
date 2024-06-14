@@ -41,7 +41,7 @@ function ProfileContainer({ onSelect }) {
 
   const handleClick = (index) => {
     setClickedIndex(index === clickedIndex ? null : index);
-    onSelect(index === clickedIndex ? null : profiles[index].alt); // 선택된 프로필 인덱스 전달
+    onSelect(index === clickedIndex ? null : profiles[index].alt);
   };
 
   const profiles = [
