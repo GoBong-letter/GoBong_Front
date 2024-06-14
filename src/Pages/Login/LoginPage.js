@@ -1,7 +1,6 @@
-
 import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from 'axios';
+import axios from "axios";
 import Button from "../../components/Button";
 import Logo from "../../components/Logo";
 import styles from "../../styles/Login/Login.module.css";
@@ -27,15 +26,19 @@ function LoginPage() {
 
   const handleLogin = async () => {
     try {
-      const response = await axios.post(`${process.env.REACT_APP_HOST}/users/login`, {
-        email: email,
-        password: password
-      });
+      const response = await axios.post(
+        `${process.env.REACT_APP_HOST}/users/login`,
+        {
+          email: email,
+          password: password,
+        }
+      );
 
       if (response.status === 200) {
         console.log(response.data);
         setUserId(response.data.id);
         console.log(response.data.id);
+        localStorage.setItem("id", response.data.id);
         navigate("/home");
       }
     } catch (error) {
@@ -73,7 +76,11 @@ function LoginPage() {
         </div>
       </div>
 
-      <Button text="로그인" onClick={handleLogin} disabled={!areInputsValid()} />
+      <Button
+        text="로그인"
+        onClick={handleLogin}
+        disabled={!areInputsValid()}
+      />
     </div>
   );
 }

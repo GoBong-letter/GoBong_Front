@@ -5,14 +5,14 @@ import { useSearchLetter } from "../../hooks/queries/useSearch";
 
 export function LetterInput({ setLetterList, active, setActive }) {
   const [inputValue, setValue] = useState("");
-  console.log(inputValue);
-  const { data, refetch } = useSearchLetter(inputValue);
+  // console.log(inputValue);
+  const { data: searchLetterList, refetch } = useSearchLetter(inputValue);
 
   useEffect(() => {
-    if (!active && !!data) {
-      setLetterList(data);
+    if (!active && !!searchLetterList) {
+      setLetterList(searchLetterList);
     }
-  }, [data, active]);
+  }, [searchLetterList, active]);
 
   const handleSearchResult = (e) => {
     if (e.key === "Enter") {

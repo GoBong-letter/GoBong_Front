@@ -5,7 +5,7 @@ import { getLettersUser } from "../../services/queries/letters";
 import { JoinContext } from "../../pages/Join/JoinProvider";
 export function useSearchLetter(keyword) {
   const { userId } = useContext(JoinContext);
-  console.log("keyword", keyword);
+  // console.log("keyword", keyword);
 
   const fetcher = async () => {
     if (keyword) {

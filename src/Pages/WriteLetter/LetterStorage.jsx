@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Sliders } from "react-bootstrap-icons";
 import { Filter } from "../../components/WriteLetter/Filter";
 import { useFilteredLetter } from "../../hooks/queries/useFilteredLetter";
@@ -8,6 +8,7 @@ import { BottomSheet } from "../../components/BottomSheet";
 import { LetterItem } from "../../components/WriteLetter/LetterItem";
 import { ReadLetter } from "../../components/WriteLetter/ReadLetter";
 import { LetterInput } from "../../components/WriteLetter/LetterInput";
+import { JoinContext } from "../Join/JoinProvider";
 
 function LetterStorage() {
   const [isOpen, setOpen] = useState(false);
@@ -16,7 +17,7 @@ function LetterStorage() {
   const [showLetter, setShowLetter] = useState(null);
   const [letterList, setLetterList] = useState([]);
   const fillteredLetter = useFilteredLetter(selectTag);
-  // console.log(fillteredLetter);
+  console.log("sdfsdf");
   const handleOpen = () => {
     setOpen((prev) => !prev);
   };
@@ -24,12 +25,9 @@ function LetterStorage() {
     if (showLetter === null) setShowLetter(item);
     else setShowLetter(null);
   };
-  useEffect(() => {
-    setLetterList(fillteredLetter);
-  }, []);
 
   useEffect(() => {
-    if (active && !!fillteredLetter) {
+    if (active) {
       setLetterList(fillteredLetter);
     }
   }, [fillteredLetter, active]);

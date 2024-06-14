@@ -12,12 +12,13 @@ export function ReadLetter({ item, handleShowLetter, showLetter }) {
   const { mutate: replyMutate } = useMutation({
     mutationFn: postLettersReply,
     onSuccess: () => console.log("답장 보내기 성공"),
-    onError: (error) => console.log("답장 보내기 실패", error.status),
+    onError: (error) => console.log("답장 보내기 실패", error),
   });
   console.log(item.LetterReply);
+  console.log(item.envelope);
 
   useEffect(() => {
-    console.log(reply);
+    // console.log(reply);
     // 내가 받은 편지
     if (!item.send) {
       // 아직 답장하지 않은 경우
@@ -77,12 +78,17 @@ export function ReadLetter({ item, handleShowLetter, showLetter }) {
             <BiX style={{ color: "white", fontSize: 25 }} />
           </div>
         </div>
-        <div
-          className={styles["letterContent"]}
-          style={{
-            backgroundImage: `url(${process.env.PUBLIC_URL}/images/${item.envelope}.svg)`,
-          }}
-        >
+        <div className={styles["letterContent"]}>
+          <img
+            src={`${process.env.PUBLIC_URL}/images/${item.envelope}.svg`}
+            style={{
+              width: "83.6vw",
+              zIndex: -1000,
+              objectFit: "cover",
+              position: "absolute",
+            }}
+            alt=""
+          />
           <div className={styles["letterContentText"]}>{item.content}</div>
         </div>
         <div className={styles["letterBottom"]}>{reply}</div>

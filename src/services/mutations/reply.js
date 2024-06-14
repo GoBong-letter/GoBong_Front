@@ -1,16 +1,14 @@
 import { instnace } from "../../utils/axios";
 
-/**
- * @param {string} letterId
- * @param {string} replyText
- */
-export async function postLettersReply(letterId, replyText) {
+export async function postLettersReply(req) {
+  // console.log(letterId type String, replyText typeof String)
   //TODO: USER API 연동되면 수정
   const userId = localStorage.getItem("id");
-
-  return await instnace.post("/letters/reply", {
+  console.log(req);
+  req = {
+    ...req,
     user_id: userId,
-    letter_id: letterId,
-    content: replyText,
-  });
+  };
+  console.log("dfadf", req);
+  return await instnace.post("/letters/reply", req);
 }

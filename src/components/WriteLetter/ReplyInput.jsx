@@ -14,7 +14,14 @@ export function ReplyInput({ item, replyMutate }) {
         />
       </ReplyText>
       <SendBtn
-        onClick={() => replyMutate(item.LetterReply.letter_id, replyText)}
+        onClick={() => {
+          console.log("dfdf", replyText);
+          replyMutate({
+            letter_id: item.LetterReply.letter_id,
+            content: replyText,
+          });
+          setReplyText("");
+        }}
       >
         <Icon
           icon="prime:send"
