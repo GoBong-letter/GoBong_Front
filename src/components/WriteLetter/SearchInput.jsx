@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export function SearchInput({}) {
+export function SearchInput() {
   return (
     <LetterInput>
       <Input />
