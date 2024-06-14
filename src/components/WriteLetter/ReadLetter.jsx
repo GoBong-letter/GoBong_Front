@@ -17,6 +17,14 @@ export function ReadLetter({ item, handleShowLetter, showLetter }) {
   console.log(item.LetterReply);
   console.log(item.envelope);
 
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    const year = date.getFullYear();
+    const month = (date.getMonth() + 1).toString().padStart(2, '0');
+    const day = date.getDate().toString().padStart(2, '0');
+    return `${year}.${month}.${day}`;
+  };
+
   useEffect(() => {
     // console.log(reply);
     // 내가 받은 편지
@@ -52,11 +60,11 @@ export function ReadLetter({ item, handleShowLetter, showLetter }) {
     <div className={styles["ReadLetterContainer"]}>
       <div className={styles["letterDiv"]}>
         <div className={styles["letterHeader"]}>
-          <div>
+          <div style={{display:"flex", alignItems:"end", columnGap:"2.3vw"}}>
             <span
               style={{
                 color: "white",
-                fontSize: 20,
+                fontSize: 22,
                 fontWeight: 600,
                 marginLeft: "3.5vw",
               }}
@@ -66,12 +74,12 @@ export function ReadLetter({ item, handleShowLetter, showLetter }) {
             <span
               style={{
                 color: "white",
-                fontSize: 12,
+                fontSize: 14,
+                marginBottom:"2px",
                 fontWeight: 400,
-                marginLeft: "7.5vw",
               }}
             >
-              {item.createdAt.slice(0, 10)}
+              {formatDate(item.createdAt)}
             </span>
           </div>
           <div onClick={handleShowLetter}>

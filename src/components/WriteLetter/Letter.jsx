@@ -28,8 +28,8 @@ const LetterDiv = styled.div`
 `;
 const Textarea = styled.textarea`
   box-sizing: border-box;
-  width: 100%;
-  height: 100%;
+  width: 92%;
+  height: 95%;
   background-color: transparent;
   border: none;
   outline: none;

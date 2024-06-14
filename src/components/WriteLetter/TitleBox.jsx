@@ -23,6 +23,7 @@ const TitleBoxH1 = styled.h1`
   font-size: 24px;
   font-weight: 800;
   margin-top: 4.6vh;
+  margin-bottom: 10px;
 `;
 const TitleBoxSpan = styled.span`
   color: var(--primary-color);

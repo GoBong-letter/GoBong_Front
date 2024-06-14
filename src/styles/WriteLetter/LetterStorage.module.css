@@ -19,9 +19,9 @@
   width: 88vw;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(3, 1fr);
+  grid-template-rows: repeat(4, 1fr);
   justify-items: center;
-  column-gap: 6vw;
+  column-gap: 2.5vw;
   row-gap: 3.5vh;
   margin-top: 39px;
   margin-bottom: 60px;
@@ -32,11 +32,16 @@
 }
 .searchLetterDiv {
   box-sizing: border-box;
-  width: 100%;
+  width: fit-content;
+  margin: 0 auto;
   padding-top: 6vh;
   display: flex;
   align-items: end;
   column-gap: 14px;
+}
+.searchLetterDiv div:first-child{
+  margin: 0;
+  width: 70vw;
 }
 .fillterButton {
   box-sizing: border-box;
@@ -46,6 +51,7 @@
   border-radius: 15px;
   border: none;
 }
+
 .SortBtnContainer {
   box-sizing: border-box;
   width: 89vw;
