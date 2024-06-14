@@ -4,13 +4,14 @@
     width: fit-content;
     background-color: var(--sub-color);
     padding: 4vw;
-    row-gap: 2vw;
+    row-gap: 1vw;
     max-width: 70%;
 }
 .comment-box p{
     margin: 0;
+    line-height: 21px;
 }
 .comment-box p:first-child{
-    font-weight: bold;
+    font-weight: 600;
     color: #B6B8C0;
 }
