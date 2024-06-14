@@ -73,7 +73,10 @@ export default function Setting({ category }) {
   };
 
   const handleNicknameChange = (e) => {
-    setNickname(e.target.value);
+    const newNickname = e.target.value;
+    if (newNickname.length <= 5) {
+      setNickname(newNickname);
+    }
   };
 
   const handleSave = () => {

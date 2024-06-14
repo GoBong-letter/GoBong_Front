@@ -7,7 +7,7 @@ function GoHome() {
     const navigate = useNavigate();
 
     const handleNext = () => {
-        navigate('/Home');
+        navigate('/home');
     };
     return (
         <div>

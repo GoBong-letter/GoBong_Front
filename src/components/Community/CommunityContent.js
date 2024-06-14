@@ -56,7 +56,7 @@ function CommunityContent() {
           <SwiperSlide key={index}>
             <div className={styles['contentbox']}>
               <div className={styles['box']}>box</div>
-              <CommunityProfile createdAt={post.createdAt} />
+              <CommunityProfile createdAt={post.createdAt} profile={post.User.image} nickname={post.User.nickname} />
               <CommunityText title={post.title} text={post.content} />
               <div style={{border:"1px solid var(--sub-color)", margin:"7% 0%"}}></div>
               <CommentContainer comment={post.comments} />

@@ -11,11 +11,12 @@
 }
 .input-style,
 .textarea-style{
-    width: 76%;
+    width: 78%;
     border-radius: 10px;
-    padding: 0 5%;
+    padding: 0 4%;
     outline: none;
     border: 0;
+    line-height: 21px;
     background-color: #F6F7FB;
 }
 .input-style::placeholder,
@@ -27,6 +28,6 @@
 }
 .textarea-style{
     height: 110vw;
-    padding: 5%;
+    padding: 4%;
     resize: none;
 }
