@@ -20,8 +20,11 @@ function Home() {
 
   const [chartAverage, setChartAverage] = useState(null);
   const [chartUserLetter, setChartUserLetter] = useState(null);
+  const [chartComparison, setChartComparison] = useState(null);
   const [cardImg, setCardImg] = useState([]);
-  const [displayedImages, setDisplayedImages] = useState([]); // 표시된 이미지를 추적하는 상태 추가
+  const [cardCnt, setCardCnt] = useState([]);
+  const [newCard, setNewCard] = useState([]);
+  const [displayedImages, setDisplayedImages] = useState([]);
   const [showPopup, setShowPopup] = useState(false);
 
   const UserNickName = async () => {
@@ -41,6 +44,7 @@ function Home() {
       const res = await axios.get(`${process.env.REACT_APP_HOST}/letters/average-per-week/all`);
       if (res.status === 200) {
         setChartAverage(res.data);
+        console.log("평균",res.data)
       }
     } catch (error) {
       console.error(error);
@@ -57,13 +61,27 @@ function Home() {
       console.error(error);
     }
   };
+  
+  const ChartComparison = async () => {
+    try {
+      const res = await axios.get(`${process.env.REACT_APP_HOST}/letters/comparison/${userId}`);
+      if (res.status === 200) {
+        setChartComparison(res.data);
+        console.log("비교",res.data)
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  }
 
   const GetCard = async () => {
     try {
       const res = await axios.get(`${process.env.REACT_APP_HOST}/users/card/${userId}`);
       if (res.status === 200) {
         console.log(res.data);
-        setCardImg(res.data);
+        setCardImg(res.data.myCards);
+        setCardCnt(res.data.needCard)
+        setNewCard(res.data.newCard);
       }
     } catch (error) {
       console.error(error);
@@ -88,19 +106,16 @@ function Home() {
       ChartUserLetter();
       GetCard();
       GetLetterCount();
+      ChartComparison();
     }
   }, [userId]);
 
   useEffect(() => {
-    if (cardImg.length > 0) {
-      const newImages = cardImg.filter(img => !displayedImages.includes(img));
-      if (newImages.length > 0 && !localStorage.getItem("popupShown")) {
-        setShowPopup(true);
-        setDisplayedImages([...displayedImages, ...newImages]);
-        localStorage.setItem("popupShown", "true");
-      }
+    if (newCard && newCard.length > 0) {
+      setShowPopup(true);
     }
-  }, [cardImg, displayedImages]);
+  }, [newCard]);
+
 
   return (
     <div
@@ -111,7 +126,7 @@ function Home() {
       <div className={styles["cardContainer"]}>
         <LetterCount LetterCount={count} />
         <WelcomeMent nickname={nickname} />
-        <CardList cardImg={cardImg} nickname={nickname} />
+        <CardList cardImg={cardImg} cardCnt={cardCnt} nickname={nickname} />
       </div>
       <div style={{width: "calc(100% - 58px)"}}>
         <Button
@@ -121,7 +136,7 @@ function Home() {
         />
       </div>
       <GobongMent />
-      <Chart nickname={nickname} chartAverage={chartAverage} chartUserLetter={chartUserLetter} />
+      <Chart nickname={nickname} chartAverage={chartAverage} chartUserLetter={chartUserLetter} chartComparison={chartComparison}/>
       <Nav />
       {showPopup && <GetCardPopup onClose={() => setShowPopup(false)} cardImg={cardImg} />}
     </div>

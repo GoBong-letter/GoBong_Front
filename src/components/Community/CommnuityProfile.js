@@ -2,7 +2,9 @@ import React from "react";
 import styles from "../../styles/Community/CommunityProfile.module.css";
 
 function CommunityProfile(props) {
-    const { createdAt, nickname, img } = props;
+    const { createdAt, nickname, profile } = props;
+
+    console.log(profile, nickname)
 
     const formatDate = (dateString) => {
         const date = new Date(dateString);
@@ -14,7 +16,7 @@ function CommunityProfile(props) {
 
     return (
         <div className={styles['profile-container']}>
-            <img src={"/images/chajo.png"} alt="profile" className={styles['profile-img']} />
+            <img src={`/images/${profile}.png`} alt="profile" className={styles['profile-img']} />
             <div>
                 <p className={styles['user-name']}>{nickname || '서혀니 바봉'}</p>
                 <p className={styles["date"]}>{formatDate(createdAt)}</p>
