@@ -93,7 +93,7 @@ function JoinAbout() {
         }}
       >
         <Num />
-        <Info text1="해원님을 나타낼" />
+        <Info text1={`${nickname}님을 나타낼`} />
         <Info
           text1="카테고리를 선택해주세요!"
           text2="나의 편지를 보낼 때 나를 알려줄거예요!"
