@@ -80,8 +80,6 @@
 }
 .letterBottom div:first-child{
   margin-top: 0;
-  padding: 2.5vh 2vh;
-  height: auto;
   row-gap: 2vw;
 }
 .letterBottom div div{

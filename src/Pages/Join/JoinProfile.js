@@ -8,9 +8,11 @@ import styles from "../../styles/Join/Join.module.css";
 import { JoinContext } from "./JoinProvider";
 
 function JoinProfile() {
-  const { UserProfile } = useContext(JoinContext);
+  const { UserProfile, setNickname, nickname } = useContext(JoinContext);
   const navigate = useNavigate();
   const [selectedProfile, setSelectedProfile] = useState(null);
+
+  console.log(nickname)
 
   const buttonStyle = {
     position: "absolute",
@@ -44,7 +46,7 @@ function JoinProfile() {
       >
         <Num />
         <Info
-          text1="해원님의 프로필을 골라보세요!"
+          text1={`${nickname}님의 프로필을 골라보세요!`}
           text2="커뮤니티에 보여질 프로필이에요!"
         />
         <div

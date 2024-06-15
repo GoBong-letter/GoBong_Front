@@ -1,7 +1,10 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import { JoinContext } from '../../pages/Join/JoinProvider';
 
 function Info(props) {
   const { text1, text2, color1, color2, fontSize1, fontSize2 } = props;
+
+  const { UserInfo } = useContext(JoinContext);
 
   const textStyle1 = {
     color: color1 || 'black',

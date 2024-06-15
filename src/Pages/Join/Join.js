@@ -27,6 +27,8 @@ function Join() {
     if (areInputsValid()) {
       console.log("회원 정보:", { nickname, password, email });
       UserInfo(nickname, password, email);
+      setNickname(nickname)
+      console.log(nickname)
       navigate("/joinProfile");
     } else {
       setShowWarning(true);

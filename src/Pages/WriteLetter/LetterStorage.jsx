@@ -25,7 +25,7 @@ function LetterStorage() {
     if (showLetter === null) setShowLetter(item);
     else setShowLetter(null);
   };
-
+  
   useEffect(() => {
     if (active) {
       setLetterList(fillteredLetter);
