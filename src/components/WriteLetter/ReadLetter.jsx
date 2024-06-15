@@ -67,6 +67,10 @@ export function ReadLetter({ item, handleShowLetter, showLetter }) {
                 fontSize: 22,
                 fontWeight: 600,
                 marginLeft: "3.5vw",
+                maxWidth:"40vw",
+                textOverflow:"ellipsis",
+                whiteSpace:"nowrap",
+                overflow:"hidden"
               }}
             >
               {item.title}
