@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import SelectList from "../../components/Community/SelectList";
-import CommunityContent from "../../components/Community/CommunityContent";
-import CommunityWrite from "../../components/Community/CommunityWrite";
-import CommunityMyWorried from "../../components/Community/CommunityMyWorried";
-import MyWorried from "../../components/Community/MyWorried";
+import SelectList from "../../components/community/SelectList";
+import CommunityContent from "../../components/community/CommunityContent";
+import CommunityWrite from "../../components/community/CommunityWrite";
+import CommunityMyWorried from "../../components/community/CommunityMyWorried";
+import MyWorried from "../../components/community/MyWorried";
 
 function Community() {
   const [selectedItem, setSelectedItem] = useState("고민보기");
@@ -28,7 +28,9 @@ function Community() {
     <div style={{ height: "100vh", overflow: "hidden" }}>
       <SelectList onSelectItem={handleSelectItem} />
       {selectedItem === "고민보기" && <CommunityContent />}
-      {selectedItem === "고민쓰기" && <CommunityWrite onUpload={handleUpload} />}
+      {selectedItem === "고민쓰기" && (
+        <CommunityWrite onUpload={handleUpload} />
+      )}
       {selectedItem === "내고민" &&
         (showMyWorriedDetail ? (
           <MyWorried />

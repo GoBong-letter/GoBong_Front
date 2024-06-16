@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import data from "../../components/WriteLetter/typelist.json";
+import data from "./typelist.json";
 
 export function Category({ handleOpen }) {
   return (

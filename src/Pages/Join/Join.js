@@ -1,10 +1,10 @@
 import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Button from "../../components/Button";
-import styles from "../../styles/Join/Join.module.css";
-import Num from "../../components/Join/Num";
-import Info from "../../components/Join/Info";
-import Input from "../../components/Join/Input";
+import styles from "../../styles/join/Join.module.css";
+import Num from "../../components/join/Num";
+import Info from "../../components/join/Info";
+import Input from "../../components/join/Input";
 import { JoinContext } from "./JoinProvider";
 
 function Join() {
@@ -27,8 +27,8 @@ function Join() {
     if (areInputsValid()) {
       console.log("회원 정보:", { nickname, password, email });
       UserInfo(nickname, password, email);
-      setNickname(nickname)
-      console.log(nickname)
+      setNickname(nickname);
+      console.log(nickname);
       navigate("/joinProfile");
     } else {
       setShowWarning(true);
