@@ -4,15 +4,12 @@ import { getSearchLetter } from "../../services/queries/searchLetter";
 import { getLettersUser } from "../../services/queries/letters";
 import { JoinContext } from "../../pages/Join/JoinProvider";
 export function useSearchLetter(keyword) {
-  const { userId } = useContext(JoinContext);
-  // console.log("keyword", keyword);
-
   const fetcher = async () => {
     if (keyword) {
-      const result = await getSearchLetter(userId, keyword);
+      const result = await getSearchLetter(keyword);
       return result ? result : [];
     } else {
-      const result = await getLettersUser(userId);
+      const result = await getLettersUser();
       return result ? result : [];
     }
   };

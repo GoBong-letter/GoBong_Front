@@ -54,8 +54,19 @@ function WriteLetterBasic() {
 
   //TODO: 카테고리 useContext 로 가져오기
   const handleCheckBox = () => {
+    if (!isChecked) {
+      setMyCategory(category);
+    } else {
+      setMyCategory({
+        외모: [],
+        성격: [],
+        MBTI: [],
+        취미: [],
+        색: [],
+        기타: [],
+      });
+    }
     setChecked((prev) => !prev);
-    setMyCategory(category);
   };
 
   return (
@@ -71,9 +82,10 @@ function WriteLetterBasic() {
         <div className={styles["info-box"]}>
           <input
             className={styles["letter-name"]}
-            placeholder="편지 이름을 작성해주세요"
+            placeholder="편지 제목을 작성해주세요"
             value={titleValue}
             onChange={(e) => setTitleValue(e.target.value)}
+            maxLength={10}
           />
 
           <div className={styles["status-check-div"]}>

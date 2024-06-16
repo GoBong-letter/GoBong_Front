@@ -10,8 +10,6 @@ export default function MyPage() {
   const { nickname, image, category } = useContext(JoinContext);
   const navigate = useNavigate();
 
-  console.log("원래 카테고리",category)
-
   const handleGuide = () => {
     navigate("/guideline");
   };
@@ -38,7 +36,11 @@ export default function MyPage() {
       }}
     >
       <div className={styles["profile"]}>
-        <img src={`/images/${image}.png`} className={styles["profile-img"]} alt="profile" />
+        <img
+          src={`/images/${image}.png`}
+          className={styles["profile-img"]}
+          alt="profile"
+        />
         <div>
           <p className={styles["name"]}>{nickname}님</p>
           <Icon
@@ -72,7 +74,9 @@ export default function MyPage() {
           <Icon icon="formkit:right" />
         </div>
       </div>
-      <button className={styles["logout"]} onClick={handleLogout}>로그아웃</button>
+      <button className={styles["logout"]} onClick={handleLogout}>
+        로그아웃
+      </button>
       <Nav />
     </div>
   );

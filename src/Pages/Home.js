@@ -29,10 +29,13 @@ function Home() {
 
   const UserNickName = async () => {
     try {
-      const res = await axios.get(`${process.env.REACT_APP_HOST}/users/${userId}`);
+      const res = await axios.get(
+        `${process.env.REACT_APP_HOST}/users/${userId}`
+      );
       if (res.status === 200) {
         const { nickname, image, category } = res.data;
         GetUserInfo(nickname, image, category);
+        console.log(category);
       }
     } catch (error) {
       console.error(error);
@@ -41,10 +44,12 @@ function Home() {
 
   const ChartAverage = async () => {
     try {
-      const res = await axios.get(`${process.env.REACT_APP_HOST}/letters/average-per-week/all`);
+      const res = await axios.get(
+        `${process.env.REACT_APP_HOST}/letters/average-per-week/all`
+      );
       if (res.status === 200) {
         setChartAverage(res.data);
-        console.log("평균",res.data)
+        console.log("평균", res.data);
       }
     } catch (error) {
       console.error(error);
@@ -53,7 +58,9 @@ function Home() {
 
   const ChartUserLetter = async () => {
     try {
-      const res = await axios.get(`${process.env.REACT_APP_HOST}/letters/this-week/${userId}`);
+      const res = await axios.get(
+        `${process.env.REACT_APP_HOST}/letters/this-week/${userId}`
+      );
       if (res.status === 200) {
         setChartUserLetter(res.data);
       }
@@ -61,26 +68,30 @@ function Home() {
       console.error(error);
     }
   };
-  
+
   const ChartComparison = async () => {
     try {
-      const res = await axios.get(`${process.env.REACT_APP_HOST}/letters/comparison/${userId}`);
+      const res = await axios.get(
+        `${process.env.REACT_APP_HOST}/letters/comparison/${userId}`
+      );
       if (res.status === 200) {
         setChartComparison(res.data);
-        console.log("비교",res.data)
+        console.log("비교", res.data);
       }
     } catch (error) {
       console.error(error);
     }
-  }
+  };
 
   const GetCard = async () => {
     try {
-      const res = await axios.get(`${process.env.REACT_APP_HOST}/users/card/${userId}`);
+      const res = await axios.get(
+        `${process.env.REACT_APP_HOST}/users/card/${userId}`
+      );
       if (res.status === 200) {
         console.log(res.data);
         setCardImg(res.data.myCards);
-        setCardCnt(res.data.needCard)
+        setCardCnt(res.data.needCard);
         setNewCard(res.data.newCard);
       }
     } catch (error) {
@@ -90,7 +101,9 @@ function Home() {
 
   const GetLetterCount = async () => {
     try {
-      const res = await axios.get(`${process.env.REACT_APP_HOST}/letters/count/all`);
+      const res = await axios.get(
+        `${process.env.REACT_APP_HOST}/letters/count/all`
+      );
       if (res.status === 200) {
         getCount(res.data.count);
       }
@@ -116,7 +129,6 @@ function Home() {
     }
   }, [newCard]);
 
-
   return (
     <div
       className={styles["container"]}
@@ -128,7 +140,7 @@ function Home() {
         <WelcomeMent nickname={nickname} />
         <CardList cardImg={cardImg} cardCnt={cardCnt} nickname={nickname} />
       </div>
-      <div style={{width: "calc(100% - 58px)"}}>
+      <div style={{ width: "calc(100% - 58px)" }}>
         <Button
           icon="lucide:pen-line"
           text="편지쓰러가기"
@@ -136,9 +148,16 @@ function Home() {
         />
       </div>
       <GobongMent />
-      <Chart nickname={nickname} chartAverage={chartAverage} chartUserLetter={chartUserLetter} chartComparison={chartComparison}/>
+      <Chart
+        nickname={nickname}
+        chartAverage={chartAverage}
+        chartUserLetter={chartUserLetter}
+        chartComparison={chartComparison}
+      />
       <Nav />
-      {showPopup && <GetCardPopup onClose={() => setShowPopup(false)} cardImg={cardImg} />}
+      {showPopup && (
+        <GetCardPopup onClose={() => setShowPopup(false)} cardImg={cardImg} />
+      )}
     </div>
   );
 }

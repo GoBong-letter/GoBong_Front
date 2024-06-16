@@ -4,13 +4,18 @@ export function Letter({ list, letterCover, letter, setLetter }) {
   return (
     <LetterDiv
       style={{
-        background: `url(${process.env.PUBLIC_URL}/images/${list[letterCover].img}.svg) no-repeat center center`,
+        backgroundImage: `url('${process.env.PUBLIC_URL}/images/${list[letterCover].img}.svg')`,
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center center",
+        backgroundSize: "cover",
       }}
     >
       <Textarea
         placeholder="익명에게 편지를 써보세요!"
         value={letter}
         onChange={(e) => setLetter(e.target.value)}
+        wrap="hard"
+        cols="50"
       ></Textarea>
     </LetterDiv>
   );
@@ -25,6 +30,7 @@ const LetterDiv = styled.div`
   align-items: center;
   margin-top: 4.3vh;
   padding: 24px;
+  border-radius: 15px;
 `;
 const Textarea = styled.textarea`
   box-sizing: border-box;

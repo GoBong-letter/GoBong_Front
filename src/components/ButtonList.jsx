@@ -15,21 +15,6 @@ export function ButtonList({
     return myCategory[text].includes(word);
   };
 
-  // const handleToggleButton = (word, text) => {
-  //   setCList((prev) => {
-  //     //있는경우
-  //     if (myCategory[text].indexOf(word) !== -1) {
-  //       return prev.filter((item) => item !== word);
-  //     } else {
-  //       // 6개 이하인 경우
-  //       if (prev.length < 6) {
-  //         return prev.concat(word);
-  //       } else {
-  //         return prev;
-  //       }
-  //     }
-  //   });
-  // };
   const handleToggleButton = (word, text) => {
     setCList((prev) => {
       //있는경우
@@ -53,7 +38,7 @@ export function ButtonList({
   const addMyCategory = () => {
     if (textInfo !== undefined && textInfo !== null) {
       let index = myCategory[text].indexOf(textInfo);
-      console.log(textInfo);
+
       if (cList <= 6) {
         if (index === -1) {
           setMyCategory((prevData) => ({

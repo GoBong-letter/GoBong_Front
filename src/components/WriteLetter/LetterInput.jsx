@@ -9,15 +9,16 @@ export function LetterInput({ setLetterList, active, setActive }) {
   const { data: searchLetterList, refetch } = useSearchLetter(inputValue);
 
   useEffect(() => {
-    if (!active && !!searchLetterList) {
+    console.log("letterInput 출력");
+    if (!!searchLetterList) {
       setLetterList(searchLetterList);
     }
-  }, [searchLetterList, active]);
+  }, [searchLetterList, setLetterList]);
 
   const handleSearchResult = (e) => {
     if (e.key === "Enter") {
-      refetch(); // API 호출
       setActive(false);
+      refetch();
     }
   };
 

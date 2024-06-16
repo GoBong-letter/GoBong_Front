@@ -34,8 +34,8 @@ const FilterTag = styled.button`
   height: 38px;
   border-radius: 117px;
   background-color: white;
-  border: 1px solid ${({ $isSelected }) => ($isSelected ? "black" : "#bbbcc1")};
-  color: ${({ $isSelected }) => ($isSelected ? "black" : "#bbbcc1")};
+  border: 1px solid ${({ isSelected }) => (isSelected ? "black" : "#bbbcc1")};
+  color: ${({ isSelected }) => (isSelected ? "black" : "#bbbcc1")};
   font-size: 16px;
   display: flex;
   justify-content: center;

@@ -11,7 +11,10 @@ export function ReadLetter({ item, handleShowLetter, showLetter }) {
 
   const { mutate: replyMutate } = useMutation({
     mutationFn: postLettersReply,
-    onSuccess: () => console.log("답장 보내기 성공"),
+    onSuccess: () => {
+      console.log("답장 보내기 성공");
+      setReply(<div></div>);
+    },
     onError: (error) => console.log("답장 보내기 실패", error),
   });
   console.log(item.LetterReply);
@@ -20,11 +23,13 @@ export function ReadLetter({ item, handleShowLetter, showLetter }) {
   const formatDate = (dateString) => {
     const date = new Date(dateString);
     const year = date.getFullYear();
-    const month = (date.getMonth() + 1).toString().padStart(2, '0');
-    const day = date.getDate().toString().padStart(2, '0');
+    const month = (date.getMonth() + 1).toString().padStart(2, "0");
+    const day = date.getDate().toString().padStart(2, "0");
     return `${year}.${month}.${day}`;
   };
-
+  const applyNewline = (content) => {
+    return content.replace(/\n/g, "<br />");
+  };
   useEffect(() => {
     // console.log(reply);
     // 내가 받은 편지
@@ -60,17 +65,19 @@ export function ReadLetter({ item, handleShowLetter, showLetter }) {
     <div className={styles["ReadLetterContainer"]}>
       <div className={styles["letterDiv"]}>
         <div className={styles["letterHeader"]}>
-          <div style={{display:"flex", alignItems:"end", columnGap:"2.3vw"}}>
+          <div
+            style={{ display: "flex", alignItems: "end", columnGap: "2.3vw" }}
+          >
             <span
               style={{
                 color: "white",
                 fontSize: 22,
                 fontWeight: 600,
                 marginLeft: "3.5vw",
-                maxWidth:"40vw",
-                textOverflow:"ellipsis",
-                whiteSpace:"nowrap",
-                overflow:"hidden"
+                maxWidth: "40vw",
+                height: 22,
+                // wordBreak: "break-all",
+                overflowX: "scroll",
               }}
             >
               {item.title}
@@ -79,14 +86,14 @@ export function ReadLetter({ item, handleShowLetter, showLetter }) {
               style={{
                 color: "white",
                 fontSize: 14,
-                marginBottom:"2px",
+                marginBottom: "2px",
                 fontWeight: 400,
               }}
             >
               {formatDate(item.createdAt)}
             </span>
           </div>
-          <div onClick={handleShowLetter}>
+          <div onClick={() => handleShowLetter(item)}>
             <BiX style={{ color: "white", fontSize: 25 }} />
           </div>
         </div>
@@ -101,7 +108,10 @@ export function ReadLetter({ item, handleShowLetter, showLetter }) {
             }}
             alt=""
           />
-          <div className={styles["letterContentText"]}>{item.content}</div>
+          <div
+            className={styles["letterContentText"]}
+            dangerouslySetInnerHTML={{ __html: applyNewline(item.content) }}
+          ></div>
         </div>
         <div className={styles["letterBottom"]}>{reply}</div>
       </div>
