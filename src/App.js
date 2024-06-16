@@ -5,7 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import store from "./redux/store";
 import SendLetterProvider from "./pages/writeletter/SendLetterProvider";
 
-import Splash from "./pages/Splash";
+// import Splash from "./pages/Splash";
 import Login from "./pages/login/Login";
 import Join from "./pages/join/Join";
 import JoinProfile from "./pages/join/JoinProfile";
@@ -40,7 +40,7 @@ function App() {
             <ReceiveLetterProvider>
               <Router>
                 <Routes>
-                  <Route path="/" element={<Splash />} />
+                  {/* <Route path="/" element={<Splash />} /> */}
                   <Route path="/login" element={<Login />} />
                   <Route path="/join" element={<Join />} />
                   <Route path="/joinProfile" element={<JoinProfile />} />
