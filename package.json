@@ -1,6 +1,6 @@
 {
   "name": "gobong-font",
-  "homepage": "https://gobong-letter.netlify.app/",
+  "homepage": "https://gobongletter.netlify.app/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

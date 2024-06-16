@@ -1,17 +1,24 @@
 import React, { useState, useContext, useEffect } from "react";
-import { JoinContext } from "../../pages/Join/JoinProvider";
-import { Icon } from '@iconify/react';
-import axios from 'axios';
+import { JoinContext } from "../../pages/join/JoinProvider";
+import { Icon } from "@iconify/react";
+import axios from "axios";
 
 function Profile({ src, alt, text, onClick, clicked }) {
   return (
-    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", position: "relative" }}>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        position: "relative",
+      }}
+    >
       <img
         src={src}
         alt={alt}
         style={{
           width: "15vw",
-          cursor: 'pointer'
+          cursor: "pointer",
         }}
         onClick={() => onClick({ src, alt, text })}
       />
@@ -27,39 +34,44 @@ function Profile({ src, alt, text, onClick, clicked }) {
             borderRadius: "100%",
             display: "flex",
             justifyContent: "center",
-            alignItems: "center"
+            alignItems: "center",
           }}
         >
           <Icon icon="bi:check" style={{ color: "#FFF", fontSize: "38px" }} />
         </div>
       )}
-      <p style={{ margin: "7px 0", fontWeight: "bold", fontSize: "12px" }}>{text}</p>
+      <p style={{ margin: "7px 0", fontWeight: "bold", fontSize: "12px" }}>
+        {text}
+      </p>
     </div>
   );
 }
 
-function ProfileContainer({onClick}) {
+function ProfileContainer({ onClick }) {
   const { image, userId, setImage } = useContext(JoinContext);
 
   const profiles = [
-    { src: '/images/chajo.png', alt: 'chajo', text: '차조밥' },
-    { src: '/images/rice.png', alt: 'rice', text: '쌀밥' },
-    { src: '/images/black.png', alt: 'black', text: '흑미밥' },
-    { src: '/images/bean.png', alt: 'bean', text: '콩밥' },
-    { src: '/images/multi_grain.png', alt: 'multi_grain', text: '잡곡밥' }
+    { src: "/images/chajo.png", alt: "chajo", text: "차조밥" },
+    { src: "/images/rice.png", alt: "rice", text: "쌀밥" },
+    { src: "/images/black.png", alt: "black", text: "흑미밥" },
+    { src: "/images/bean.png", alt: "bean", text: "콩밥" },
+    { src: "/images/multi_grain.png", alt: "multi_grain", text: "잡곡밥" },
   ];
 
   const [selectedProfile, setSelectedProfile] = useState(() => {
-    return profiles.find(profile => profile.alt === image) || profiles[0];
+    return profiles.find((profile) => profile.alt === image) || profiles[0];
   });
 
   useEffect(() => {
     const changeProfile = async () => {
       try {
-        const res = await axios.patch(`${process.env.REACT_APP_HOST}/users/image`, {
-          user_id: userId,
-          image: selectedProfile.alt
-        });
+        const res = await axios.patch(
+          `${process.env.REACT_APP_HOST}/users/image`,
+          {
+            user_id: userId,
+            image: selectedProfile.alt,
+          }
+        );
         if (res.status === 200) {
           console.log("이미지 수정 성공", res.data);
           setImage(selectedProfile.alt);
@@ -81,7 +93,9 @@ function ProfileContainer({onClick}) {
   };
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+    <div
+      style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
+    >
       {selectedProfile && (
         <div style={{ marginBottom: "12px", textAlign: "center" }}>
           <img
@@ -91,13 +105,23 @@ function ProfileContainer({onClick}) {
               width: "30vw",
               height: "30vw",
               objectFit: "cover",
-              borderRadius: "50%"
+              borderRadius: "50%",
             }}
           />
-          <p style={{ margin: "7px 0", fontWeight: "bold", fontSize: "16px" }}>{selectedProfile.text}</p>
+          <p style={{ margin: "7px 0", fontWeight: "bold", fontSize: "16px" }}>
+            {selectedProfile.text}
+          </p>
         </div>
       )}
-      <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", columnGap: "10px", marginBottom:"11px"}}>
+      <div
+        style={{
+          display: "flex",
+          flexWrap: "wrap",
+          justifyContent: "center",
+          columnGap: "10px",
+          marginBottom: "11px",
+        }}
+      >
         {profiles.map((profile, index) => (
           <Profile
             key={index}

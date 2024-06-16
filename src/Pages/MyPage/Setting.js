@@ -1,24 +1,32 @@
 import React, { useState, useContext } from "react";
-import { JoinContext } from "../Join/JoinProvider";
+import { JoinContext } from "../join/JoinProvider";
 import Back from "../../components/Back";
-import Input from "../../components/Join/Input";
+import Input from "../../components/join/Input";
 import styles from "../../styles/MyPage.module.css";
 import { Icon } from "@iconify/react";
 import Button from "../../components/Button";
 import ProfilePopup from "./ProfilePopup";
-import { Category } from "../../components/WriteLetter/Category";
-import { sendLetterContext } from "../WriteLetter/SendLetterProvider";
+import { Category } from "../../components/writeletter/Category";
+import { sendLetterContext } from "../writeletter/SendLetterProvider";
 import { BottomSheet } from "../../components/BottomSheet";
-import { CharInput } from "../../components/WriteLetter/CharInput";
+import { CharInput } from "../../components/writeletter/CharInput";
 import { ButtonList } from "../../components/ButtonList";
 import axios from "axios";
 
 export default function Setting({ category }) {
   const [isPopupVisible, setIsPopupVisible] = useState(false);
-  const { nickname, image, userId, setNickname, setImage, GetUserInfo, setCategory } = useContext(JoinContext);
+  const {
+    nickname,
+    image,
+    userId,
+    setNickname,
+    setImage,
+    GetUserInfo,
+    setCategory,
+  } = useContext(JoinContext);
   const [isOpen, setOpen] = useState(false);
   const [showData, setShowData] = useState({});
-  const { saveData } = useContext(sendLetterContext);  
+  const { saveData } = useContext(sendLetterContext);
   const [cList, setCList] = useState(0); // Define cList and setCList
   const [imageChanged, setImageChanged] = useState(false); // Define imageChanged
 
@@ -46,10 +54,13 @@ export default function Setting({ category }) {
 
   const changeNickname = async () => {
     try {
-      const res = await axios.patch(`${process.env.REACT_APP_HOST}/users/nickname`, {
-        user_id: userId,
-        nickname: nickname,
-      });
+      const res = await axios.patch(
+        `${process.env.REACT_APP_HOST}/users/nickname`,
+        {
+          user_id: userId,
+          nickname: nickname,
+        }
+      );
       if (res.status === 200) {
         console.log("닉네임 수정 성공", res.data);
       }
@@ -60,10 +71,13 @@ export default function Setting({ category }) {
 
   const changeCategory = async () => {
     try {
-      const res = await axios.patch(`${process.env.REACT_APP_HOST}/users/category`, {
-        user_id: userId,
-        category: JSON.stringify(myCategory),
-      });
+      const res = await axios.patch(
+        `${process.env.REACT_APP_HOST}/users/category`,
+        {
+          user_id: userId,
+          category: JSON.stringify(myCategory),
+        }
+      );
       if (res.status === 200) {
         console.log("카테고리 수정 성공", res.data);
       }
@@ -83,7 +97,8 @@ export default function Setting({ category }) {
     changeNickname();
     setCategory(myCategory);
     changeCategory();
-    if (imageChanged) {  // 이미지를 변경한 경우 이미지 변경 로직 추가
+    if (imageChanged) {
+      // 이미지를 변경한 경우 이미지 변경 로직 추가
       changeImage();
     }
   };
@@ -93,7 +108,10 @@ export default function Setting({ category }) {
       const formData = new FormData();
       formData.append("user_id", userId);
       formData.append("image", image);
-      const res = await axios.patch(`${process.env.REACT_APP_HOST}/users/image`, formData);
+      const res = await axios.patch(
+        `${process.env.REACT_APP_HOST}/users/image`,
+        formData
+      );
       if (res.status === 200) {
         console.log("이미지 수정 성공", res.data);
       }
@@ -148,7 +166,11 @@ export default function Setting({ category }) {
             비밀번호 변경
           </div>
           <div
-            style={{ display: "flex", flexDirection: "column", paddingBottom: "14vw" }}
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              paddingBottom: "14vw",
+            }}
           >
             <Category handleOpen={handleOpen} />
             {isOpen && (

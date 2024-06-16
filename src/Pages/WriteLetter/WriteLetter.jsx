@@ -1,14 +1,14 @@
 import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import GoHome from "../../components/GoHome";
-import { TitleBox } from "../../components/WriteLetter/TitleBox";
-import { SelectLetterItem } from "../../components/WriteLetter/SelectLetterItem";
-import { Letter } from "../../components/WriteLetter/Letter";
+import { TitleBox } from "../../components/writeletter/TitleBox";
+import { SelectLetterItem } from "../../components/writeletter/SelectLetterItem";
+import { Letter } from "../../components/writeletter/Letter";
 import { sendLetterContext } from "./SendLetterProvider";
 import { useMutation } from "@tanstack/react-query";
 import { postLetter } from "../../services/mutations/letter";
-import styles from "../../styles/WriteLetter/WriteLetter.module.css";
-import { JoinContext } from "../Join/JoinProvider";
+import styles from "../../styles/writeletter/writeLetter.module.css";
+import { JoinContext } from "../join/JoinProvider";
 
 function WriteLetter() {
   let list = [

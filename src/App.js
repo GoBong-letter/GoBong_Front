@@ -3,32 +3,32 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Provider } from "react-redux";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import store from "./redux/store";
-import SendLetterProvider from "./pages/WriteLetter/SendLetterProvider";
+import SendLetterProvider from "./pages/writeletter/SendLetterProvider";
 
 // import Splash from "./pages/Splash";
-import Login from "./pages/Login/Login";
-import Join from "./pages/Join/Join";
-import JoinProfile from "./pages/Join/JoinProfile";
-import JoinAbout from "./pages/Join/JoinAbout";
-import LoginPage from "./pages/Login/LoginPage";
-import Home from "./pages/Home";
-import Alarm from "./components/Home/Alarm";
-import LetterDraw from "./pages/LetterDraw/LetterDraw";
-import Draw from "./pages/LetterDraw/Draw";
-import ReceiveLetter from "./pages/LetterDraw/ReceiveLetter";
-import Community from "./pages/Community/Community";
-import MyPage from "./pages/MyPage/Mypage";
-import Guideline from "./pages/MyPage/Guideline";
-import GuidelineTwo from "./pages/MyPage/GuidelineTwo";
-import GuidelineThree from "./pages/MyPage/GuidelineThree";
-import GuidelineLast from "./pages/MyPage/GuidelineLast";
-import AlarmSetting from "./pages/MyPage/AlarmSetting";
-import Setting from "./pages/MyPage/Setting";
-import WriteLetterBasic from "./pages/WriteLetter/WriteLetterBasic";
-import WriteLetter from "./pages/WriteLetter/WriteLetter";
-import LetterStorage from "./pages/WriteLetter/LetterStorage";
-import JoinProvider from "./pages/Join/JoinProvider";
-import ReceiveLetterProvider from "./pages/LetterDraw/ReceiveLetterProvider";
+import Login from "./pages/login/Login";
+import Join from "./pages/join/Join";
+import JoinProfile from "./pages/join/JoinProfile";
+import JoinAbout from "./pages/join/JoinAbout";
+import LoginPage from "./pages/login/LoginPage";
+import Home from "./pages/home";
+import Alarm from "./components/home/Alarm";
+import LetterDraw from "./pages/letterdraw/LetterDraw";
+import Draw from "./pages/letterdraw/Draw";
+import ReceiveLetter from "./pages/letterdraw/ReceiveLetter";
+import Community from "./pages/community/Community";
+import MyPage from "./pages/mypage/Mypage";
+import Guideline from "./pages/mypage/Guideline";
+import GuidelineTwo from "./pages/mypage/GuidelineTwo";
+import GuidelineThree from "./pages/mypage/GuidelineThree";
+import GuidelineLast from "./pages/mypage/GuidelineLast";
+import AlarmSetting from "./pages/mypage/AlarmSetting";
+import Setting from "./pages/mypage/Setting";
+import WriteLetterBasic from "./pages/writeletter/writeLetterBasic";
+import WriteLetter from "./pages/writeletter/WriteLetter";
+import LetterStorage from "./pages/writeletter/LetterStorage";
+import JoinProvider from "./pages/join/JoinProvider";
+import ReceiveLetterProvider from "./pages/letterdraw/ReceiveLetterProvider";
 
 function App() {
   const [client] = useState(new QueryClient());
@@ -59,16 +59,16 @@ function App() {
                   <Route path="/guidelineLast" element={<GuidelineLast />} />
                   <Route path="/alarmSetting" element={<AlarmSetting />} />
                   <Route
-                    path="/writeletterbasic"
+                    path="/writeLetterbasic"
                     element={<WriteLetterBasic />}
                   />
-                  <Route path="/writeletter" element={<WriteLetter />} />
+                  <Route path="/writeLetter" element={<WriteLetter />} />
                   <Route path="/letterstorage" element={<LetterStorage />} />
                   <Route path="/setting" element={<Setting />} />
                 </Routes>
               </Router>
             </ReceiveLetterProvider>
-          </JoinProvider>
+          </joinProvider>
         </SendLetterProvider>
       </QueryClientProvider>
     </Provider>

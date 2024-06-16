@@ -1,17 +1,17 @@
 import React, { useContext, useEffect, useState } from "react";
-import { JoinContext } from "../pages/Join/JoinProvider";
+import { JoinContext } from "../pages/join/JoinProvider";
 import Button from "../components/Button";
-import styles from "../styles/Home.module.css";
-import Header from "../components/Home/Header";
-import WelcomeMent from "../components/Home/WelcomeMent";
-import LetterCount from "../components/Home/LetterCount";
+import styles from "../styles/home.module.css";
+import Header from "../components/home/Header";
+import WelcomeMent from "../components/home/WelcomeMent";
+import LetterCount from "../components/home/LetterCount";
 import Nav from "../components/Nav";
-import CardList from "../components/Home/CardList";
-import GobongMent from "../components/Home/GobongMent";
-import Chart from "../components/Home/Chart";
+import CardList from "../components/home/CardList";
+import GobongMent from "../components/home/GobongMent";
+import Chart from "../components/home/Chart";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import GetCardPopup from "../components/Home/GetCardPopup";
+import GetCardPopup from "../components/home/GetCardPopup";
 
 function Home() {
   const { userId, nickname, GetUserInfo } = useContext(JoinContext);
@@ -144,7 +144,7 @@ function Home() {
         <Button
           icon="lucide:pen-line"
           text="편지쓰러가기"
-          onClick={() => navigate("/writeletterbasic")}
+          onClick={() => navigate("/writeLetterbasic")}
         />
       </div>
       <GobongMent />

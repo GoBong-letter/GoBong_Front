@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../../styles/WriteLetter/SelectLetterItem.module.css";
+import styles from "../../styles/writeletter/SelectLetterItem.module.css";
 
 export function SelectLetterItem({ list, letterCover, selectLetterCover }) {
   return (

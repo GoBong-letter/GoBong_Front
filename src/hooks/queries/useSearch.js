@@ -2,7 +2,6 @@ import { useContext } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { getSearchLetter } from "../../services/queries/searchLetter";
 import { getLettersUser } from "../../services/queries/letters";
-import { JoinContext } from "../../pages/Join/JoinProvider";
 export function useSearchLetter(keyword) {
   const fetcher = async () => {
     if (keyword) {
