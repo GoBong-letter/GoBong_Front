@@ -32,5 +32,5 @@ const TitleBoxP = styled.p`
   font-size: 14px;
   font-weight: 400;
   color: rgba(0, 0, 0, 0.34);
-  margin-top: 1.5vh;
+  margin-bottom: 10px;
 `;

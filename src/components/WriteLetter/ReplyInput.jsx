@@ -15,7 +15,6 @@ export function ReplyInput({ item, replyMutate }) {
       </ReplyText>
       <SendBtn
         onClick={() => {
-          console.log("dfdf", replyText);
           replyMutate({
             letter_id: item.LetterReply.letter_id,
             content: replyText,

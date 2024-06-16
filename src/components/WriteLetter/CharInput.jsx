@@ -3,21 +3,7 @@ import styled from "styled-components";
 import { Icon } from "@iconify/react";
 export function CharInput({ myCategory, setMyCategory, setCList, cList }) {
   const [inputChar, setInputChar] = useState("");
-  const [chartList, setChartList] = useState([]);
-  // const handleAddCharItem = (word) => {
-  //   setCList((prev) => {
-  //     //있는경우
-  //     if (myCategory["기타"].indexOf(word) !== -1) {
-  //       return prev.filter((item) => item !== word);
-  //     } else {
-  //       // 6개 이하인 경우
-  //       if (prev.length < 6) {
-  //         return prev.concat(word);
-  //       } else {
-  //         return prev;
-  //       }
-  //     }
-  //   });
+  const [chartList, setChartList] = useState(myCategory["기타"]);
 
   const handleAddCharItem = (word) => {
     setCList((prev) => {

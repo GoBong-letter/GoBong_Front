@@ -21,8 +21,10 @@ function WriteLetter() {
   const [letterCover, setLetterCoverState] = useState(0);
   const [letter, setLetter] = useState("");
   const { title } = useContext(sendLetterContext);
-  const { userId, category, setLetterCover } = useContext(JoinContext);  // 추가
+  const { category, setLetterCover } = useContext(JoinContext); // 추가
+  let userId = localStorage.getItem("id");
   const navigate = useNavigate();
+  console.log(category);
 
   const { mutate: letterMutate } = useMutation({
     mutationFn: postLetter,
@@ -41,7 +43,7 @@ function WriteLetter() {
       content: letter,
       category: JSON.stringify(category),
     };
-    console.log(req);
+    // console.log(req);
     letterMutate(req);
   };
 
@@ -49,7 +51,7 @@ function WriteLetter() {
     list.map((_, index) =>
       ClickedIndex === index ? setLetterCoverState(ClickedIndex) : null
     );
-    setLetterCover(ClickedIndex);  // 추가
+    setLetterCover(ClickedIndex); // 추가
   };
 
   return (

@@ -13,7 +13,6 @@ function JoinProvider({ children }) {
   const [envelope, setEnvelope] = useState("");
   const [letterCover, setLetterCover] = useState(0);
 
-
   const GetUserInfo = (nickname, image, category) => {
     setNickname(nickname);
     setImage(image);
@@ -53,7 +52,7 @@ function JoinProvider({ children }) {
         envelope,
         SetEnvelope,
         letterCover,
-        setLetterCover
+        setLetterCover,
       }}
     >
       {children}
