@@ -20,11 +20,15 @@ function Community() {
     setShowMyWorriedDetail(true);
   };
 
+  const handleUpload = () => {
+    setSelectedItem("고민보기");
+  };
+
   return (
     <div style={{ height: "100vh", overflow: "hidden" }}>
       <SelectList onSelectItem={handleSelectItem} />
       {selectedItem === "고민보기" && <CommunityContent />}
-      {selectedItem === "고민쓰기" && <CommunityWrite />}
+      {selectedItem === "고민쓰기" && <CommunityWrite onUpload={handleUpload} />}
       {selectedItem === "내고민" &&
         (showMyWorriedDetail ? (
           <MyWorried />
