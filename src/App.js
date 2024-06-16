@@ -68,7 +68,7 @@ function App() {
                 </Routes>
               </Router>
             </ReceiveLetterProvider>
-          </joinProvider>
+          </JoinProvider>
         </SendLetterProvider>
       </QueryClientProvider>
     </Provider>
