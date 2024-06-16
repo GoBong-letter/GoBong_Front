@@ -48,7 +48,7 @@ export function ReadLetter({ item, handleShowLetter, showLetter }) {
       }
     } else {
       // 내가 쓴 편지
-      if (item.LetterReply === null) {
+      if (item.LetterReply.content === null) {
         setReply(<div />);
       } else {
         setReply(
