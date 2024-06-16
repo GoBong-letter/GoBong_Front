@@ -1,17 +1,18 @@
-import { instnace } from "../../utils/axios";
+// import { instnace } from "../../utils/axios";
 
-const getKey = (userId) => {
-  return ["/letters/users/", userId];
-};
+import axios from "axios";
 
 export async function getLettersUser() {
   let userId = localStorage.getItem("id");
-
-  console.log(getKey(userId).join(""));
-  const res = await instnace.get(getKey(userId).join(""));
-  // console.log(res.data);
-  return res.data;
+  try {
+    const res = await axios.get(
+      `${process.env.REACT_APP_HOST}/letters/users/${userId}`
+    );
+    if (res.status === 200) {
+      console.log(res.data);
+      return res.data;
+    }
+  } catch (error) {
+    console.error("전체 편지 불러오기 실패", error);
+  }
 }
-Object.assign(getLettersUser, {
-  getKey,
-});

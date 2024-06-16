@@ -1,13 +1,17 @@
-import { instnace } from "../../utils/axios";
-
-const getKey = (userId) => ["/letters/replies/received/", userId];
-
+import axios from "axios";
 export async function getReceivedReplyLetters() {
   let userId = localStorage.getItem("id");
-  const res = await instnace.get(getKey(userId).join(""));
-  console.log("받은 답장", res.data);
-  return res.data;
+
+  try {
+    const res = await axios.get(
+      `${process.env.REACT_APP_HOST}/letters/replies/received/${userId}`
+    );
+    if (res.status === 200) {
+      console.log("받은 답장", res.data);
+      return res.data;
+    } else {
+    }
+  } catch (error) {
+    console.error("받은 답장 불러오기 실패", error);
+  }
 }
-Object.assign(getReceivedReplyLetters, {
-  getKey,
-});
