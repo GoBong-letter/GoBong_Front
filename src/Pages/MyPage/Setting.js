@@ -74,7 +74,7 @@ export default function Setting({ category }) {
 
   const handleNicknameChange = (e) => {
     const newNickname = e.target.value;
-    if (newNickname.length <= 5) {
+    if (newNickname.length <= 8) {
       setNickname(newNickname);
     }
   };

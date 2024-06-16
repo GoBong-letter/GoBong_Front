@@ -13,7 +13,7 @@ function Join() {
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [showWarning, setShowWarning] = useState(false);
-  const maxLength = 5;
+  const maxLength = 8;
 
   const navigate = useNavigate();
 
