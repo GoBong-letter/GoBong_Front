@@ -6,7 +6,12 @@ import { postLettersReply } from "../../services/mutations/reply";
 import { Reply } from "./Reply";
 import { ReplyInput } from "./ReplyInput";
 
-export function ReadLetter({ item, handleShowLetter, showLetter }) {
+export function ReadLetter({
+  item,
+  handleShowLetter,
+  showLetter,
+  handleRefresh,
+}) {
   const [reply, setReply] = useState(<div></div>);
 
   const { mutate: replyMutate } = useMutation({
@@ -17,8 +22,6 @@ export function ReadLetter({ item, handleShowLetter, showLetter }) {
     },
     onError: (error) => console.log("답장 보내기 실패", error),
   });
-  console.log(item.LetterReply);
-  console.log(item.envelope);
 
   const formatDate = (dateString) => {
     const date = new Date(dateString);
@@ -31,7 +34,6 @@ export function ReadLetter({ item, handleShowLetter, showLetter }) {
     return content.replace(/\n/g, "<br />");
   };
   useEffect(() => {
-    console.log(reply);
     // 내가 받은 편지
     if (!item.send) {
       // 아직 답장하지 않은 경우
@@ -48,10 +50,9 @@ export function ReadLetter({ item, handleShowLetter, showLetter }) {
       }
     } else {
       // 내가 쓴 편지
-      if(item.LetterReply === null){
-        setReply(<div></div>)
-      }
-      else{
+      if (item.LetterReply === null) {
+        setReply(<div></div>);
+      } else {
         if (item.LetterReply.content === null) {
           setReply(<div />);
         } else {
@@ -63,7 +64,6 @@ export function ReadLetter({ item, handleShowLetter, showLetter }) {
           );
         }
       }
-      
     }
   }, [item.send, showLetter]);
 
@@ -99,7 +99,12 @@ export function ReadLetter({ item, handleShowLetter, showLetter }) {
               {formatDate(item.createdAt)}
             </span>
           </div>
-          <div onClick={() => handleShowLetter(item)}>
+          <div
+            onClick={() => {
+              handleShowLetter(item);
+              handleRefresh();
+            }}
+          >
             <BiX style={{ color: "white", fontSize: 25 }} />
           </div>
         </div>
