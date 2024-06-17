@@ -1,6 +1,6 @@
 import React from "react";
 import Comment from "./Comment";
-import styles from "../../styles/community/Worried.module.css";
+import styles from "../../styles/Community/Worried.module.css";
 
 function CommentContainer({ comment = [] }) {
   return (

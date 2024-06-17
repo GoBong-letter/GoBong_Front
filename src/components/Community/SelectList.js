@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "../../styles/community/Community.module.css";
+import styles from "../../styles/Community/Community.module.css";
 
 function SelectList({ onSelectItem }) {
   const [selectedItem, setSelectedItem] = useState("고민보기");

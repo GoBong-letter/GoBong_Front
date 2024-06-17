@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import styles from "../../styles/writeletter/ReadLetter.module.css";
+import styles from "../../styles/WriteLetter/ReadLetter.module.css";
 import { BiX } from "react-icons/bi";
 import { useMutation } from "@tanstack/react-query";
 import { postLettersReply } from "../../services/mutations/reply";

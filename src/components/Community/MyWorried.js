@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Box from "./Box";
 import Nav from "../Nav";
 import CommunityText from "./CommunityText";
-import styles from "../../styles/community/Worried.module.css";
+import styles from "../../styles/Community/Worried.module.css";
 import CommentNum from "./CommentNum";
 import Comment from "./Comment";
 import CommentContainer from "./CommentContainer";

@@ -1,13 +1,13 @@
 import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import Button from "../../components/Button";
-import styles from "../../styles/join/Join.module.css";
-import { sendLetterContext } from "../writeletter/SendLetterProvider";
-import Num from "../../components/join/Num";
-import Info from "../../components/join/Info";
-import { Category } from "../../components/writeletter/Category";
+import styles from "../../styles/Join/Join.module.css"
+import {sendLetterContext} from "../WriteLetter/SendLetterProvider";
+import Num from "../../components/Join/Num";
+import Info from "../../components/Join/Info";
+import { Category } from "../../components/WriteLetter/Category";
 import { BottomSheet } from "../../components/BottomSheet";
-import { CharInput } from "../../components/writeletter/CharInput";
+import { CharInput } from "../../components/WriteLetter/CharInput";
 import { ButtonList } from "../../components/ButtonList";
 import { JoinContext } from "./JoinProvider";
 import axios from "axios";

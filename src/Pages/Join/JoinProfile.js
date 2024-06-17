@@ -1,10 +1,10 @@
 import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Button from "../../components/Button";
-import Num from "../../components/join/Num";
-import Info from "../../components/join/Info";
-import ProfileContainer from "../../components/Profile"; // ProfileContainer 경로 수정
-import styles from "../../styles/join/Join.module.css";
+import Num from "../../components/Join/Num";
+import Info from "../../components/Join/Info";
+import ProfileContainer from "../../components/Profile";
+import styles from "../../styles/Join/Join.module.css"
 import { JoinContext } from "./JoinProvider";
 
 function JoinProfile() {

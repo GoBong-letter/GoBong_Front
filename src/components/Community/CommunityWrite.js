@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import Box from "./Box";
 import Nav from "../Nav";
 import Button from "../Button";
-import styles from "../../styles/community/CommunityWrite.module.css";
+import styles from "../../styles/Community/CommunityWrite.module.css";
 import axios from "axios";
 import { JoinContext } from "../../Pages/Join/JoinProvider";
 
