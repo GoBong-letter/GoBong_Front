@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Sliders } from "react-bootstrap-icons";
-import { Filter } from "../../components/WriteLetter/Filter"
+import { Filter } from "../../components/WriteLetter/Filter";
 import { useFilteredLetter } from "../../hooks/queries/useFilteredLetter";
 import styles from "../../styles/WriteLetter/LetterStorage.module.css";
 import Nav from "../../components/Nav";
@@ -15,7 +15,12 @@ function LetterStorage() {
   const [selectTag, setSelectTag] = useState("all");
   const [showLetter, setShowLetter] = useState(null);
   const [letterList, setLetterList] = useState([]);
-  const { letters, loading } = useFilteredLetter(selectTag);
+  const [refresh, setRefresh] = useState(1);
+  const { letters } = useFilteredLetter(selectTag, refresh);
+
+  const handleRefresh = () => {
+    setRefresh((refresh) => refresh * -1);
+  };
 
   const handleOpen = () => {
     setOpen((prev) => !prev);
@@ -27,13 +32,10 @@ function LetterStorage() {
   };
 
   useEffect(() => {
-    console.log("letterstorage 출력");
-    console.log(letters, letterList, showLetter);
-
     if (active) {
       setLetterList(letters);
     }
-  }, [active, letters, selectTag]);
+  }, [active, letters, selectTag, refresh]);
   return (
     <div className={styles["LetterStorageContainer"]}>
       <div className={styles["searchLetterDiv"]}>
@@ -100,6 +102,7 @@ function LetterStorage() {
           item={showLetter}
           handleShowLetter={handleShowLetter}
           showLetter={showLetter}
+          handleRefresh={handleRefresh}
         />
       )}
     </div>

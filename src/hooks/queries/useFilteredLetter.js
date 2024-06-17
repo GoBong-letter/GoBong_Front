@@ -5,13 +5,11 @@ import { getSentLetters } from "../../services/queries/sentLetters";
 import { getSentReplyLetters } from "../../services/queries/sentReplyLetters";
 import { getLettersUser } from "../../services/queries/letters";
 
-export function useFilteredLetter(tag) {
+export function useFilteredLetter(tag, refresh) {
   const [letters, setLetters] = useState([]);
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
-      setLoading(true);
       try {
         let data;
         switch (tag) {
@@ -36,15 +34,13 @@ export function useFilteredLetter(tag) {
         }
         setLetters(data);
       } catch (error) {
-        console.error("Error fetching letters: ", error);
+        console.error("편지 불러오기 실패 ", error);
         setLetters([]);
-      } finally {
-        setLoading(false);
       }
     };
 
     fetchData();
-  }, [tag]);
+  }, [tag, refresh]);
 
-  return { letters, loading };
+  return { letters };
 }

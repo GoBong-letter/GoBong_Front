@@ -3,17 +3,16 @@ import styled from "styled-components";
 import { Icon } from "@iconify/react";
 import { useSearchLetter } from "../../hooks/queries/useSearch";
 
-export function LetterInput({ setLetterList, active, setActive }) {
+export function LetterInput({ setLetterList, active, setActive, refresh }) {
   const [inputValue, setValue] = useState("");
   // console.log(inputValue);
   const { data: searchLetterList, refetch } = useSearchLetter(inputValue);
 
   useEffect(() => {
-    console.log("letterInput 출력");
     if (!!searchLetterList) {
       setLetterList(searchLetterList);
     }
-  }, [searchLetterList, setLetterList]);
+  }, [searchLetterList, setLetterList, refresh]);
 
   const handleSearchResult = (e) => {
     if (e.key === "Enter") {
