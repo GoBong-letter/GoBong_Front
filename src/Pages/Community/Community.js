@@ -35,7 +35,9 @@ function Community() {
       {showPopup && <CommunityPopup onClose={handleClosePopup} />}
       <SelectList onSelectItem={handleSelectItem} />
       {selectedItem === "고민보기" && <CommunityContent />}
-      {selectedItem === "고민쓰기" && <CommunityWrite onUpload={handleUpload} />}
+      {selectedItem === "고민쓰기" && (
+        <CommunityWrite onUpload={handleUpload} />
+      )}
       {selectedItem === "내고민" &&
         (showMyWorriedDetail ? (
           <MyWorried />

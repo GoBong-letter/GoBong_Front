@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import Box from "./Box";
 import Nav from "../Nav";
 import Button from "../Button";
-import styles from "../../styles/Community/CommunityWrite.module.css";
+import styles from "../../styles/community/CommunityWrite.module.css";
 import axios from "axios";
 import { JoinContext } from "../../Pages/Join/JoinProvider";
 
@@ -27,7 +27,10 @@ function CommunityWrite({ onUpload }) {
       content: contentValue,
     };
     try {
-      const response = await axios.post(`${process.env.REACT_APP_HOST}/community`, req);
+      const response = await axios.post(
+        `${process.env.REACT_APP_HOST}/community`,
+        req
+      );
       console.log(response.data);
 
       if (response.status === 200) {
@@ -43,17 +46,17 @@ function CommunityWrite({ onUpload }) {
 
   return (
     <div>
-      <div className={styles['write-container']}>
+      <div className={styles["write-container"]}>
         <input
           placeholder="고민 제목을 작성해주세요"
-          className={styles['input-style']}
+          className={styles["input-style"]}
           value={titleValue}
           onChange={handleTitleChange}
         />
         <textarea
-          style={{ whiteSpace: 'pre-wrap' }}
+          style={{ whiteSpace: "pre-wrap" }}
           placeholder="고민 내용을 작성해주세요"
-          className={styles['textarea-style']}
+          className={styles["textarea-style"]}
           value={contentValue}
           onChange={handleContentChange}
         ></textarea>

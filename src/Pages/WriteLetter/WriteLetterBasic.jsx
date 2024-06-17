@@ -1,15 +1,15 @@
 import React, { useContext, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { sendLetterContext } from "./SendLetterProvider";
-import { JoinContext } from "../Join/JoinProvider";
+import { JoinContext } from "../join/JoinProvider";
 import Button from "../../components/Button";
 import GoHome from "../../components/GoHome";
-import { Category } from "../../components/WriteLetter/Category";
+import { Category } from "../../components/writeletter/Category";
 import { BottomSheet } from "../../components/BottomSheet";
-import { TitleBox } from "../../components/WriteLetter/TitleBox";
+import { TitleBox } from "../../components/writeletter/TitleBox";
 import { ButtonList } from "../../components/ButtonList";
-import { CharInput } from "../../components/WriteLetter/CharInput";
-import styles from "../../styles/WriteLetter/WriteLetterBasic.module.css";
+import { CharInput } from "../../components/writeletter/CharInput";
+import styles from "../../styles/writeletter/WriteLetterBasic.module.css";
 
 function WriteLetterBasic() {
   const [isChecked, setChecked] = useState(false);

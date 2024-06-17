@@ -58,11 +58,8 @@ function App() {
                   <Route path="/guidelineThree" element={<GuidelineThree />} />
                   <Route path="/guidelineLast" element={<GuidelineLast />} />
                   <Route path="/alarmSetting" element={<AlarmSetting />} />
-                  <Route
-                    path="/writeletterbasic"
-                    element={<WriteLetterBasic />}
-                  />
-                  <Route path="/writeletter" element={<WriteLetter />} />
+                  <Route path="/writeLetterbasic" element={<WriteLetterBasic />}/>
+                  <Route path="/writeLetter" element={<WriteLetter />} />
                   <Route path="/letterstorage" element={<LetterStorage />} />
                   <Route path="/setting" element={<Setting />} />
                 </Routes>

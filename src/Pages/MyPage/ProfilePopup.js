@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
-import { JoinContext } from "../Join/JoinProvider";
-import Profile from "../../components/MyPage/Profile";
+import { JoinContext } from "../join/JoinProvider";
+import Profile from "../../components/mypage/Profile";
 import Button from "../../components/Button";
 import styles from "../../styles/MyPage.module.css";
 
@@ -32,7 +32,11 @@ export default function ProfilePopup({ onClose }) {
     >
       <div className={styles["profile-container"]}>
         <p
-          style={{ fontWeight: "bold", fontSize: "1.3rem", margin: "3vw 0 7vw 8vw" }}
+          style={{
+            fontWeight: "bold",
+            fontSize: "1.3rem",
+            margin: "3vw 0 7vw 8vw",
+          }}
         >
           <span style={{ color: "var(--primary-color)" }}>프로필 이미지</span>를
           선택하세요!

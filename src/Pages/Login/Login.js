@@ -3,7 +3,7 @@ import { Icon } from "@iconify/react";
 import Button from "../../components/Button";
 import { useNavigate } from "react-router-dom";
 import Logo from "../../components/Logo";
-import styles from "../../styles/Login/Login.module.css";
+import styles from "../../styles/login/Login.module.css";
 
 function Login() {
   const navigate = useNavigate();

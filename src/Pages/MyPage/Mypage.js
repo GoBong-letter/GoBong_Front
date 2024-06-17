@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
-import { JoinContext } from "../Join/JoinProvider";
+import { JoinContext } from "../join/JoinProvider";
 import Nav from "../../components/Nav";
 import { useNavigate } from "react-router-dom";
 import { Icon } from "@iconify/react";
-import Category from "../../components/LetterDraw/Category";
+import Category from "../../components/letterdraw/Category";
 import styles from "../../styles/MyPage.module.css";
 
 export default function MyPage() {

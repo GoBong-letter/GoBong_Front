@@ -1,23 +1,21 @@
 import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import Button from "../../components/Button";
-import styles from "../../styles/Join/Join.module.css";
-import { sendLetterContext } from "../WriteLetter/SendLetterProvider";
-import Num from "../../components/Join/Num";
-import Info from "../../components/Join/Info";
-import { Category } from "../../components/WriteLetter/Category";
-import data from "../../components/WriteLetter/typelist.json";
-import categoryStyle from "../../styles/WriteLetter/WriteLetterBasic.module.css";
+import styles from "../../styles/join/Join.module.css";
+import { sendLetterContext } from "../writeletter/SendLetterProvider";
+import Num from "../../components/join/Num";
+import Info from "../../components/join/Info";
+import { Category } from "../../components/writeletter/Category";
 import { BottomSheet } from "../../components/BottomSheet";
-import { CharInput } from "../../components/WriteLetter/CharInput";
+import { CharInput } from "../../components/writeletter/CharInput";
 import { ButtonList } from "../../components/ButtonList";
-import { JoinContext } from "./JoinProvider"
-import axios from 'axios';
+import { JoinContext } from "./JoinProvider";
+import axios from "axios";
 
 function JoinAbout() {
   const navigate = useNavigate();
   const { nickname, password, email, image } = useContext(JoinContext);
-  
+
   const [isChecked, setChecked] = useState(false);
   // const [cList, setCList] = useState([]);
   const [cList, setCList] = useState(0);
@@ -37,7 +35,6 @@ function JoinAbout() {
     기타: [],
   });
 
-
   const removeEmptyArrays = (obj) => {
     return Object.fromEntries(
       Object.entries(obj).filter(
@@ -52,19 +49,21 @@ function JoinAbout() {
   };
 
   const handleJoin = async () => {
-
     let updatedCategory = removeEmptyArrays(myCategory);
     saveData(titleValue, updatedCategory);
 
-    console.log(updatedCategory)
+    console.log(updatedCategory);
     try {
-      const response = await axios.post(`${process.env.REACT_APP_HOST}/users/signup`, {
-        email: email,
-        nickname: nickname,
-        password: password,
-        image: image,
-        category: JSON.stringify(updatedCategory),
-      });
+      const response = await axios.post(
+        `${process.env.REACT_APP_HOST}/users/signup`,
+        {
+          email: email,
+          nickname: nickname,
+          password: password,
+          image: image,
+          category: JSON.stringify(updatedCategory),
+        }
+      );
 
       if (response.status === 200) {
         console.log(response.data);
@@ -100,37 +99,43 @@ function JoinAbout() {
         />
       </div>
 
-    <div style={{display:"flex",flexDirection:"column",padding:"20vw 0 30.2vw 0"}}>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          padding: "20vw 0 30.2vw 0",
+        }}
+      >
         <Category handleOpen={handleOpen} />
-          {isOpen && (
-            <BottomSheet
-              item={showData}
-              image={showData.image}
-              text={showData.text}
-              handleOpen={handleOpen}
-            >
-              {showData.text === "기타" ? (
-                <CharInput
-                  myCategory={myCategory}
-                  setMyCategory={setMyCategory}
-                  setCList={setCList}
-                  cList={cList}
-                />
-              ) : (
-                <ButtonList
-                  text={showData.text}
-                  wordList={showData.wordList}
-                  myCategory={myCategory}
-                  setMyCategory={setMyCategory}
-                  cList={cList}
-                  setCList={setCList}
-                />
-              )}
-            </BottomSheet>
-          )}
-          </div>
-      
-      <Button text="회원가입 완료" onClick={handleJoin}/>
+        {isOpen && (
+          <BottomSheet
+            item={showData}
+            image={showData.image}
+            text={showData.text}
+            handleOpen={handleOpen}
+          >
+            {showData.text === "기타" ? (
+              <CharInput
+                myCategory={myCategory}
+                setMyCategory={setMyCategory}
+                setCList={setCList}
+                cList={cList}
+              />
+            ) : (
+              <ButtonList
+                text={showData.text}
+                wordList={showData.wordList}
+                myCategory={myCategory}
+                setMyCategory={setMyCategory}
+                cList={cList}
+                setCList={setCList}
+              />
+            )}
+          </BottomSheet>
+        )}
+      </div>
+
+      <Button text="회원가입 완료" onClick={handleJoin} />
     </div>
   );
 }

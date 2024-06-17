@@ -144,7 +144,7 @@ function Home() {
         <Button
           icon="lucide:pen-line"
           text="편지쓰러가기"
-          onClick={() => navigate("/writeletterbasic")}
+          onClick={() => navigate("/writeLetterbasic")}
         />
       </div>
       <GobongMent />

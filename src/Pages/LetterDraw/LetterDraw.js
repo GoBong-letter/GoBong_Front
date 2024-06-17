@@ -1,12 +1,13 @@
 import React, { useContext, useEffect, useState } from "react";
-import { JoinContext } from "../Join/JoinProvider";
+import { JoinContext } from "../join/JoinProvider";
 import { useNavigate } from "react-router-dom";
 import styles from "../../styles/LetterDraw.module.css";
 import GoHome from "../../components/GoHome";
 import axios from "axios";
 
-function LetterDraw({}) {
-  const { userId, envelope, SetEnvelope, letterCover } = useContext(JoinContext);  // 수정
+function LetterDraw() {
+  const { userId, envelope, SetEnvelope, letterCover } =
+    useContext(JoinContext); // 수정
   const navigate = useNavigate();
   const [latestLetter, setLatestLetter] = useState(null);
 
@@ -27,14 +28,14 @@ function LetterDraw({}) {
     SetEnvelope(req.envelope);
   }, [letterCover, SetEnvelope, userId]);
 
-  console.log(`/images/${envelope}.png`)
-  console.log(envelope)
+  console.log(`/images/${envelope}.png`);
+  console.log(envelope);
 
   useEffect(() => {
     setLatestLetter(true);
     const timer = setTimeout(() => {
-      navigate('/draw');
-    }, 2000); 
+      navigate("/draw");
+    }, 2000);
 
     return () => clearTimeout(timer);
   }, [navigate]);

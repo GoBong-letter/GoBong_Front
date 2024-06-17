@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import styles from "../../styles/WriteLetter/ReadLetter.module.css";
+import styles from "../../styles/writeletter/ReadLetter.module.css";
 import { BiX } from "react-icons/bi";
 import { useMutation } from "@tanstack/react-query";
 import { postLettersReply } from "../../services/mutations/reply";
@@ -31,7 +31,7 @@ export function ReadLetter({ item, handleShowLetter, showLetter }) {
     return content.replace(/\n/g, "<br />");
   };
   useEffect(() => {
-    // console.log(reply);
+    console.log(reply);
     // 내가 받은 편지
     if (!item.send) {
       // 아직 답장하지 않은 경우
