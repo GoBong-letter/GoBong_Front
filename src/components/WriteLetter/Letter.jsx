@@ -29,7 +29,7 @@ const LetterDiv = styled.div`
   flex-direction: column;
   align-items: center;
   margin-top: 4.3vh;
-  padding: 24px;
+  padding: 7px;
   border-radius: 15px;
 `;
 const Textarea = styled.textarea`

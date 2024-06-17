@@ -121,14 +121,13 @@ const CharButton = styled.div`
   box-sizing: border-box;
   width: -moz-fit-content;
   width: fit-content;
-  height: 3.75vh;
   border-radius: 117px;
   background-color: white;
   color: black;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0px 12px;
+  padding: 10px 15px;
   border: 1px solid black;
   font-size: 16px;
 `;

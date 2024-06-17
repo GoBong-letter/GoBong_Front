@@ -1,6 +1,14 @@
 import styled from "styled-components";
 
 export function LetterItem({ item, handleShowLetter }) {
+
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    const year = date.getFullYear();
+    const month = (date.getMonth() + 1).toString().padStart(2, "0");
+    const day = date.getDate().toString().padStart(2, "0");
+    return `${year}.${month}.${day}`;
+  };
   return (
     <LetterBox onClick={() => handleShowLetter(item)}>
       <img
@@ -22,7 +30,7 @@ export function LetterItem({ item, handleShowLetter }) {
           {item.title}
         </div>
         <span style={{ fontSize: 12, fontWeight: 500, color: "#BABABA" }}>
-          {item.createdAt}
+          {formatDate(item.createdAt)}
         </span>
       </LetterTitle>
     </LetterBox>

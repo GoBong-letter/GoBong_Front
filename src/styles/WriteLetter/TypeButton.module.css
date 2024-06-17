@@ -1,27 +1,25 @@
 .Button {
   box-sizing: border-box;
   width: fit-content;
-  height: 3.75vh;
   border-radius: 117px;
   background-color: white;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 10px 17px;
+  padding: 10px 15px;
   border: 1px solid black;
   font-size: 16px;
 }
 .clickButton {
   box-sizing: border-box;
   width: fit-content;
-  height: 3.75vh;
   border-radius: 117px;
   background-color: black;
   color: white;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 10px 17px;
+  padding: 10px 15px;
   border: 1px solid black;
   font-size: 16px;
 }
