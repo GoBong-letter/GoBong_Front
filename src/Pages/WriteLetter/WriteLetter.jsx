@@ -7,7 +7,7 @@ import { Letter } from "../../components/writeletter/Letter";
 import { sendLetterContext } from "./SendLetterProvider";
 import { useMutation } from "@tanstack/react-query";
 import { postLetter } from "../../services/mutations/letter";
-import styles from "../../styles/writeletter/writeLetter.module.css";
+import styles from "../../styles/writeletter/WriteLetter.module.css";
 import { JoinContext } from "../join/JoinProvider";
 
 function WriteLetter() {

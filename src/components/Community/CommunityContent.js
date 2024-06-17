@@ -2,7 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/effect-creative";
-import styles from "../../styles/community/communityContent.module.css";
+import styles from "../../styles/community/CommunityContent.module.css";
 import CommunityProfile from "./CommnuityProfile";
 import CommunityText from "./CommunityText";
 import Nav from "../Nav";

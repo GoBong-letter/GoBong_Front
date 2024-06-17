@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { JoinContext } from "../pages/join/JoinProvider";
 import Button from "../components/Button";
-import styles from "../styles/home.module.css";
+import styles from "../styles/Home.module.css";
 import Header from "../components/home/Header";
 import WelcomeMent from "../components/home/WelcomeMent";
 import LetterCount from "../components/home/LetterCount";
