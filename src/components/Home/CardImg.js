@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import styles from '../../styles/Card.module.css';
 import Popup from './CardPopup';
-import JoinContext from '../../pages/Join/JoinProvider'
+import JoinContext from '../../Pages/Join/JoinProvider'
 function CardImg({ cardImg, nickname }) {
     const [isFlipped, setIsFlipped] = useState(false);
     // const { nickname } = useContext(JoinContext);

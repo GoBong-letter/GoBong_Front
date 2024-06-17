@@ -5,7 +5,7 @@ import Worried from "./Worried";
 import MyWorried from './MyWorried';
 import styles from "../../styles/Community/Worried.module.css";
 import axios from "axios";
-import { JoinContext } from "../../pages/Join/JoinProvider";
+import { JoinContext } from "../../Pages/Join/JoinProvider";
 
 function CommunityMyWorried() {
     const [posts, setPosts] = useState([]);

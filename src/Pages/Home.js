@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { JoinContext } from "../pages/Join/JoinProvider";
+import { JoinContext } from "./Join/JoinProvider";
 import Button from "../components/Button";
 import styles from "../styles/Home.module.css";
 import Header from "../components/Home/Header";

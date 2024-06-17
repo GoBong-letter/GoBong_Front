@@ -1,6 +1,6 @@
 import React ,{useContext} from 'react';
 import styles from '../../styles/Home.module.css'
-import { JoinContext } from '../../pages/Join/JoinProvider';
+import { JoinContext } from '../../Pages/Join/JoinProvider';
 
 function WelcomeMent({ nickname }) {
     return (

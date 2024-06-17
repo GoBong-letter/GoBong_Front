@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
-import { JoinContext } from "../../pages/Join/JoinProvider";
+import { JoinContext } from "../../Pages/Join/JoinProvider";
 import { Icon } from '@iconify/react';
 import axios from 'axios';
 

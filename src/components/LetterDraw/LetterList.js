@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef, useContext } from "react";
 import styles from '../../styles/LetterDraw.module.css';
-import { ReceiveLetterContext } from '../../pages/LetterDraw/ReceiveLetterProvider';
+import { ReceiveLetterContext } from "../../Pages/LetterDraw/ReceiveLetterProvider";
 
 function LetterList({ letterList, setCenterLetter }) {
     const containerRef = useRef(null);

@@ -4,10 +4,12 @@ import CommunityContent from "../../components/Community/CommunityContent";
 import CommunityWrite from "../../components/Community/CommunityWrite";
 import CommunityMyWorried from "../../components/Community/CommunityMyWorried";
 import MyWorried from "../../components/Community/MyWorried";
+import CommunityPopup from "../../components/Community/CommunityPopup";
 
 function Community() {
   const [selectedItem, setSelectedItem] = useState("고민보기");
   const [showMyWorriedDetail, setShowMyWorriedDetail] = useState(false);
+  const [showPopup, setShowPopup] = useState(true);
 
   const handleSelectItem = (item) => {
     setSelectedItem(item);
@@ -24,8 +26,13 @@ function Community() {
     setSelectedItem("고민보기");
   };
 
+  const handleClosePopup = () => {
+    setShowPopup(false);
+  };
+
   return (
     <div style={{ height: "100vh", overflow: "hidden" }}>
+      {showPopup && <CommunityPopup onClose={handleClosePopup} />}
       <SelectList onSelectItem={handleSelectItem} />
       {selectedItem === "고민보기" && <CommunityContent />}
       {selectedItem === "고민쓰기" && <CommunityWrite onUpload={handleUpload} />}

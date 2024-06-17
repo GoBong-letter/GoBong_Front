@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { Icon } from '@iconify/react';
 import styles from "../../styles/Community/CommunityText.module.css";
 import axios from "axios";
-import { JoinContext } from "../../pages/Join/JoinProvider";
+import { JoinContext } from "../../Pages/Join/JoinProvider";
 
 function CommunityInput({ postId, refreshPosts }) {
     const { userId } = useContext(JoinContext);

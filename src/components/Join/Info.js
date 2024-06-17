@@ -1,5 +1,5 @@
 import React, {useContext} from 'react';
-import { JoinContext } from '../../pages/Join/JoinProvider';
+import { JoinContext } from '../../Pages/Join/JoinProvider';
 
 function Info(props) {
   const { text1, text2, color1, color2, fontSize1, fontSize2 } = props;

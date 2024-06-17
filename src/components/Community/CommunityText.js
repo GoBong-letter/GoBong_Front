@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "../../styles/Community/CommunityText.module.css";
 
-function CommunityText({ title, text }) {
+function CommunityText({ title, text = '' }) {
   const formattedText = text.split('\n').map((line, index) => (
     <React.Fragment key={index}>
       {line}
