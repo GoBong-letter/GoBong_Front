@@ -3,9 +3,9 @@ import Box from "./Box";
 import Nav from "../Nav";
 import Worried from "./Worried";
 import MyWorried from "./MyWorried";
-import styles from "../../styles/community/Worried.module.css";
+import styles from "../../styles/Community/Worried.module.css";
 import axios from "axios";
-import { JoinContext } from "../../pages/join/JoinProvider";
+import { JoinContext } from "../../Pages/Join/JoinProvider";
 
 function CommunityMyWorried() {
   const [posts, setPosts] = useState([]);
@@ -25,7 +25,7 @@ function CommunityMyWorried() {
   const GetMyWorried = async () => {
     try {
       const res = await axios.get(
-        `${process.env.REACT_APP_HOST}/community/user/${userId}`
+        `${process.env.REACT_APP_HOST}/Community/user/${userId}`
       );
       if (res.status === 200) {
         setPosts(res.data);

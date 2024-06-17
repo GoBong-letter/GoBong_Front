@@ -3,8 +3,8 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Button from "../../components/Button";
 import Logo from "../../components/Logo";
-import styles from "../../styles/login/Login.module.css";
-import { JoinContext } from "../join/JoinProvider";
+import styles from "../../styles/Login/Login.module.css";
+import { JoinContext } from "../Join/JoinProvider";
 
 function LoginPage() {
   const [email, setEmail] = useState("");

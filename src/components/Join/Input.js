@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "../../styles/join/Input.module.css";
+import styles from "../../styles/Join/Input.module.css";
 
 function Info(props) {
   const { text1, text2, type, value, onChange, ...rest } = props;

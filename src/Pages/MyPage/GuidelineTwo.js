@@ -1,9 +1,9 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import Text from "../../components/mypage/Text";
+import Text from "../../components/MyPage/Text";
 import styles from "../../styles/GuideLine.module.css";
 import Button from "../../components/Button";
-import Step from "../../components/mypage/Step";
+import Step from "../../components/MyPage/Step";
 
 export default function GuidelineTwo() {
   const navigate = useNavigate();

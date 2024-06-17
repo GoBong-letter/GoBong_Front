@@ -3,32 +3,32 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Provider } from "react-redux";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import store from "./redux/store";
-import SendLetterProvider from "./pages/writeletter/SendLetterProvider";
+import SendLetterProvider from "./Pages/WriteLetter/SendLetterProvider";
 
-// import Splash from "./pages/Splash";
-import Login from "./pages/login/Login";
-import Join from "./pages/join/Join";
-import JoinProfile from "./pages/join/JoinProfile";
-import JoinAbout from "./pages/join/JoinAbout";
-import LoginPage from "./pages/login/LoginPage";
-import Home from "./pages/Home";
-import Alarm from "./components/home/Alarm";
-import LetterDraw from "./pages/letterdraw/LetterDraw";
-import Draw from "./pages/letterdraw/Draw";
-import ReceiveLetter from "./pages/letterdraw/ReceiveLetter";
-import Community from "./pages/community/Community";
-import MyPage from "./pages/mypage/Mypage";
-import Guideline from "./pages/mypage/Guideline";
-import GuidelineTwo from "./pages/mypage/GuidelineTwo";
-import GuidelineThree from "./pages/mypage/GuidelineThree";
-import GuidelineLast from "./pages/mypage/GuidelineLast";
-import AlarmSetting from "./pages/mypage/AlarmSetting";
-import Setting from "./pages/mypage/Setting";
-import WriteLetterBasic from "./pages/writeletter/WriteLetterBasic";
-import WriteLetter from "./pages/writeletter/WriteLetter";
-import LetterStorage from "./pages/writeletter/LetterStorage";
-import JoinProvider from "./pages/join/JoinProvider";
-import ReceiveLetterProvider from "./pages/letterdraw/ReceiveLetterProvider";
+import Splash from "./Pages/Splash"
+import Login from "./Pages/Login/Login";
+import Join from "./Pages/Join/Join";
+import JoinProfile from "./Pages/Join/JoinProfile";
+import JoinAbout from "./Pages/Join/JoinAbout";
+import LoginPage from "./Pages/Login/LoginPage";
+import Home from "./Pages/Home";
+import Alarm from "./components/Home/Alarm";
+import LetterDraw from "./Pages/LetterDraw/LetterDraw";
+import Draw from "./Pages/LetterDraw/Draw";
+import ReceiveLetter from "./Pages/LetterDraw/ReceiveLetter";
+import Community from "./Pages/Community/Community";
+import MyPage from "./Pages/MyPage/Mypage";
+import Guideline from "./Pages/MyPage/Guideline";
+import GuidelineTwo from "./Pages/MyPage/GuidelineTwo";
+import GuidelineThree from "./Pages/MyPage/GuidelineThree";
+import GuidelineLast from "./Pages/MyPage/GuidelineLast";
+import AlarmSetting from "./Pages/MyPage/AlarmSetting";
+import Setting from "./Pages/MyPage/Setting";
+import WriteLetterBasic from "./Pages/WriteLetter/WriteLetterBasic";
+import WriteLetter from "./Pages/WriteLetter/WriteLetter";
+import LetterStorage from "./Pages/WriteLetter/LetterStorage";
+import JoinProvider from "./Pages/Join/JoinProvider";
+import ReceiveLetterProvider from "./Pages/LetterDraw/ReceiveLetterProvider";
 
 function App() {
   const [client] = useState(new QueryClient());
@@ -40,7 +40,7 @@ function App() {
             <ReceiveLetterProvider>
               <Router>
                 <Routes>
-                  {/* <Route path="/" element={<Splash />} /> */}
+                  <Route path="/" element={<Splash />} />
                   <Route path="/login" element={<Login />} />
                   <Route path="/join" element={<Join />} />
                   <Route path="/joinProfile" element={<JoinProfile />} />
@@ -58,10 +58,7 @@ function App() {
                   <Route path="/guidelineThree" element={<GuidelineThree />} />
                   <Route path="/guidelineLast" element={<GuidelineLast />} />
                   <Route path="/alarmSetting" element={<AlarmSetting />} />
-                  <Route
-                    path="/writeLetterbasic"
-                    element={<WriteLetterBasic />}
-                  />
+                  <Route path="/writeLetterbasic" element={<WriteLetterBasic />}/>
                   <Route path="/writeLetter" element={<WriteLetter />} />
                   <Route path="/letterstorage" element={<LetterStorage />} />
                   <Route path="/setting" element={<Setting />} />

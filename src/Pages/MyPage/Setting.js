@@ -1,15 +1,15 @@
 import React, { useState, useContext } from "react";
-import { JoinContext } from "../join/JoinProvider";
+import { JoinContext } from "../Join/JoinProvider";
 import Back from "../../components/Back";
-import Input from "../../components/join/Input";
+import Input from "../../components/Join/Input";
 import styles from "../../styles/MyPage.module.css";
 import { Icon } from "@iconify/react";
 import Button from "../../components/Button";
 import ProfilePopup from "./ProfilePopup";
-import { Category } from "../../components/writeletter/Category";
-import { sendLetterContext } from "../writeletter/SendLetterProvider";
+import { Category } from "../../components/WriteLetter/Category";
+import { sendLetterContext } from "../WriteLetter/SendLetterProvider";
 import { BottomSheet } from "../../components/BottomSheet";
-import { CharInput } from "../../components/writeletter/CharInput";
+import { CharInput } from "../../components/WriteLetter/CharInput";
 import { ButtonList } from "../../components/ButtonList";
 import axios from "axios";
 

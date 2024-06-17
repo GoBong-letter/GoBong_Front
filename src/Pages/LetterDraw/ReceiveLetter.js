@@ -11,7 +11,7 @@ export default function ReceiveLetter() {
   const [loading, setLoading] = useState(true);
   const { letterId } = useContext(ReceiveLetterContext);
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchCategory = async () => {
@@ -43,9 +43,16 @@ export default function ReceiveLetter() {
     return <div>편지를 불러올 수 없어요</div>;
   }
 
-  const handleNext = ()=>{
-    navigate('/letterstorage')
-  }
+  const handleNext = () => {
+    navigate('/letterstorage');
+  };
+
+  const formattedContent = data.content.split('\n').map((line, index) => (
+    <React.Fragment key={index}>
+      {line}
+      <br />
+    </React.Fragment>
+  ));
 
   return (
     <>
@@ -56,8 +63,8 @@ export default function ReceiveLetter() {
             띵동! <span style={{ color: "var(--primary-color)" }}>편지</span>가 도착했어요 :)
           </h1>
           <div className={styles.imgBox}>
-            <div>
-              {data.content}
+            <div className={styles.letterContent}>
+              {formattedContent}
             </div>
             <img
               src={`/images/${data.envelope}.svg`}
@@ -65,7 +72,7 @@ export default function ReceiveLetter() {
               alt="letterImg"
             />
           </div>
-          <Button text="편지 보관함으로 이동하기" onClick={handleNext}/>
+          <Button text="편지 보관함으로 이동하기" onClick={handleNext} />
         </div>
       </div>
     </>

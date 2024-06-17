@@ -1,12 +1,12 @@
 import React, { useEffect, useState, useContext } from "react";
-import { JoinContext } from "../join/JoinProvider";
+import { JoinContext } from "../Join/JoinProvider";
 import { useNavigate } from "react-router-dom";
 import { Icon } from "@iconify/react";
 import styles from "../../styles/LetterDraw.module.css";
 import GoHome from "../../components/GoHome";
 import Button from "../../components/Button";
-import LetterList from "../../components/letterdraw/LetterList";
-import Popup from "../../components/letterdraw/Popup";
+import LetterList from "../../components/LetterDraw/LetterList";
+import Popup from "../../components/LetterDraw/Popup";
 import axios from "axios";
 
 function Draw() {

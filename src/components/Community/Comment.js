@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../../styles/community/Comment.module.css";
+import styles from "../../styles/Community/Comment.module.css";
 
 function Comment({ name, text, index, comment }) {
   const alignment = index % 2 === 0 ? "flex-start" : "flex-end";

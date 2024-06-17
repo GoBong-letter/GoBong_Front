@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import { Sliders } from "react-bootstrap-icons";
-import { Filter } from "../../components/writeletter/Filter";
+import { Filter } from "../../components/WriteLetter/Filter"
 import { useFilteredLetter } from "../../hooks/queries/useFilteredLetter";
-import styles from "../../styles/writeletter/LetterStorage.module.css";
+import styles from "../../styles/WriteLetter/LetterStorage.module.css";
 import Nav from "../../components/Nav";
 import { BottomSheet } from "../../components/BottomSheet";
-import { LetterItem } from "../../components/writeletter/LetterItem";
-import { ReadLetter } from "../../components/writeletter/ReadLetter";
-import { LetterInput } from "../../components/writeletter/LetterInput";
+import { LetterItem } from "../../components/WriteLetter/LetterItem";
+import { ReadLetter } from "../../components/WriteLetter/ReadLetter";
+import { LetterInput } from "../../components/WriteLetter/LetterInput";
 
 function LetterStorage() {
   const [isOpen, setOpen] = useState(false);

@@ -17,7 +17,6 @@ function Splash() {
 
   return (
     <div className={`${styles["splash"]} ${styles["fadeOut"]}`}>
-      {/* fadeOut 클래스 추가 */}
       <Icon icon="bxs:bowl-rice" className={styles["icon"]} />
       <Logo />
     </div>

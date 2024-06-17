@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
-import { JoinContext } from "../join/JoinProvider";
-import Profile from "../../components/mypage/Profile";
+import { JoinContext } from "../Join/JoinProvider";
+import Profile from "../../components/MyPage/Profile";
 import Button from "../../components/Button";
 import styles from "../../styles/MyPage.module.css";
 

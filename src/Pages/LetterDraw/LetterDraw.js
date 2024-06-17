@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { JoinContext } from "../join/JoinProvider";
+import { JoinContext } from "../Join/JoinProvider";
 import { useNavigate } from "react-router-dom";
 import styles from "../../styles/LetterDraw.module.css";
 import GoHome from "../../components/GoHome";

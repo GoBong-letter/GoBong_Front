@@ -2,9 +2,9 @@ import React, { useState, useContext } from "react";
 import Box from "./Box";
 import Nav from "../Nav";
 import Button from "../Button";
-import styles from "../../styles/community/CommunityWrite.module.css";
+import styles from "../../styles/Community/CommunityWrite.module.css";
 import axios from "axios";
-import { JoinContext } from "../../pages/join/JoinProvider";
+import { JoinContext } from "../../Pages/Join/JoinProvider";
 
 function CommunityWrite({ onUpload }) {
   const [titleValue, setTitleValue] = useState("");
@@ -34,8 +34,10 @@ function CommunityWrite({ onUpload }) {
       console.log(response.data);
 
       if (response.status === 200) {
+        setTitleValue("");
+        setContentValue("");
         console.log(response.data);
-        onUpload(); // 성공적으로 업로드된 후 onUpload 호출
+        onUpload();
       }
     } catch (error) {
       console.error(error);

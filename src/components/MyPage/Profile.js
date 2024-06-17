@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
-import { JoinContext } from "../../pages/join/JoinProvider";
-import { Icon } from "@iconify/react";
-import axios from "axios";
+import { JoinContext } from "../../Pages/Join/JoinProvider";
+import { Icon } from '@iconify/react';
+import axios from 'axios';
 
 function Profile({ src, alt, text, onClick, clicked }) {
   return (

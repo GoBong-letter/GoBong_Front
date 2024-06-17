@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import styles from "../../styles/writeletter/ReadLetter.module.css";
+import styles from "../../styles/WriteLetter/ReadLetter.module.css";
 import { BiX } from "react-icons/bi";
 import { useMutation } from "@tanstack/react-query";
 import { postLettersReply } from "../../services/mutations/reply";
@@ -48,16 +48,22 @@ export function ReadLetter({ item, handleShowLetter, showLetter }) {
       }
     } else {
       // 내가 쓴 편지
-      if (item.LetterReply === null) {
-        setReply(<div />);
-      } else {
-        setReply(
-          <Reply
-            title={"답장을 받았어요!"}
-            content={item.LetterReply.content}
-          />
-        );
+      if(item.LetterReply === null){
+        setReply(<div></div>)
       }
+      else{
+        if (item.LetterReply.content === null) {
+          setReply(<div />);
+        } else {
+          setReply(
+            <Reply
+              title={"답장을 받았어요!"}
+              content={item.LetterReply.content}
+            />
+          );
+        }
+      }
+      
     }
   }, [item.send, showLetter]);
 

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { TypeButton } from "./writeletter/TypeButton";
+import { TypeButton } from "./WriteLetter/TypeButton";
 import styled from "styled-components";
 
 export function ButtonList({

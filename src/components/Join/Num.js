@@ -1,7 +1,7 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
 import { Icon } from "@iconify/react";
-import styles from "../../styles/join/Num.module.css";
+import styles from "../../styles/Join/Num.module.css";
 
 function Num() {
   const location = useLocation();

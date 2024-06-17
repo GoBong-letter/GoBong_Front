@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../../styles/community/CommunityProfile.module.css";
+import styles from "../../styles/Community/CommunityProfile.module.css";
 
 function CommunityProfile(props) {
   const { createdAt, nickname, profile } = props;

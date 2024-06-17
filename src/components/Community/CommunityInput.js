@@ -1,8 +1,8 @@
 import React, { useContext, useState } from "react";
 import { Icon } from "@iconify/react";
-import styles from "../../styles/community/CommunityText.module.css";
+import styles from "../../styles/Community/CommunityText.module.css";
 import axios from "axios";
-import { JoinContext } from "../../pages/join/JoinProvider";
+import { JoinContext } from "../../Pages/Join/JoinProvider";
 
 function CommunityInput({ postId, refreshPosts }) {
   const { userId } = useContext(JoinContext);
@@ -23,7 +23,7 @@ function CommunityInput({ postId, refreshPosts }) {
 
     try {
       const res = await axios.post(
-        `${process.env.REACT_APP_HOST}/community/comment`,
+        `${process.env.REACT_APP_HOST}/Community/comment`,
         req
       );
       console.log("Response:", res);
