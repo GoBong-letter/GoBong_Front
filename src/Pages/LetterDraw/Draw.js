@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
-import { JoinContext } from "../join/joinProvider";
+import { JoinContext } from "../join/JoinProvider";
 import { useNavigate } from "react-router-dom";
 import { Icon } from "@iconify/react";
 import styles from "../../styles/LetterDraw.module.css";

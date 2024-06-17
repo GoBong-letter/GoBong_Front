@@ -9,7 +9,7 @@ import { BottomSheet } from "../../components/BottomSheet";
 import { TitleBox } from "../../components/writeletter/TitleBox";
 import { ButtonList } from "../../components/ButtonList";
 import { CharInput } from "../../components/writeletter/CharInput";
-import styles from "../../styles/writeletter/writeLetterBasic.module.css";
+import styles from "../../styles/writeletter/WriteLetterBasic.module.css";
 
 function WriteLetterBasic() {
   const [isChecked, setChecked] = useState(false);
