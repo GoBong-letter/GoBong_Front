@@ -38,6 +38,9 @@ function Home() {
         const { nickname, image, category } = res.data;
         GetUserInfo(nickname, image, category);
         console.log(category);
+        localStorage.setItem("nickname", res.data.nickname);
+        localStorage.setItem("image", res.data.image);
+        localStorage.setItem("category", JSON.stringify(res.data.category));
       }
     } catch (error) {
       console.error(error);

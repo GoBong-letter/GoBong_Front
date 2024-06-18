@@ -7,16 +7,20 @@ import Category from "../../components/LetterDraw/Category";
 import styles from "../../styles/MyPage.module.css";
 
 export default function MyPage() {
-  const { nickname, image, category, setUserId, setImage } = useContext(JoinContext);
+  const { nickname, image, category, setUserId, setImage, setNickname, setCategory } = useContext(JoinContext);
   const navigate = useNavigate();
 
-  let id = localStorage.getItem("id");
-  let profile = localStorage.getItem("image");
-  setUserId(id);
-  setImage(image)
+  let usernickname = localStorage.getItem("nickname");
+  let userprofile = localStorage.getItem("image");
+  let usercategory = JSON.parse(localStorage.getItem("category"));
+  
+  useEffect(() => {
+    setNickname(usernickname);
+    setImage(userprofile)
+    setCategory(usercategory)
+  }, [])
 
-  console.log("아이디",id)
-  console.log("이미지",image)
+  console.log(usernickname);
 
   const handleGuide = () => {
     navigate("/guideline");
