@@ -36,8 +36,8 @@ function LoginPage() {
 
       if (response.status === 200) {
         console.log(response.data);
-        setUserId(response.data.id);
         localStorage.setItem("id", response.data.id);
+       
 
         navigate("/home");
       }

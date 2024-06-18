@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { JoinContext } from "../Join/JoinProvider";
 import Nav from "../../components/Nav";
 import { useNavigate } from "react-router-dom";
@@ -7,8 +7,16 @@ import Category from "../../components/LetterDraw/Category";
 import styles from "../../styles/MyPage.module.css";
 
 export default function MyPage() {
-  const { nickname, image, category } = useContext(JoinContext);
+  const { nickname, image, category, setUserId, setImage } = useContext(JoinContext);
   const navigate = useNavigate();
+
+  let id = localStorage.getItem("id");
+  let profile = localStorage.getItem("image");
+  setUserId(id);
+  setImage(image)
+
+  console.log("아이디",id)
+  console.log("이미지",image)
 
   const handleGuide = () => {
     navigate("/guideline");
@@ -23,7 +31,6 @@ export default function MyPage() {
   const handleLogout = () => {
     navigate("/login");
   };
-
   return (
     <div
       style={{

@@ -14,9 +14,11 @@ import { useNavigate } from "react-router-dom";
 import GetCardPopup from "../components/Home/GetCardPopup";
 
 function Home() {
-  const { userId, nickname, GetUserInfo } = useContext(JoinContext);
+  const { userId, setUserId, nickname, GetUserInfo } = useContext(JoinContext);
   const [count, getCount] = useState();
   const navigate = useNavigate();
+  let id = localStorage.getItem("id");
+  setUserId(id);
 
   const [chartAverage, setChartAverage] = useState(null);
   const [chartUserLetter, setChartUserLetter] = useState(null);
