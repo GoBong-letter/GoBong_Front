@@ -32,12 +32,11 @@ function CommunityWrite({ onUpload }) {
         req
       );
       console.log(response.data);
+      setTitleValue("");
+      setContentValue("");
+      onUpload();
 
       if (response.status === 200) {
-        setTitleValue("");
-        setContentValue("");
-        console.log(response.data);
-        onUpload();
       }
     } catch (error) {
       console.error(error);
