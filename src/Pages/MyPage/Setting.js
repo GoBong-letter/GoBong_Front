@@ -15,6 +15,7 @@ import axios from "axios";
 
 export default function Setting({ category }) {
   const [isPopupVisible, setIsPopupVisible] = useState(false);
+  
   const {
     nickname,
     image,

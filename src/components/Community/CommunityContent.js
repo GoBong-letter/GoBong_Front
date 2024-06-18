@@ -18,8 +18,8 @@ function CommunityContent() {
     try {
       const res = await axios.get(`${process.env.REACT_APP_HOST}/community`);
       if (res.status === 200) {
-        console.log(res.data);
-        setPosts(res.data);
+        const sortedPosts = res.data.reverse();
+        setPosts(sortedPosts);
       }
     } catch (error) {
       console.error(error);
