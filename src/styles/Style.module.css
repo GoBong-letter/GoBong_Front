@@ -2,8 +2,9 @@
 
 @import url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff');
 
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard-dynamic-subset.css');
 *{
-    font-family: 'Pretendard-Regular';
+    font-family: 'Pretendard', sans-serif;
     --font-logo : "Fugaz One", sans-serif;
     --primary-color : #8D47FF;
     --main-color : #000000;
