@@ -71,6 +71,9 @@ function JoinAbout() {
       }
     } catch (error) {
       console.error(error);
+      if(error.response.status == 409){
+        alert(error.response.data.error)
+      }
     }
   };
 

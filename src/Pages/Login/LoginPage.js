@@ -43,6 +43,13 @@ function LoginPage() {
       }
     } catch (error) {
       console.error(error);
+      if(error.response.status === 400){
+        alert(error.response.data.error)
+      }
+
+      if(error.response.status === 401){
+        alert(error.response.data.error)
+      }
     }
   };
 
