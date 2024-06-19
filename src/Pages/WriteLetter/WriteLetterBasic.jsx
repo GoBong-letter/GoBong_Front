@@ -46,6 +46,9 @@ function WriteLetterBasic() {
   const navigate = useNavigate();
 
   const handleNavigator = (link) => {
+    if(!titleValue){
+      return alert('제목을 입력해주세요.')
+    }
     let updatedCategory = removeEmptyArrays(myCategory);
     saveData(titleValue);
     setCategory(updatedCategory);

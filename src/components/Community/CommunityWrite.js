@@ -21,6 +21,14 @@ function CommunityWrite({ onUpload }) {
   };
 
   const UploadWorried = async () => {
+    if(!titleValue){
+      return alert('제목을 작성해주세요.')
+    }
+
+    if(!contentValue){
+      return alert('내용을 입력해주세요.');
+    }
+
     const req = {
       user_id: userId,
       title: titleValue,
