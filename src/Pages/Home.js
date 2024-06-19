@@ -20,6 +20,8 @@ function Home() {
   let id = localStorage.getItem("id");
   setUserId(id);
 
+  alert('slgjsldgjs')
+
   const [chartAverage, setChartAverage] = useState(null);
   const [chartUserLetter, setChartUserLetter] = useState(null);
   const [chartComparison, setChartComparison] = useState(null);
