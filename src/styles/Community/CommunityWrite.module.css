@@ -17,6 +17,7 @@
     outline: none;
     border: 0;
     line-height: 21px;
+    font-size: 14px;
     background-color: #F6F7FB;
 }
 .input-style::placeholder,

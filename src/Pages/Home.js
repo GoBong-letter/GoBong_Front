@@ -139,7 +139,7 @@ function Home() {
       className={styles["container"]}
       style={{ width: "100vw", overflowX: "hidden" }}
     >
-      <Header />
+      <Header/>
       <div className={styles["cardContainer"]}>
         <LetterCount LetterCount={count} />
         <WelcomeMent nickname={nickname} />

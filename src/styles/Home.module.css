@@ -3,7 +3,7 @@
     align-items: center;
     width: 85%;
     justify-content: space-between;
-    margin-top: 13vw;
+    margin-top: 19vw;
 }
 .logo{
     font-size: 24px;
@@ -45,5 +45,5 @@
     flex-direction: column;
     row-gap: 17px;
     width: 100%;
-    margin: 54px 0 5px 0;
+    margin: 40px 0 5px 0;
 }

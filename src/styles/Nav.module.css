@@ -10,6 +10,7 @@
     height: 60px;
     background-color: var(--sub-color);
     z-index: 999;
+    padding-bottom: 10px;
 }
 .navIcon{
     width: 30px;
