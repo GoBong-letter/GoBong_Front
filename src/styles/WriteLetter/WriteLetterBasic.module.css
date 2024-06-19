@@ -10,7 +10,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 0 auto 8.1vh;
+  margin: 0 auto 6.1vh;
 }
 .letter-name {
   position: relative;
@@ -21,7 +21,8 @@
   border-radius: 10px;
   border: none;
   outline: none;
-  margin-top: 6.1vh;
+  font-size: 14px;
+  margin-top: 2.1vh;
 }
 .letter-name span {
   font-size: 14px;

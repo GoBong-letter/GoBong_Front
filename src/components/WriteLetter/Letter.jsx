@@ -28,18 +28,18 @@ const LetterDiv = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 4.3vh;
+  margin-top: 1vh;
   padding: 7px;
   border-radius: 15px;
 `;
 const Textarea = styled.textarea`
   box-sizing: border-box;
-  width: 92%;
+  width: 96%;
   height: 95%;
   background-color: transparent;
   border: none;
   outline: none;
-  font-size: 14px;
+  font-size: 15px;
   resize: none;
   line-height: 20px;
   &::placeholder {

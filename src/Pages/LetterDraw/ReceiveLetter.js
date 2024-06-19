@@ -36,11 +36,28 @@ export default function ReceiveLetter() {
   }, [letterId]);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return(
+      <div style={{display:"flex", justifyContent:"center", alignItems:"center", height:"100vh"}}>
+      <div className={styles["loading"]}>
+          <span className={styles["loading__dot"]}></span>
+          <span className={styles["loading__dot"]}></span>
+          <span className={styles["loading__dot"]}></span>
+      </div>
+    </div>
+    )
   }
 
   if (!data) {
-    return <div>편지를 불러올 수 없어요</div>;
+    return (
+      <div style={{display:"flex", justifyContent:"center", alignItems:"center", height:"100vh", flexDirection:"column", rowGap:"10vw"}}>
+        <div style={{textAlign:"center", fontSize:"22px", fontWeight:"600", lineHeight:"28px"}}>죄송합니다:(<br/>편지를 불러오는데<span style={{color:"var(--primary-color)"}}> 실패</span>했어요😞</div>
+        <img src="/images/sad.png" alt="슬픈 고봉" style={{width:"180px"}}/>
+        <div style={{display:"flex", alignItems:"center", columnGap:"10px", color:"var(--gray)"}}>
+          <GoHome/>
+          <p style={{margin:"0"}}>홈으로 가기</p>
+        </div>
+      </div>
+    )
   }
 
   const handleNext = () => {
