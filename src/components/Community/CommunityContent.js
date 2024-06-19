@@ -78,10 +78,10 @@ function CommunityContent() {
         style={{
           position: "absolute",
           bottom: "0",
-          height: "88.5vh",
+          height: "86vh",
           backgroundColor: "white",
           width: "100vw",
-          color: "white",
+          color: "var(--sub-color)",
           borderRadius: "30px",
         }}
       >

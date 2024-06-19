@@ -1,6 +1,6 @@
 .LetterStorageContainer {
   box-sizing: border-box;
-  background-color: #f6f7fb;
+background-color: #f6f7fb;
 }
 .letterStorage {
   box-sizing: border-box;
@@ -9,7 +9,7 @@
   display: flex;
   justify-content: center;
   width: 100%;
-  height: 85vh;
+  height: 84vh;
   background-color: white;
   position: fixed;
   bottom: 0;
@@ -23,18 +23,19 @@
   justify-items: center;
   column-gap: 2.5vw;
   row-gap: 3.5vh;
-  margin-top: 39px;
-  margin-bottom: 60px;
+  margin-top: 17px;
+  padding-top: 16px;
+  margin-bottom: 80px;
   overflow-y: scroll;
 }
 .lettersDiv::-webkit-scrollbar {
   display: none;
 }
 .searchLetterDiv {
-  box-sizing: border-box;
+    box-sizing: border-box;
   width: fit-content;
   margin: 0 auto;
-  padding-top: 6vh;
+  padding-top: 8vh;
   display: flex;
   align-items: end;
   column-gap: 14px;

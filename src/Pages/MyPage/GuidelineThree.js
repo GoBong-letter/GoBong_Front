@@ -31,6 +31,7 @@ export default function GuidelineThree() {
             height: "50px",
             width: "100%",
             backgroundColor: "transparent",
+            color:"black"
           }}
           onClick={handleHome}
         >

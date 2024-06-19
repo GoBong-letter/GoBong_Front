@@ -17,7 +17,7 @@ export function TitleBox({ title, subtitle }) {
 }
 const TitleBoxDiv = styled.div`
   box-sizing: border-box;
-  margin: 13% 0 0 10%;
+  margin: 9% 0 5% 10%;
 `;
 const TitleBoxH1 = styled.h1`
   font-size: 24px;

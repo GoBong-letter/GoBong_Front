@@ -1,12 +1,13 @@
 .community-list{
     display: flex;
     column-gap: 4vw;
-    margin: 10% 5% 0 5%;
+    margin: 14% 5% 0 6%;
 }
 .community-list p{
     font-weight: bold;
     color: #AEAEAE;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
+    margin-bottom: 15px;
 }
 
 .popup {

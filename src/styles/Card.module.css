@@ -114,16 +114,23 @@
     flex-direction: column;
     text-align: start;
     width: 67vw;
-    text-wrap: balance;
+    text-wrap: wrap;
     line-height: 40px;
     height: 50vh;
     position: absolute;
     overflow: scroll;
     row-gap: 2vw;
     padding-top: 2vw;
+    flex-wrap: wrap;
+    white-space: wrap;
 }
 .letterStyle p,
 .letterStyle h2{
     margin: 0;
     color: #000000c1;
+}
+.letterStyle p{
+    width: 100%;
+    white-space: wrap;
+    text-wrap: wrap;
 }
