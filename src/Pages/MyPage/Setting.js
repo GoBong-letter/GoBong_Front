@@ -1,4 +1,5 @@
 import React, { useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import { JoinContext } from "../Join/JoinProvider";
 import Back from "../../components/Back";
 import Input from "../../components/Join/Input";
@@ -15,6 +16,7 @@ import axios from "axios";
 
 export default function Setting({ category }) {
   const [isPopupVisible, setIsPopupVisible] = useState(false);
+  let navigate = useNavigate();
   
   const {
     nickname,
@@ -29,7 +31,6 @@ export default function Setting({ category }) {
   const [showData, setShowData] = useState({});
   const { saveData } = useContext(sendLetterContext);
   const [cList, setCList] = useState(0); // Define cList and setCList
-  const [imageChanged, setImageChanged] = useState(false); // Define imageChanged
 
   const [myCategory, setMyCategory] = useState({
     외모: [],
@@ -53,40 +54,6 @@ export default function Setting({ category }) {
     setShowData(item);
   };
 
-  const changeNickname = async () => {
-    try {
-      const res = await axios.patch(
-        `${process.env.REACT_APP_HOST}/users/nickname`,
-        {
-          user_id: userId,
-          nickname: nickname,
-        }
-      );
-      if (res.status === 200) {
-        console.log("닉네임 수정 성공", res.data);
-      }
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  const changeCategory = async () => {
-    try {
-      const res = await axios.patch(
-        `${process.env.REACT_APP_HOST}/users/category`,
-        {
-          user_id: userId,
-          category: JSON.stringify(myCategory),
-        }
-      );
-      if (res.status === 200) {
-        console.log("카테고리 수정 성공", res.data);
-      }
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
   const handleNicknameChange = (e) => {
     const newNickname = e.target.value;
     if (newNickname.length <= 8) {
@@ -94,30 +61,51 @@ export default function Setting({ category }) {
     }
   };
 
-  const handleSave = () => {
-    changeNickname();
-    setCategory(myCategory);
-    changeCategory();
-    if (imageChanged) {
-      // 이미지를 변경한 경우 이미지 변경 로직 추가
-      changeImage();
-    }
-  };
+  const handleSave = async() => {
+    try{
+        const nicknameRes = await axios.patch(
+          `${process.env.REACT_APP_HOST}/users/nickname`,
+          {
+            user_id: userId,
+            nickname: nickname,
+          }
+        );
+        if (nicknameRes.status === 200) {
+          console.log("닉네임 수정 성공", nicknameRes.data);
+        }
 
-  const changeImage = async () => {
-    try {
-      const formData = new FormData();
-      formData.append("user_id", userId);
-      formData.append("image", image);
-      const res = await axios.patch(
-        `${process.env.REACT_APP_HOST}/users/image`,
-        formData
-      );
-      if (res.status === 200) {
-        console.log("이미지 수정 성공", res.data);
-      }
-    } catch (error) {
+        const categoryRes = await axios.patch(
+          `${process.env.REACT_APP_HOST}/users/category`,
+          {
+            user_id: userId,
+            category: JSON.stringify(myCategory),
+          }
+        );
+        if (categoryRes.status === 200) {
+          console.log("카테고리 수정 성공", categoryRes.data);
+        }
+
+        const profileRes = await axios.patch(
+          `${process.env.REACT_APP_HOST}/users/image`,
+          {
+            user_id: userId,
+            image: image
+          }
+        );
+        if (profileRes.status === 200) {
+          console.log("이미지 수정 성공", profileRes.data);
+        }
+
+        localStorage.setItem("image", image);
+        localStorage.setItem("category", JSON.stringify(myCategory));
+        localStorage.setItem("nickname", nickname)
+
+        navigate('/mypage')
+    }catch(error){
       console.error(error);
+      if(error.response.status == 409){
+        alert(error.response.data.error)
+      }
     }
   };
 
