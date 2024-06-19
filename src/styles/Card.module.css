@@ -118,19 +118,27 @@
     line-height: 40px;
     height: 50vh;
     position: absolute;
-    overflow: scroll;
+    overflow-y: scroll;
     row-gap: 2vw;
     padding-top: 2vw;
     flex-wrap: wrap;
     white-space: wrap;
+    overflow-wrap: break-word;
+
+  word-break: break-all;
 }
 .letterStyle p,
 .letterStyle h2{
     margin: 0;
     color: #000000c1;
 }
-.letterStyle p{
+.letterStyle p, 
+.letterStyle span{
     width: 100%;
     white-space: wrap;
     text-wrap: wrap;
+    display: flex;
+    flex-wrap: wrap;
+    overflow-wrap: break-word;
+    word-break: break-all;
 }
