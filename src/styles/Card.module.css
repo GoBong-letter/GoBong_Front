@@ -121,7 +121,6 @@
     overflow-y: scroll;
     row-gap: 2vw;
     padding-top: 2vw;
-    flex-wrap: wrap;
     white-space: wrap;
     overflow-wrap: break-word;
 
